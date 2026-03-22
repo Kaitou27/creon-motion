@@ -22,7 +22,7 @@ interface ThanksLayoutProps {
     text: string;
     logo?: string;
   }[];
-  category: 'youtube' | 'short' | 'brand';
+  category: 'youtube' | 'short' | 'brand' | 'docu' | 'edu' | 'mixed';
 }
 
 const ThanksLayout: React.FC<ThanksLayoutProps> = ({
@@ -147,7 +147,7 @@ const ThanksLayout: React.FC<ThanksLayoutProps> = ({
             <div>
               <h2 className="text-3xl md:text-4xl font-black uppercase">
                 Explore Our <span className="text-[#00E0FF]">
-                  {category === 'youtube' ? 'Videos' : category === 'short' ? 'Shorts' : 'Projects'}
+                  {category === 'youtube' ? 'Videos' : category === 'short' ? 'Shorts' : category === 'docu' ? 'Documentaries' : category === 'edu' ? 'Lessons' : category === 'mixed' ? 'Portfolio' : 'Projects'}
                 </span>
               </h2>
               <p className="text-gray-400">Watch directly on this page.</p>

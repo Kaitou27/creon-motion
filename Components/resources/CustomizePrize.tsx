@@ -92,6 +92,14 @@ const CustomizePriceForm: React.FC = () => {
           router.push('/thanks/yt');
         } else if (contentType === 'short-form') {
           router.push('/thanks/short');
+        } else if (contentType === 'documentary') {
+          router.push('/thanks/docu');
+        } else if (contentType === 'talking-head') {
+          router.push('/thanks/edu');
+        } else if (contentType === 'mixed') {
+          router.push('/thanks/mixed');
+        } else if (contentType === 'branded') {
+          router.push('/thanks/brand');
         } else {
           router.push('/thanks/brand');
         }
@@ -267,7 +275,8 @@ const CustomizePriceForm: React.FC = () => {
                 { label: 'Short-form content (TikTok, Reels, Shorts)', value: 'short-form' },
                 { label: 'Documentary or motion-graphics driven videos', value: 'documentary' },
                 { label: 'Talking-head or educational videos', value: 'talking-head' },
-                { label: 'Mixed content strategy', value: 'mixed' }
+                { label: 'Mixed content strategy', value: 'mixed' },
+                { label: 'Branded & Commercial videos', value: 'branded' }
               ].map((opt) => (
                 <OptionButton key={opt.value} label={opt.label} value={opt.value} current={contentType} setter={setContentType} />
               ))}

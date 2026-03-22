@@ -55,7 +55,7 @@ const Footer = () => {
             <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base text-center lg:text-left cursor-pointer">
               <li><span onClick={() => handleNavigation('home')} className="hover:underline hover:text-white transition-colors duration-200">Home</span></li>
               <li><span onClick={() => handleNavigation('services')} className="hover:underline hover:text-white transition-colors duration-200">Services</span></li>
-              <li><span onClick={() => handleNavigation('pricing')} className="hover:underline hover:text-white transition-colors duration-200">Prices</span></li>
+              <li><span onClick={() => handleNavigation('pricing')} className="hover:underline hover:text-white transition-colors duration-200">Pricing</span></li>
               <li><a href="/about" className="hover:underline hover:text-white transition-colors duration-200">About Us</a></li>
               <li><a href="/testimonial" className="hover:underline hover:text-white transition-colors duration-200">Testimonial</a></li>
               <li><span onClick={() => handleNavigation('contact')} className="hover:underline hover:text-white transition-colors duration-200">Contact Us</span></li>
