@@ -353,7 +353,7 @@ const Testimonial = () => {
               <div className="flex-none w-full sm:basis-1/2 lg:basis-1/2 pr-2 sm:pr-4">
                 <div className="h-full min-h-[200px] sm:min-h-[260px] flex flex-col justify-between rounded-xl sm:rounded-2xl border border-[#00E0FF]/20 bg-gradient-to-br from-[#0A0F1A] via-[#1A1F2A] to-[#0A0F1A] p-4 sm:p-5 md:p-6 text-[#E0E0E0]">
                   <p className="text-justify text-sm sm:text-base leading-relaxed">
-               Cheenie's video team consistently delivers high-quality, documentary-style edits that have helped generate millions of views on YouTube. With multiple videos reaching over 100K–1M views, their unique editing style resonates with both creators and audiences. They've proven to be reliable, scalable, and consistent—rare qualities in video editing. After nearly a year of collaboration, this client continues to trust and recommend Cheenie's team for anyone aiming to create viral, professional content. Their ability to maintain quality across multiple projects makes them a go-to team for long-term creative partnerships.
+               Creon Motion's video team consistently delivers high-quality, documentary-style edits that have helped generate millions of views on YouTube. With multiple videos reaching over 100K–1M views, their unique editing style resonates with both creators and audiences. They've proven to be reliable, scalable, and consistent—rare qualities in video editing. After nearly a year of collaboration, this client continues to trust and recommend Creon Motion's team for anyone aiming to create viral, professional content. Their ability to maintain quality across multiple projects makes them a go-to team for long-term creative partnerships.
               </p>
                   <div className="mt-3 sm:mt-4 flex items-center">
                     <img src="/videos/Testimonial/logo/oldmoney.png" alt="Old Money Luxury" className="h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 rounded-full bg-white p-1 shadow object-contain" />
@@ -372,7 +372,7 @@ const Testimonial = () => {
               <div className="flex-none w-full sm:basis-1/2 lg:basis-1/2 pr-2 sm:pr-4">
                 <div className="h-full min-h-[200px] sm:min-h-[260px] flex flex-col justify-between rounded-xl sm:rounded-2xl border border-[#00E0FF]/20 bg-gradient-to-br from-[#0A0F1A] via-[#1A1F2A] to-[#0A0F1A] p-4 sm:p-5 md:p-6 text-[#E0E0E0]">
                   <p className="text-justify text-sm sm:text-base leading-relaxed">
-                    We've been working with Cheenie for almost 2 years, and we are more than happy with the results, all of our 30 videos where done by Her, and all of them were done in amazing quality. She's attentive, and open to suggestions, to changes. The communication is topnotch! You won't find a friendlier person on the internet. But the most important thing we built is not the collaboration, it is the trust. We trust her, we know we don't even have to check the work no more, the journey has been amazing so far and we hope to continue this path with Cheenie, she always thrives for perfection. Thank you Cheenie!
+                    We've been working with Creon Motion for almost 2 years, and we are more than happy with the results, all of our 30 videos where done by them, and all of them were done in amazing quality. They're attentive, and open to suggestions, to changes. The communication is topnotch! You won't find a friendlier person on the internet. But the most important thing we built is not the collaboration, it is the trust. We trust them, we know we don't even have to check the work no more, the journey has been amazing so far and we hope to continue this path with Creon Motion, they always thrive for perfection. Thank you Creon Motion!
                   </p>
                   <div className="mt-3 sm:mt-4 flex items-center">
                     <img src="/videos/Testimonial/logo/lhor.jpg" alt="Lhor" className="h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 rounded-full bg-white p-1 shadow object-contain" />
@@ -384,7 +384,7 @@ const Testimonial = () => {
               <div className="flex-none w-full sm:basis-1/2 lg:basis-1/2 pr-2 sm:pr-4">
                 <div className="h-full min-h-[200px] sm:min-h-[260px] flex flex-col justify-between rounded-xl sm:rounded-2xl border border-[#00E0FF]/20 bg-gradient-to-br from-[#0A0F1A] via-[#1A1F2A] to-[#0A0F1A] p-4 sm:p-5 md:p-6 text-[#E0E0E0]">
                   <p className="text-justify text-sm sm:text-base leading-relaxed">
-                    Cheenie is extremely talented and very professional. She has always delivered on time and even provided regular updates to me without me asking. Her large profile speaks for itself but her professionalism is like no other on this platform. If you are reading this Cheenie is the go-to person!!!
+                    Creon Motion is extremely talented and very professional. They have always delivered on time and even provided regular updates to me without me asking. Their large profile speaks for itself but their professionalism is like no other on this platform. If you are reading this Creon Motion is the go-to person!!!
                   </p>
                   <div className="mt-3 sm:mt-4 flex items-center">
                     <img src="/videos/Testimonial/logo/bizzare.jpg" alt="Bizarre Medical Stories" className="h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 rounded-full bg-white p-1 shadow object-contain" />
@@ -396,7 +396,7 @@ const Testimonial = () => {
               <div className="flex-none w-full sm:basis-1/2 lg:basis-1/2 pr-2 sm:pr-4">
                 <div className="h-full min-h-[200px] sm:min-h-[260px] flex flex-col justify-between rounded-xl sm:rounded-2xl border border-[#00E0FF]/20 bg-gradient-to-br from-[#0A0F1A] via-[#1A1F2A] to-[#0A0F1A] p-4 sm:p-5 md:p-6 text-[#E0E0E0]">
                   <p className="text-justify text-sm sm:text-base leading-relaxed">
-                    I was working with Cheenie on my follow along YouTube workouts, It was pleasure working together, great communication, good quality and fair prices. Looking forward working with you again!
+                    I was working with Creon Motion on my follow along YouTube workouts, It was pleasure working together, great communication, good quality and fair prices. Looking forward working with you again!
                   </p>
                   <div className="mt-3 sm:mt-4 flex items-center">
                     <img src="/videos/Testimonial/logo/kbmh.png" alt="K.B.M.H" className="h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 rounded-full bg-white p-1 shadow object-contain" />
@@ -408,7 +408,7 @@ const Testimonial = () => {
               <div className="flex-none w-full sm:basis-1/2 lg:basis-1/2 pr-2 sm:pr-4">
                 <div className="h-full min-h-[200px] sm:min-h-[260px] flex flex-col justify-between rounded-xl sm:rounded-2xl border border-[#00E0FF]/20 bg-gradient-to-br from-[#0A0F1A] via-[#1A1F2A] to-[#0A0F1A] p-4 sm:p-5 md:p-6 text-[#E0E0E0]">
                   <p className="text-justify text-sm sm:text-base leading-relaxed">
-               Cheenie's video team consistently delivers high-quality, documentary-style edits that have helped generate millions of views on YouTube. With multiple videos reaching over 100K–1M views, their unique editing style resonates with both creators and audiences. They've proven to be reliable, scalable, and consistent—rare qualities in video editing. After nearly a year of collaboration, this client continues to trust and recommend Cheenie's team for anyone aiming to create viral, professional content. Their ability to maintain quality across multiple projects makes them a go-to team for long-term creative partnerships.
+               Creon Motion's video team consistently delivers high-quality, documentary-style edits that have helped generate millions of views on YouTube. With multiple videos reaching over 100K–1M views, their unique editing style resonates with both creators and audiences. They've proven to be reliable, scalable, and consistent—rare qualities in video editing. After nearly a year of collaboration, this client continues to trust and recommend Creon Motion's team for anyone aiming to create viral, professional content. Their ability to maintain quality across multiple projects makes them a go-to team for long-term creative partnerships.
               </p>
                   <div className="mt-3 sm:mt-4 flex items-center">
                     <img src="/videos/Testimonial/logo/oldmoney.png" alt="Old Money Luxury" className="h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 rounded-full bg-white p-1 shadow object-contain" />

@@ -35,17 +35,17 @@ const YtThanks = () => {
       testimonials={[
         {
           name: "Old Money Luxury",
-          text: "Cheenie's video team consistently delivers high-quality, documentary-style edits... they've proven to be reliable, scalable, and consistent.",
+          text: "Creon Motion's video team consistently delivers high-quality, documentary-style edits... they've proven to be reliable, scalable, and consistent.",
           logo: "/videos/Testimonial/logo/oldmoney.png"
         },
         {
           name: "Lhor",
-          text: "We've been working with Cheenie for almost 2 years, and we are more than happy with the results... The communication is topnotch!",
+          text: "We've been working with Creon Motion for almost 2 years, and we are more than happy with the results... The communication is topnotch!",
           logo: "/videos/Testimonial/logo/lhor.jpg"
         },
         {
           name: "Bizarre Medical Stories",
-          text: "Cheenie is extremely talented and very professional... her professionalism is like no other on this platform.",
+          text: "Creon Motion is extremely talented and very professional... their professionalism is like no other on this platform.",
           logo: "/videos/Testimonial/logo/bizzare.jpg"
         }
       ]}

@@ -31,22 +31,20 @@ const DocumentaryThanks = () => {
       videoUrl="https://www.youtube.com/watch?v=Fobf6gibbdo"
       ctaText="View Portfolio"
       ctaLink="/brand"
+      hideIcons={true}
       previousWorks={previousWorks}
       testimonials={[
         {
-          name: "Old Money Luxury",
-          text: "Cheenie's video team consistently delivers high-quality, documentary-style edits... they've proven to be reliable, scalable, and consistent.",
-          logo: "/videos/Testimonial/logo/oldmoney.png"
+          name: "Brimm",
+          text: "Excellent video, I liked it a lot. Thanks for the efforts of the team! The clips were really strong and helped tell the story effectively."
         },
         {
-          name: "Lhor",
-          text: "We've been working with Cheenie for almost 2 years, and we are more than happy with the results... The communication is topnotch!",
-          logo: "/videos/Testimonial/logo/lhor.jpg"
+          name: "Amos",
+          text: "It was a pleasure working with Creon Motion! They’re a skilled and reliable editor, and I highly recommend them to anyone looking for quality work. Wishing them all the best in their future endeavors!"
         },
         {
-          name: "Bizarre Medical Stories",
-          text: "Cheenie is extremely talented and very professional... her professionalism is like no other on this platform.",
-          logo: "/videos/Testimonial/logo/bizzare.jpg"
+          name: "Amos",
+          text: "It was a pleasure working with Creon Motion! They're a skilled and reliable editor, and I highly recommend them to anyone looking for quality work. Wishing them all the best in their future endeavors!"
         }
       ]}
     />

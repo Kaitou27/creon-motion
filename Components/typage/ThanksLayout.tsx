@@ -23,6 +23,7 @@ interface ThanksLayoutProps {
     logo?: string;
   }[];
   category: 'youtube' | 'short' | 'brand' | 'docu' | 'edu' | 'mixed';
+  hideIcons?: boolean;
 }
 
 const ThanksLayout: React.FC<ThanksLayoutProps> = ({
@@ -34,7 +35,8 @@ const ThanksLayout: React.FC<ThanksLayoutProps> = ({
   ctaLink,
   previousWorks,
   testimonials,
-  category
+  category,
+  hideIcons = false
 }) => {
 
   // Extract YouTube ID (works for watch, embed, shorts)
@@ -121,15 +123,19 @@ const ThanksLayout: React.FC<ThanksLayoutProps> = ({
 
           <div className="grid md:grid-cols-3 gap-6">
             {testimonials.map((t, i) => (
-              <div key={i} className="bg-gradient-to-br from-[#0A0F1A] to-[#0F1F2A] p-8 rounded-2xl border border-[#00E0FF]/10 hover:border-[#00E0FF]/30 transition-all duration-300 group">
-                <p className="text-base leading-relaxed mb-6 font-medium text-gray-300 italic">"{t.text}"</p>
+              <div key={i} className="flex flex-col bg-gradient-to-br from-[#0A0F1A] to-[#0F1F2A] p-8 rounded-2xl border border-[#00E0FF]/10 hover:border-[#00E0FF]/30 transition-all duration-300 group">
+                <p className="flex-grow text-base leading-relaxed mb-6 font-medium text-gray-300 italic">"{t.text}"</p>
                 <div className="flex items-center gap-3">
-                  {t.logo ? (
-                    <img src={t.logo} className="w-10 h-10 rounded-full border border-[#00E0FF]/20" />
-                  ) : (
-                    <div className="w-10 h-10 bg-[#00E0FF]/10 rounded-full flex items-center justify-center border border-[#00E0FF]/20 text-[#00E0FF] font-bold">
-                      {t.name[0]}
-                    </div>
+                  {!hideIcons && (
+                    <>
+                      {t.logo ? (
+                        <img src={t.logo} className="w-10 h-10 rounded-full border border-[#00E0FF]/20" />
+                      ) : (
+                        <div className="w-10 h-10 bg-[#00E0FF]/10 rounded-full flex items-center justify-center border border-[#00E0FF]/20 text-[#00E0FF] font-bold">
+                          {t.name[0]}
+                        </div>
+                      )}
+                    </>
                   )}
                   <div className="flex flex-col">
                     <span className="text-[#00E0FF] font-bold text-sm tracking-wide">{t.name}</span>

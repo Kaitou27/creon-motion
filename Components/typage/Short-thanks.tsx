@@ -31,22 +31,20 @@ const ShortThanks = () => {
       videoUrl="https://www.youtube.com/watch?v=1Z_p9aTT7G4"
       ctaText="View Services"
       ctaLink="/2d3d"
+      hideIcons={true}
       previousWorks={previousWorks}
       testimonials={[
         {
-          name: "Old Money Luxury",
-          text: "Cheenie's video team consistently delivers high-quality editions... scalable and consistent. Rare qualities in video editing.",
-          logo: "/videos/Testimonial/logo/oldmoney.png"
+          name: "Becket U",
+          text: "We have had the pleasure of working with Creon Motion for over a year, and we are consistently impressed by their professionalism and attention to detail. They are a clear communicator, and they are always learning new skills that can be applied to our videos. Their skills have brought many exciting projects to life, and we highly recommend them to anyone seeking a talented and reliable animator."
         },
         {
-          name: "Lhor",
-          text: "Working with the team for almost 2 years, and we are more than happy. The communication is topnotch!",
-          logo: "/videos/Testimonial/logo/lhor.jpg"
+          name: "Juan",
+          text: "Fantastic experience from start to finish. Gemar brought creative ideas, nailed the cinematic look, and maintained a great attitude throughout. Positive, responsive, and easy to collaborate with. Turnaround was fast, edits were spot-on, and the final product exceeded expectations. Strongly recommend."
         },
         {
-          name: "Bizarre Medical Stories",
-          text: "Extremely talented and very professional. Always delivered on time and provided regular updates.",
-          logo: "/videos/Testimonial/logo/bizzare.jpg"
+          name: "Josh",
+          text: "Creon Motion did an amazing job on the project. I'm 100% satisfied and will work with them again. Fantastic communication. Fast replies. Prompt edits on final project with very helpful suggestions along the way. I recommend them without reservation."
         }
       ]}
     />
