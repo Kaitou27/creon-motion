@@ -6,19 +6,16 @@ import ThanksLayout from './ThanksLayout';
 const EducationThanks = () => {
   const previousWorks = [
     {
-      title: 'Tutorial Series',
       thumbnail: 'https://img.youtube.com/vi/pVQMSKE6gLQ/hqdefault.jpg',
-      link: 'https://www.youtube.com/watch?v=pVQMSKE6gLQ'
+      link: 'https://www.youtube.com/watch?v=pVQMSKE6gLQ&t=1s'
     },
     {
-      title: 'Explainer Video',
-      thumbnail: 'https://img.youtube.com/vi/sw698mclPKo/hqdefault.jpg',
-      link: 'https://www.youtube.com/watch?v=sw698mclPKo'
+      thumbnail: 'https://img.youtube.com/vi/hF7vIwr1HYQ/hqdefault.jpg',
+      link: 'https://www.youtube.com/watch?v=hF7vIwr1HYQ&t=1s'
     },
     {
-      title: 'Educational Content',
       thumbnail: 'https://img.youtube.com/vi/Fobf6gibbdo/hqdefault.jpg',
-      link: 'https://www.youtube.com/watch?v=Fobf6gibbdo'
+      link: 'https://www.youtube.com/watch?v=Fobf6gibbdo&t=159s'
     }
   ];
 

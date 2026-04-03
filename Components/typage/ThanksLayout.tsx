@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { ArrowRight, CheckCircle, Video, ChevronRight } from 'lucide-react';
+import ScopeOverview from './ScopeOverview';
 
 
 interface ThanksLayoutProps {
@@ -13,7 +14,7 @@ interface ThanksLayoutProps {
   ctaText: string;
   ctaLink: string;
   previousWorks: {
-    title: string;
+    title?: string;
     thumbnail: string;
     link: string;
   }[];
@@ -101,51 +102,74 @@ const ThanksLayout: React.FC<ThanksLayoutProps> = ({
             />
           </div>
 
-          <div className="mt-8 flex justify-center">
-            <Link
-              href={ctaLink}
-              className="px-8 py-4 bg-[#00E0FF] text-black font-bold rounded-xl flex items-center gap-2"
-            >
-              {ctaText}
-              <ArrowRight size={18} />
-            </Link>
-          </div>
         </div>
 
         {/* Testimonials */}
-        <div className="mb-24">
-          <div className="text-center mb-12">
-            <h2 className="text-xl md:text-2xl font-black uppercase tracking-tight mb-4">
+        <div className="mb-32 selection:bg-[#00E0FF]/30 selection:text-white">
+          <div className="text-center mb-16" data-aos="fade-down" data-aos-duration="1000">
+            <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tight mb-4 drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
               What our <span className="text-[#00E0FF]">clients say</span>
             </h2>
-            <div className="h-1 w-24 bg-gradient-to-r from-transparent via-[#00E0FF] to-transparent mx-auto rounded-full"></div>
+            <div className="h-1.5 w-32 bg-gradient-to-r from-transparent via-[#00E0FF] to-transparent mx-auto rounded-full"></div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((t, i) => (
-              <div key={i} className="flex flex-col bg-gradient-to-br from-[#0A0F1A] to-[#0F1F2A] p-8 rounded-2xl border border-[#00E0FF]/10 hover:border-[#00E0FF]/30 transition-all duration-300 group">
-                <p className="flex-grow text-base leading-relaxed mb-6 font-medium text-gray-300 italic">"{t.text}"</p>
-                <div className="flex items-center gap-3">
+              <div 
+                key={i} 
+                className="group relative flex flex-col bg-[#020D12]/60 backdrop-blur-3xl p-10 rounded-[2.5rem] border border-white/5 hover:border-[#00E0FF]/40 transition-all duration-700 hover:-translate-y-3 hover:shadow-[0_20px_50px_rgba(0,0,0,0.6),0_0_30px_rgba(0,224,255,0.1)] overflow-hidden"
+                data-aos="fade-up"
+                data-aos-delay={i * 200}
+                data-aos-duration="1000"
+              >
+                {/* Background Styling */}
+                <div className="absolute -top-32 -right-32 w-64 h-64 bg-[#00E0FF]/5 rounded-full blur-[80px] group-hover:bg-[#00E0FF]/15 transition-all duration-700"></div>
+                <div className="absolute -bottom-32 -left-32 w-64 h-64 bg-[#00B8CC]/5 rounded-full blur-[80px] group-hover:bg-[#00B8CC]/10 transition-all duration-700"></div>
+
+                {/* Stylized Quote Mark */}
+                <span className="absolute top-4 left-6 text-9xl font-black text-[#00E0FF]/[0.05] pointer-events-none select-none transition-all duration-700 group-hover:text-[#00E0FF]/[0.1] group-hover:scale-110">
+                  “
+                </span>
+
+                <p className="relative z-10 flex-grow text-lg leading-relaxed mb-10 font-medium text-gray-300 italic group-hover:text-white transition-colors duration-500">
+                  "{t.text}"
+                </p>
+
+                <div className="relative z-10 flex items-center gap-4 mt-auto">
                   {!hideIcons && (
-                    <>
-                      {t.logo ? (
-                        <img src={t.logo} className="w-10 h-10 rounded-full border border-[#00E0FF]/20" />
-                      ) : (
-                        <div className="w-10 h-10 bg-[#00E0FF]/10 rounded-full flex items-center justify-center border border-[#00E0FF]/20 text-[#00E0FF] font-bold">
-                          {t.name[0]}
-                        </div>
-                      )}
-                    </>
+                    <div className="relative shrink-0">
+                      <div className="relative p-0.5 rounded-full bg-gradient-to-tr from-[#00E0FF] to-transparent shadow-[0_0_15px_rgba(0,224,255,0.3)]">
+                        {t.logo ? (
+                          <img src={t.logo} className="w-14 h-14 rounded-full border-2 border-[#001A1F] object-cover" />
+                        ) : (
+                          <div className="w-14 h-14 bg-[#001A1F] rounded-full flex items-center justify-center border-2 border-[#00E0FF]/50 text-[#00E0FF] font-black text-xl">
+                            {t.name[0]}
+                          </div>
+                        )}
+                      </div>
+                      {/* Verified Badge Icon */}
+                      <div className="absolute -bottom-1 -right-1 bg-[#00E0FF] rounded-full p-1 border-2 border-[#001A1F] shadow-[0_4px_10px_rgba(0,0,0,0.5)]">
+                         <CheckCircle size={12} className="text-[#001A1F]" fill="currentColor" />
+                      </div>
+                    </div>
                   )}
                   <div className="flex flex-col">
-                    <span className="text-[#00E0FF] font-bold text-sm tracking-wide">{t.name}</span>
-                    <span className="text-gray-500 text-[10px] uppercase tracking-[0.2em]">Verified Client</span>
+                    <span className="text-[#00E0FF] font-black text-base uppercase tracking-wider group-hover:text-white transition-colors duration-300">{t.name}</span>
+                    <span className="text-gray-500 text-[10px] uppercase font-bold tracking-[0.25em] mt-0.5">Verified Partner</span>
                   </div>
+                </div>
+
+                {/* Bottom Accentuating Line */}
+                <div className="absolute bottom-0 left-0 w-full h-[5px] bg-white/[0.02] overflow-hidden">
+                  <div className="h-full w-0 bg-gradient-to-r from-[#00E0FF] via-[#00B8CC] to-[#00E0FF] transition-all duration-1000 ease-in-out group-hover:w-full"></div>
                 </div>
               </div>
             ))}
           </div>
         </div>
+
+        {/* Scope and Delivery Overview */}
+        <ScopeOverview />
 
         {/* Previous Works - VIDEOS PLAY DIRECTLY */}
         <div className="space-y-12">
@@ -159,10 +183,6 @@ const ThanksLayout: React.FC<ThanksLayoutProps> = ({
               <p className="text-gray-400">Watch directly on this page.</p>
             </div>
 
-            <Link href="/brand" className="flex items-center gap-2 text-[#00E0FF]">
-              View Full Portfolio
-              <ChevronRight size={18} />
-            </Link>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -188,11 +208,6 @@ const ThanksLayout: React.FC<ThanksLayoutProps> = ({
                     />
                   </div>
 
-                  {/* Title */}
-                  <div className="p-4 flex items-center justify-between">
-                    <span className="font-bold">{work.title}</span>
-                    <Video size={16} className="text-[#00E0FF]" />
-                  </div>
                 </div>
               );
             })}

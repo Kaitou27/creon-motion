@@ -19,10 +19,10 @@ const Testimonial = () => {
   const [isMobile, setIsMobile] = useState(false);
   const nextCard = () => {
     setCardIndex((prev) => {
-      if (prev >= 3) {
+      if (prev >= 8) {
         // When reaching the duplicate card, instantly jump to 0 without animation
         setTimeout(() => setCardIndex(0), 500);
-        return 4; // Go to duplicate card
+        return 9; // Go to duplicate card
       }
       return prev + 1;
     });
@@ -32,8 +32,8 @@ const Testimonial = () => {
     setCardIndex((prev) => {
       if (prev <= 0) {
         // When going back from first card, go to duplicate card then jump to last real card
-        setTimeout(() => setCardIndex(3), 500);
-        return 4; // Go to duplicate card
+        setTimeout(() => setCardIndex(8), 500);
+        return 9; // Go to duplicate card
       }
       return prev - 1;
     });
@@ -404,21 +404,81 @@ const Testimonial = () => {
                   </div>
                 </div>
               </div>
+              {/* Card 4: Becket U */}
+              <div className="flex-none w-full sm:basis-1/2 lg:basis-1/2 pr-2 sm:pr-4">
+                <div className="h-full min-h-[200px] sm:min-h-[260px] flex flex-col justify-between rounded-xl sm:rounded-2xl border border-[#00E0FF]/20 bg-gradient-to-br from-[#0A0F1A] via-[#1A1F2A] to-[#0A0F1A] p-4 sm:p-5 md:p-6 text-[#E0E0E0]">
+                  <p className="text-justify text-sm sm:text-base leading-relaxed">
+                    "We have had the pleasure of working with Cheenie for over a year, and we are consistently impressed by her professionalism and attention to detail. She is a clear communicator, and she is always learning new skills that can be applied to our videos. Her skills have brought many exciting projects to life, and we highly recommend her to anyone seeking a talented and reliable animator."
+                  </p>
+                  <div className="mt-3 sm:mt-4 flex items-center">
+                    <div className="h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 rounded-full bg-[#00E0FF]/10 flex items-center justify-center border border-[#00E0FF]/20 text-[#00E0FF] font-bold">B</div>
+                    <span className="ml-2 sm:ml-3 font-semibold text-[#00E0FF] text-sm sm:text-base">Becket U</span>
+                  </div>
+                </div>
+              </div>
+              {/* Card 5: Juan */}
+              <div className="flex-none w-full sm:basis-1/2 lg:basis-1/2 pr-2 sm:pr-4">
+                <div className="h-full min-h-[200px] sm:min-h-[260px] flex flex-col justify-between rounded-xl sm:rounded-2xl border border-[#00E0FF]/20 bg-gradient-to-br from-[#0A0F1A] via-[#1A1F2A] to-[#0A0F1A] p-4 sm:p-5 md:p-6 text-[#E0E0E0]">
+                  <p className="text-justify text-sm sm:text-base leading-relaxed">
+                    "Fantastic experience from start to finish. Gemar brought creative ideas, nailed the cinematic look, and maintained a great attitude throughout. Positive, responsive, and easy to collaborate with. Turnaround was fast, edits were spot-on, and the final product exceeded expectations. Strongly recommend."
+                  </p>
+                  <div className="mt-3 sm:mt-4 flex items-center">
+                    <div className="h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 rounded-full bg-[#00E0FF]/10 flex items-center justify-center border border-[#00E0FF]/20 text-[#00E0FF] font-bold">J</div>
+                    <span className="ml-2 sm:ml-3 font-semibold text-[#00E0FF] text-sm sm:text-base">Juan</span>
+                  </div>
+                </div>
+              </div>
+              {/* Card 6: Josh */}
+              <div className="flex-none w-full sm:basis-1/2 lg:basis-1/2 pr-2 sm:pr-4">
+                <div className="h-full min-h-[200px] sm:min-h-[260px] flex flex-col justify-between rounded-xl sm:rounded-2xl border border-[#00E0FF]/20 bg-gradient-to-br from-[#0A0F1A] via-[#1A1F2A] to-[#0A0F1A] p-4 sm:p-5 md:p-6 text-[#E0E0E0]">
+                  <p className="text-justify text-sm sm:text-base leading-relaxed">
+                    "Gemar did an amazing job on this project. I'm 100% satisfied and will work with him again. Fantastic communication. Fast replies. Prompt edits on final project with very helpful suggestions along the way. I recommend him without reservation."
+                  </p>
+                  <div className="mt-3 sm:mt-4 flex items-center">
+                    <div className="h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 rounded-full bg-[#00E0FF]/10 flex items-center justify-center border border-[#00E0FF]/20 text-[#00E0FF] font-bold">J</div>
+                    <span className="ml-2 sm:ml-3 font-semibold text-[#00E0FF] text-sm sm:text-base">Josh</span>
+                  </div>
+                </div>
+              </div>
+              {/* Card 7: Brimm */}
+              <div className="flex-none w-full sm:basis-1/2 lg:basis-1/2 pr-2 sm:pr-4">
+                <div className="h-full min-h-[200px] sm:min-h-[260px] flex flex-col justify-between rounded-xl sm:rounded-2xl border border-[#00E0FF]/20 bg-gradient-to-br from-[#0A0F1A] via-[#1A1F2A] to-[#0A0F1A] p-4 sm:p-5 md:p-6 text-[#E0E0E0]">
+                  <p className="text-justify text-sm sm:text-base leading-relaxed">
+                    "Excellent video, I liked it a lot. Thanks for the efforts of the team! The clips were really strong and helped tell the story effectively."
+                  </p>
+                  <div className="mt-3 sm:mt-4 flex items-center">
+                    <div className="h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 rounded-full bg-[#00E0FF]/10 flex items-center justify-center border border-[#00E0FF]/20 text-[#00E0FF] font-bold">B</div>
+                    <span className="ml-2 sm:ml-3 font-semibold text-[#00E0FF] text-sm sm:text-base">Brimm</span>
+                  </div>
+                </div>
+              </div>
+              {/* Card 8: Amos */}
+              <div className="flex-none w-full sm:basis-1/2 lg:basis-1/2 pr-2 sm:pr-4">
+                <div className="h-full min-h-[200px] sm:min-h-[260px] flex flex-col justify-between rounded-xl sm:rounded-2xl border border-[#00E0FF]/20 bg-gradient-to-br from-[#0A0F1A] via-[#1A1F2A] to-[#0A0F1A] p-4 sm:p-5 md:p-6 text-[#E0E0E0]">
+                  <p className="text-justify text-sm sm:text-base leading-relaxed">
+                    "It was a pleasure working with Gemar! He’s a skilled and reliable editor, and I highly recommend him to anyone looking for quality work. Wishing him all the best in his future endeavors!"
+                  </p>
+                  <div className="mt-3 sm:mt-4 flex items-center">
+                    <div className="h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 rounded-full bg-[#00E0FF]/10 flex items-center justify-center border border-[#00E0FF]/20 text-[#00E0FF] font-bold">A</div>
+                    <span className="ml-2 sm:ml-3 font-semibold text-[#00E0FF] text-sm sm:text-base">Amos</span>
+                  </div>
+                </div>
+              </div>
               {/* Duplicate first card for seamless loop */}
               <div className="flex-none w-full sm:basis-1/2 lg:basis-1/2 pr-2 sm:pr-4">
                 <div className="h-full min-h-[200px] sm:min-h-[260px] flex flex-col justify-between rounded-xl sm:rounded-2xl border border-[#00E0FF]/20 bg-gradient-to-br from-[#0A0F1A] via-[#1A1F2A] to-[#0A0F1A] p-4 sm:p-5 md:p-6 text-[#E0E0E0]">
                   <p className="text-justify text-sm sm:text-base leading-relaxed">
-               Creon Motion's video team consistently delivers high-quality, documentary-style edits that have helped generate millions of views on YouTube. With multiple videos reaching over 100K–1M views, their unique editing style resonates with both creators and audiences. They've proven to be reliable, scalable, and consistent—rare qualities in video editing. After nearly a year of collaboration, this client continues to trust and recommend Creon Motion's team for anyone aiming to create viral, professional content. Their ability to maintain quality across multiple projects makes them a go-to team for long-term creative partnerships.
-              </p>
+                    Creon Motion's video team consistently delivers high-quality, documentary-style edits that have helped generate millions of views on YouTube. With multiple videos reaching over 100K–1M views, their unique editing style resonates with both creators and audiences. They've proven to be reliable, scalable, and consistent—rare qualities in video editing. After nearly a year of collaboration, this client continues to trust and recommend Creon Motion's team for anyone aiming to create viral, professional content. Their ability to maintain quality across multiple projects makes them a go-to team for long-term creative partnerships.
+                  </p>
                   <div className="mt-3 sm:mt-4 flex items-center">
                     <img src="/videos/Testimonial/logo/oldmoney.png" alt="Old Money Luxury" className="h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 rounded-full bg-white p-1 shadow object-contain" />
                     <div className="ml-2 sm:ml-3 flex flex-col">
                       <span className="font-semibold text-[#00E0FF] text-sm sm:text-base">Old Money Luxury</span>
                       <audio className="mt-1 sm:mt-2 w-full max-w-32 sm:max-w-40 md:max-w-48 lg:max-w-56" controls>
                         <source src="/videos/Testimonials/audio/audio1.mp3" type="audio/mp3" />
-                    <source src="/videos/Testimonial/audio/audio1.mp3" type="audio/mp3" />
-                    Your browser does not support the audio element.
-                  </audio>
+                        <source src="/videos/Testimonial/audio/audio1.mp3" type="audio/mp3" />
+                        Your browser does not support the audio element.
+                      </audio>
                     </div>
                   </div>
                 </div>

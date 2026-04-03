@@ -316,7 +316,7 @@ const PricingSection = () => {
 
           <div className="h-px bg-gradient-to-r from-transparent via-[#00E0FF]/40 to-transparent w-full mb-8 max-w-lg mx-auto relative z-10"></div>
 
-          <a href="/quote" className="px-10 py-4 rounded-lg bg-white/5 border border-[#00E0FF]/30 text-white font-bold hover:bg-[#00E0FF] hover:border-[#00E0FF] hover:text-[#001A1F] transition-all duration-300 relative z-10 uppercase tracking-wider text-sm sm:text-base hover:shadow-[0_0_20px_rgba(0,224,255,0.4)] text-center inline-block">
+          <a href="/discovery" className="px-10 py-4 rounded-lg bg-white/5 border border-[#00E0FF]/30 text-white font-bold hover:bg-[#00E0FF] hover:border-[#00E0FF] hover:text-[#001A1F] transition-all duration-300 relative z-10 uppercase tracking-wider text-sm sm:text-base hover:shadow-[0_0_20px_rgba(0,224,255,0.4)] text-center inline-block">
             Submit Project Brief
           </a>
         </div>

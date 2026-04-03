@@ -6,17 +6,14 @@ import ThanksLayout from './ThanksLayout';
 const ShortThanks = () => {
   const previousWorks = [
     {
-      title: 'Motion Graphics',
       thumbnail: 'https://img.youtube.com/vi/1Z_p9aTT7G4/hqdefault.jpg',
       link: 'https://www.youtube.com/watch?v=1Z_p9aTT7G4'
     },
     {
-      title: '2D/3D Animation',
       thumbnail: 'https://img.youtube.com/vi/4OxKDnC29go/hqdefault.jpg',
       link: 'https://www.youtube.com/shorts/4OxKDnC29go'
     },
     {
-      title: 'Creator Content',
       thumbnail: 'https://img.youtube.com/vi/tyvNRGxh-3U/hqdefault.jpg',
       link: 'https://www.youtube.com/shorts/tyvNRGxh-3U'
     }
@@ -36,7 +33,7 @@ const ShortThanks = () => {
       testimonials={[
         {
           name: "Becket U",
-          text: "We have had the pleasure of working with Creon Motion for over a year, and we are consistently impressed by their professionalism and attention to detail. They are a clear communicator, and they are always learning new skills that can be applied to our videos. Their skills have brought many exciting projects to life, and we highly recommend them to anyone seeking a talented and reliable animator."
+          text: "We have had the pleasure of working with Cheenie for over a year, and we are consistently impressed by her professionalism and attention to detail. She is a clear communicator, and she is always learning new skills that can be applied to our videos. Her skills have brought many exciting projects to life, and we highly recommend her to anyone seeking a talented and reliable animator."
         },
         {
           name: "Juan",
@@ -44,7 +41,7 @@ const ShortThanks = () => {
         },
         {
           name: "Josh",
-          text: "Creon Motion did an amazing job on the project. I'm 100% satisfied and will work with them again. Fantastic communication. Fast replies. Prompt edits on final project with very helpful suggestions along the way. I recommend them without reservation."
+          text: "Gemar did an amazing job on this project. I'm 100% satisfied and will work with him again. Fantastic communication. Fast replies. Prompt edits on final project with very helpful suggestions along the way. I recommend him without reservation."
         }
       ]}
     />

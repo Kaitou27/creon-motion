@@ -6,19 +6,16 @@ import ThanksLayout from './ThanksLayout';
 const DocumentaryThanks = () => {
   const previousWorks = [
     {
-      title: 'Cinematic Documentary',
-      thumbnail: 'https://img.youtube.com/vi/Fobf6gibbdo/hqdefault.jpg',
-      link: 'https://www.youtube.com/watch?v=Fobf6gibbdo'
+      thumbnail: 'https://img.youtube.com/vi/pVQMSKE6gLQ/hqdefault.jpg',
+      link: 'https://www.youtube.com/watch?v=pVQMSKE6gLQ&t=1s'
     },
     {
-      title: 'Motion Graphics Story',
-      thumbnail: 'https://img.youtube.com/vi/sw698mclPKo/hqdefault.jpg',
-      link: 'https://www.youtube.com/watch?v=sw698mclPKo'
+      thumbnail: 'https://img.youtube.com/vi/K-ICjEZKqLE/hqdefault.jpg',
+      link: 'https://www.youtube.com/watch?v=K-ICjEZKqLE'
     },
     {
-      title: 'Visual Storytelling',
-      thumbnail: 'https://img.youtube.com/vi/NDRNIVqqu4c/hqdefault.jpg',
-      link: 'https://www.youtube.com/watch?v=NDRNIVqqu4c'
+      thumbnail: 'https://img.youtube.com/vi/UEsPFAEYy3s/hqdefault.jpg',
+      link: 'https://www.youtube.com/watch?v=UEsPFAEYy3s'
     }
   ];
 
@@ -40,11 +37,11 @@ const DocumentaryThanks = () => {
         },
         {
           name: "Amos",
-          text: "It was a pleasure working with Creon Motion! They’re a skilled and reliable editor, and I highly recommend them to anyone looking for quality work. Wishing them all the best in their future endeavors!"
+          text: "It was a pleasure working with Gemar! He’s a skilled and reliable editor, and I highly recommend him to anyone looking for quality work. Wishing him all the best in his future endeavors!"
         },
         {
           name: "Amos",
-          text: "It was a pleasure working with Creon Motion! They're a skilled and reliable editor, and I highly recommend them to anyone looking for quality work. Wishing them all the best in their future endeavors!"
+          text: "It was a pleasure working with Gemar! He’s a skilled and reliable editor, and I highly recommend him to anyone looking for quality work. Wishing him all the best in his future endeavors!"
         }
       ]}
     />

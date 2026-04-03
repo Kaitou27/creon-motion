@@ -6,17 +6,14 @@ import ThanksLayout from './ThanksLayout';
 const YtThanks = () => {
   const previousWorks = [
     {
-      title: 'Commentary & Story',
       thumbnail: 'https://img.youtube.com/vi/sw698mclPKo/hqdefault.jpg',
       link: 'https://www.youtube.com/watch?v=sw698mclPKo'
     },
     {
-      title: 'Documentary Style',
       thumbnail: 'https://img.youtube.com/vi/Fobf6gibbdo/hqdefault.jpg',
       link: 'https://www.youtube.com/watch?v=Fobf6gibbdo'
     },
     {
-      title: 'Educational Series',
       thumbnail: 'https://img.youtube.com/vi/pVQMSKE6gLQ/hqdefault.jpg',
       link: 'https://www.youtube.com/watch?v=pVQMSKE6gLQ'
     }

@@ -6,17 +6,14 @@ import ThanksLayout from './ThanksLayout';
 const BrandThanks = () => {
   const previousWorks = [
     {
-      title: 'Commercial Ad',
       thumbnail: 'https://img.youtube.com/vi/hejyfAFTnGw/hqdefault.jpg',
       link: 'https://www.youtube.com/watch?v=hejyfAFTnGw'
     },
     {
-      title: 'Product Showcase',
       thumbnail: 'https://img.youtube.com/vi/iANvo7hIaqE/hqdefault.jpg',
       link: 'https://www.youtube.com/watch?v=iANvo7hIaqE'
     },
     {
-      title: 'Brand Identity',
       thumbnail: 'https://img.youtube.com/vi/NDRNIVqqu4c/hqdefault.jpg',
       link: 'https://www.youtube.com/watch?v=NDRNIVqqu4c'
     }

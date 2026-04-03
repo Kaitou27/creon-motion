@@ -436,11 +436,11 @@ const CustomizePriceForm: React.FC = () => {
           )}
 
           {/* Submit Button */}
-          <div className="pt-4">
+          <div className="pt-4 flex flex-col items-center">
             <button
               type="submit"
               disabled={isSubmitting}
-              className={`w-full bg-gradient-to-r from-[#0A0F1A] to-[#00B8CC] text-white py-5 px-8 rounded-full font-black text-xl transition-all duration-300 transform shadow-[0_10px_30px_rgba(0,224,255,0.3)] ${isSubmitting ? 'opacity-60 cursor-wait' : 'hover:scale-[1.02] hover:shadow-[0_15px_40px_rgba(0,224,255,0.4)] active:scale-[0.98]'
+              className={`w-full max-w-xl bg-gradient-to-r from-[#0A0F1A] to-[#00B8CC] text-white py-5 px-8 rounded-full font-black text-xl transition-all duration-300 transform shadow-[0_10px_30px_rgba(0,224,255,0.3)] ${isSubmitting ? 'opacity-60 cursor-wait' : 'hover:scale-[1.02] hover:shadow-[0_15px_40px_rgba(0,224,255,0.4)] active:scale-[0.98]'
                 }`}
               style={{ fontFamily: 'inherit' }}
             >

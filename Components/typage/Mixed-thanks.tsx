@@ -6,19 +6,16 @@ import ThanksLayout from './ThanksLayout';
 const MixedThanks = () => {
   const previousWorks = [
     {
-      title: 'Long-form Video',
-      thumbnail: 'https://img.youtube.com/vi/sw698mclPKo/hqdefault.jpg',
-      link: 'https://www.youtube.com/watch?v=sw698mclPKo'
+      thumbnail: 'https://img.youtube.com/vi/yPXUhqG29YI/hqdefault.jpg',
+      link: 'https://www.youtube.com/watch?v=yPXUhqG29YI'
     },
     {
-      title: 'Short-form Content',
-      thumbnail: 'https://img.youtube.com/vi/1Z_p9aTT7G4/hqdefault.jpg',
-      link: 'https://www.youtube.com/watch?v=1Z_p9aTT7G4'
+      thumbnail: 'https://img.youtube.com/vi/HfpU7hASJNM/hqdefault.jpg',
+      link: 'https://www.youtube.com/watch?v=HfpU7hASJNM'
     },
     {
-      title: 'Social Media Strategy',
-      thumbnail: 'https://img.youtube.com/vi/4OxKDnC29go/hqdefault.jpg',
-      link: 'https://www.youtube.com/shorts/4OxKDnC29go'
+      thumbnail: 'https://img.youtube.com/vi/7z3ZfLcDrxM/hqdefault.jpg',
+      link: 'https://www.youtube.com/watch?v=7z3ZfLcDrxM'
     }
   ];
 
