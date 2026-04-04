@@ -171,7 +171,7 @@ export default function WhoWeAreSection() {
             className="e-n-carousel"
             aria-label="Carousel"
           >
-            {avatars.concat(avatars).map((a, i) => (
+            {avatars.map((a, i) => (
               <SwiperSlide key={a.name + i}>
                   <div className="flex flex-col items-center mx-auto group">
                     <div className="relative mb-4">

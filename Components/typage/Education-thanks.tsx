@@ -31,19 +31,16 @@ const EducationThanks = () => {
       previousWorks={previousWorks}
       testimonials={[
         {
-          name: "Old Money Luxury",
-          text: "Their unique editing style resonates with both creators and audiences. Highly recommended for educational channels.",
-          logo: "/videos/Testimonial/logo/oldmoney.png"
+          name: "Amanda_jane_100",
+          text: "Very fast turnaround and great communication, was able to bring my idea to life! Thank you so much."
         },
         {
-          name: "Lhor",
-          text: "Attentive, open to suggestions, and the communication is topnotch! Great for educational series development.",
-          logo: "/videos/Testimonial/logo/lhor.jpg"
+          name: "bradocross",
+          text: "Provided me a fantastic video. The quality was amazing. Better than I could have ever imagined. Really happy and the seller was nice too! A very good experience indeed and will certainly be using again!"
         },
         {
-          name: "Bizarre Medical Stories",
-          text: "The go-to team for professional content. They understand how to present complex information clearly.",
-          logo: "/videos/Testimonial/logo/bizzare.jpg"
+          name: "kameronchristie",
+          text: "This seller is absolutely amazing and I definitely recommend you try him , the price is completely worth it and justifies the price. Communication is good and he made sure he hit his deadlines"
         }
       ]}
     />

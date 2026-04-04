@@ -48,10 +48,7 @@ const ThanksLayout: React.FC<ThanksLayoutProps> = ({
   };
 
   // Main video
-  const videoId = getYouTubeId(videoUrl);
-  const finalEmbedUrl = videoId
-    ? `https://www.youtube.com/embed/${videoId}?rel=0`
-    : videoUrl;
+  const finalEmbedUrl = `https://www.youtube.com/embed/PPUvhTXJO1A?rel=0`;
 
   return (
     <div className="bg-[#001A1F] text-white" style={{ fontFamily: 'var(--font-montserrat)' }}>
@@ -136,23 +133,6 @@ const ThanksLayout: React.FC<ThanksLayoutProps> = ({
                 </p>
 
                 <div className="relative z-10 flex items-center gap-4 mt-auto">
-                  {!hideIcons && (
-                    <div className="relative shrink-0">
-                      <div className="relative p-0.5 rounded-full bg-gradient-to-tr from-[#00E0FF] to-transparent shadow-[0_0_15px_rgba(0,224,255,0.3)]">
-                        {t.logo ? (
-                          <img src={t.logo} className="w-14 h-14 rounded-full border-2 border-[#001A1F] object-cover" />
-                        ) : (
-                          <div className="w-14 h-14 bg-[#001A1F] rounded-full flex items-center justify-center border-2 border-[#00E0FF]/50 text-[#00E0FF] font-black text-xl">
-                            {t.name[0]}
-                          </div>
-                        )}
-                      </div>
-                      {/* Verified Badge Icon */}
-                      <div className="absolute -bottom-1 -right-1 bg-[#00E0FF] rounded-full p-1 border-2 border-[#001A1F] shadow-[0_4px_10px_rgba(0,0,0,0.5)]">
-                         <CheckCircle size={12} className="text-[#001A1F]" fill="currentColor" />
-                      </div>
-                    </div>
-                  )}
                   <div className="flex flex-col">
                     <span className="text-[#00E0FF] font-black text-base uppercase tracking-wider group-hover:text-white transition-colors duration-300">{t.name}</span>
                     <span className="text-gray-500 text-[10px] uppercase font-bold tracking-[0.25em] mt-0.5">Verified Partner</span>

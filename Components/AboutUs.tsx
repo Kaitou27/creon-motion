@@ -1078,339 +1078,189 @@ const AboutUs = () => {
               <div className="absolute top-20 right-2/3 w-2 h-2 bg-[#00B8CC] rounded-full animate-pulse opacity-50 drop-shadow-md drop-shadow-[#00B8CC]/30" style={{ animationDelay: '1.9s' }}></div>
             </div>
 
-            {/* Enhanced Team Member Profiles with More Glow */}
-            <div className="space-y-32">
-              {/* Cheenie Profile - Enhanced with More Glow */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center group mb-16" data-aos="fade-up" data-aos-delay="450" data-aos-duration="900">
-                {/* Enhanced Image Container with More Glow */}
-                <div className="relative max-w-xl mx-auto md:mx-0 rounded-3xl p-0 overflow-hidden h-80 md:h-[28rem] transition-all duration-500">
+            {/* Atlassian-Style Team Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-16">
+              {[
+                {
+                  name: "Cheenie Caballero",
+                  role: "Founder & Video Strategist",
+                  image: "/img/Team/1.png",
+                  color: "bg-[#00B8CC]",
+                  isTransparent: true,
+                  frame: "/img/Team/frame.png",
+                  isFeatured: true
+                },
+                {
+                  name: "Jake Caballero",
+                  role: "Co-Founder & Creative Director",
+                  image: "/img/Team/2.png",
+                  color: "bg-[#00B8CC]",
+                  isTransparent: true,
+                  frame: "/img/Team/frame.png",
+                  isFeatured: true
+                },
+                {
+                  name: "Sophia Escoro",
+                  role: "Senior Editor & Project Manager",
+                  image: "/img/Team/3.png",
+                  color: "bg-[#0099B3]",
+                  isTransparent: true,
+                  frame: "/img/Team/frame.png",
+                  isFeatured: true
+                },
+                {
+                  name: "May Rose Stephan Aberlos",
+                  role: "Lead Video Editor & Team Leader",
+                  image: "/img/Team/4.png",
+                  color: "bg-[#00E0FF]",
+                  isTransparent: true,
+                  frame: "/img/Team/frame.png",
+                  isFeatured: true
+                },
+                {
+                  name: "CLARENCE ARIATE",
+                  role: "CREATIVE DIRECTOR",
+                  image: "/img/Team/5.png",
+                  color: "bg-[#00B8CC]",
+                  isTransparent: true,
+                  frame: "/img/Team/frame.png",
+                  isFeatured: true
+                },
+                {
+                  name: "MARIAN JEAN CELESTIAL",
+                  role: "CREATIVE DIRECTOR",
+                  image: "/img/Team/6.png",
+                  color: "bg-[#00E0FF]",
+                  isTransparent: true,
+                  frame: "/img/Team/frame.png",
+                  isFeatured: true
+                },
+                {
+                  name: "VINCE DIALING",
+                  role: "VISUAL ASSET CREATOR",
+                  image: "/img/Team/7.png",
+                  color: "bg-[#00B8CC]",
+                  isTransparent: true,
+                  frame: "/img/Team/frame.png",
+                  isFeatured: true
+                },
+                {
+                  name: "EDRIANNE ANDREY ESCORO",
+                  role: "Motion Designer & Video Editor",
+                  image: "/img/Team/8.png",
+                  color: "bg-[#00E0FF]",
+                  isTransparent: true,
+                  frame: "/img/Team/frame.png",
+                  isFeatured: true
+                },
+                {
+                  name: "LYKA MANULAT",
+                  role: "VIDEO EDITOR",
+                  image: "/img/Team/9.png",
+                  color: "bg-[#00B8CC]",
+                  isTransparent: true,
+                  frame: "/img/Team/frame.png",
+                  isFeatured: true
+                },
+                {
+                  name: "JAN ELMER MANLANGIT",
+                  role: "VIDEO EDITOR",
+                  image: "/img/Team/10.png",
+                  color: "bg-[#00E0FF]",
+                  isTransparent: true,
+                  frame: "/img/Team/frame.png",
+                  isFeatured: true
+                },
+                {
+                  name: "KYLE CINDY ABERLOS",
+                  role: "VIDEO EDITOR",
+                  image: "/img/Team/11.png",
+                  color: "bg-[#00B8CC]",
+                  isTransparent: true,
+                  frame: "/img/Team/frame.png",
+                  isFeatured: true
+                },
+                {
+                  name: "CARLBENCH KYLLE GALGO",
+                  role: "VIDEO EDITOR",
+                  image: "/img/Team/12.png",
+                  color: "bg-[#00E0FF]",
+                  isTransparent: true,
+                  frame: "/img/Team/frame.png",
+                  isFeatured: true
+                },
+                {
+                  name: "SHAUN DEO ABLAY",
+                  role: "VIDEO EDITOR",
+                  image: "/img/Team/13.png",
+                  color: "bg-[#00B8CC]",
+                  isTransparent: true,
+                  frame: "/img/Team/frame.png",
+                  isFeatured: true
+                },
+                {
+                  name: "ADRIAN JOHN MONTALBA",
+                  role: "VIDEO EDITOR",
+                  image: "/img/Team/14.png",
+                  color: "bg-[#00E0FF]",
+                  isTransparent: true,
+                  frame: "/img/Team/frame.png",
+                  isFeatured: true
+                }
+              ].map((member, i) => (
+                <div
+                  key={i}
+                  className={`group ${i >= 3 ? "lg:mt-20" : ""}`}
+                  data-aos="fade-up"
+                  data-aos-delay={i * 100}
+                >
+                  <div className={`relative mb-6 ${member.isTransparent ? "" : "rounded-xl overflow-hidden"} transition-all duration-500`}>
+                    <div className={`aspect-square ${member.isTransparent ? "bg-transparent shadow-none" : `${member.color} shadow-2xl overflow-hidden`} relative flex items-center justify-center ${member.isTransparent ? "p-0" : "p-6"}`}>
+                      {/* Custom Frame */}
+                      {member.frame && (
+                        <img
+                          src={member.frame}
+                          alt="Frame"
+                          className="absolute inset-0 w-full h-full object-contain z-0 transition-transform duration-700 scale-110" 
+                        />
+                      )}
 
-                  <img
-                    src="/img/Team/cheenie2.png"
-                    alt="Cheenie Caballero"
-                    className="w-full h-full object-contain relative z-10 group-hover:scale-105 transition-transform duration-500"
-                  />
+                      {/* Subtle Pattern on Plate */}
+                      {!member.isTransparent && !member.frame && (
+                        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_white_1px,_transparent_0)] bg-[size:16px_16px]"></div>
+                      )}
 
-                  {/* Enhanced Floating Elements Around Image */}
-                  <div className="absolute -top-3 -left-3 w-4 h-4 bg-[#00E0FF] rounded-full animate-ping opacity-80 drop-shadow-xl drop-shadow-[#00E0FF]/60"></div>
-                  <div className="absolute -top-3 -right-3 w-4 h-4 bg-[#00B8CC] rounded-full animate-ping opacity-80 drop-shadow-xl drop-shadow-[#00B8CC]/60" style={{ animationDelay: '0.5s' }}></div>
-                  <div className="absolute -bottom-3 -left-3 w-3 h-3 bg-[#00E0FF] rounded-full animate-pulse opacity-70 drop-shadow-lg drop-shadow-[#00E0FF]/50"></div>
-                  <div className="absolute -bottom-3 -right-3 w-3 h-3 bg-[#00B8CC] rounded-full animate-pulse opacity-70 drop-shadow-lg drop-shadow-[#00B8CC]/50" style={{ animationDelay: '0.7s' }}></div>
+                      {/* Framing Box */}
+                      <div className={`relative w-full h-full ${member.isTransparent ? "bg-transparent shadow-none" : "bg-[#01161B] rounded-lg shadow-inner overflow-hidden"} flex items-center justify-center transition-transform duration-500`}>
+                        {/* Portrait */}
+                        <img
+                          src={member.image}
+                          alt={member.name}
+                          className={`w-full h-full object-contain z-10 transition-transform duration-700 ${member.isTransparent ? (member.isFeatured ? "p-0 translate-y-[-98px] scale-115" : "p-4") : "pt-4"}`}
+                        />
+                      </div>
 
-                  {/* Additional Micro Floating Elements */}
-                  <div className="absolute -top-1 -left-1 w-1.5 h-1.5 bg-[#00E0FF] rounded-full animate-ping opacity-60 drop-shadow-md drop-shadow-[#00E0FF]/40"></div>
-                  <div className="absolute -top-1 -right-1 w-1.5 h-1.5 bg-[#00B8CC] rounded-full animate-ping opacity-60 drop-shadow-md drop-shadow-[#00B8CC]/40" style={{ animationDelay: '0.3s' }}></div>
-                  <div className="absolute -bottom-1 -left-1 w-1.5 h-1.5 bg-[#00E0FF] rounded-full animate-ping opacity-60 drop-shadow-md drop-shadow-[#00E0FF]/40" style={{ animationDelay: '0.9s' }}></div>
-                  <div className="absolute -bottom-1 -right-1 w-1.5 h-1.5 bg-[#00B8CC] rounded-full animate-ping opacity-60 drop-shadow-md drop-shadow-[#00B8CC]/40" style={{ animationDelay: '1.1s' }}></div>
-                </div>
-
-                {/* Enhanced Content with More Glow */}
-                <div className="space-y-8 relative" data-aos="fade-left" data-aos-delay="550" data-aos-duration="900">
-                  {/* Enhanced Name and Role with More Glow */}
-                  <div className="space-y-4">
-                    <h3 className="text-4xl sm:text-5xl font-bold text-white leading-tight bg-gradient-to-r from-white via-[#00E0FF]/90 to-gray-200 bg-clip-text text-transparent group-hover:from-white group-hover:via-[#00E0FF] group-hover:to-white transition-all duration-500 drop-shadow-xl whitespace-nowrap">
-                      Cheenie Caballero
-                    </h3>
-                    <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-[#00E0FF]/25 to-[#00B8CC]/25 border-2 border-[#00E0FF]/50 rounded-full backdrop-blur-sm shadow-xl shadow-[#00E0FF]/30 relative overflow-hidden">
-                      <div className="w-3 h-3 bg-[#00E0FF] rounded-full animate-pulse drop-shadow-xl drop-shadow-[#00E0FF]/60"></div>
-                      <span className="text-[#00E0FF] text-lg font-semibold tracking-wide drop-shadow-xl drop-shadow-[#00E0FF]/40">Co-Founder • Lead Editor • Marketing & Visual Strategist</span>
-                      <div className="w-3 h-3 bg-[#00B8CC] rounded-full animate-pulse drop-shadow-xl drop-shadow-[#00B8CC]/60" style={{ animationDelay: '0.5s' }}></div>
+                      {/* Backdrop Glow */}
+                      {!member.isTransparent && (
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
+                      )}
                     </div>
+
+                    {/* Floating Sparkles */}
+                    {!member.isTransparent && (
+                      <div className="absolute top-4 right-4 w-2 h-2 bg-white rounded-full animate-ping opacity-0 group-hover:opacity-60 z-20"></div>
+                    )}
                   </div>
-
-                  {/* Enhanced Description with More Glow */}
-                  <p className="text-gray-300 leading-relaxed text-xl font-medium group-hover:text-gray-200 transition-colors duration-500 relative z-10 drop-shadow-lg drop-shadow-[#00E0FF]/20">
-                    Leads storytelling, client direction, and visual strategy - ensuring every video aligns with the brand's voice and purpose.
-                  </p>
-
-                  {/* Enhanced Decorative Line with More Glow */}
-                  <div className="w-32 h-0.5 bg-gradient-to-r from-[#00E0FF] to-[#00B8CC] rounded-full shadow-xl shadow-[#00E0FF]/40 relative">
-                    <div className="w-full h-full bg-gradient-to-r from-transparent via-white to-transparent rounded-full animate-pulse opacity-80"></div>
-                    {/* Additional Glow Effect */}
-                    <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#00E0FF]/30 to-[#00B8CC]/30 rounded-full blur-sm"></div>
-                  </div>
-
-                  {/* Enhanced Background Glow Effects */}
-                  <div className="absolute top-0 left-0 w-40 h-40 bg-gradient-to-br from-[#00E0FF]/12 to-transparent rounded-full blur-3xl"></div>
-                  <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-[#00B8CC]/12 to-transparent rounded-full blur-2xl"></div>
-
-                  {/* Enhanced Floating Design Particles */}
-                  <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-[#00E0FF] rounded-full animate-bounce opacity-70 drop-shadow-xl drop-shadow-[#00E0FF]/50" style={{ animationDelay: '0.3s' }}></div>
-                  <div className="absolute top-3/4 right-1/4 w-3 h-3 bg-[#00B8CC] rounded-full animate-bounce opacity-70 drop-shadow-xl drop-shadow-[#00B8CC]/50" style={{ animationDelay: '0.8s' }}></div>
-                  <div className="absolute top-1/2 left-1/2 w-2 h-2 bg-[#00E0FF] rounded-full animate-pulse opacity-60 drop-shadow-lg drop-shadow-[#00E0FF]/40" style={{ animationDelay: '1.2s' }}></div>
-
-                  {/* Additional Micro Glow Particles */}
-                  <div className="absolute top-1/6 left-1/6 w-1.5 h-1.5 bg-[#00E0FF] rounded-full animate-ping opacity-50 drop-shadow-md drop-shadow-[#00E0FF]/30" style={{ animationDelay: '0.5s' }}></div>
-                  <div className="absolute bottom-1/6 right-1/6 w-1.5 h-1.5 bg-[#00B8CC] rounded-full animate-ping opacity-50 drop-shadow-md drop-shadow-[#00B8CC]/30" style={{ animationDelay: '1.0s' }}></div>
-                </div>
-              </div>
-
-              {/* Jake Profile - Enhanced with More Glow */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center group mb-16" data-aos="fade-up" data-aos-delay="500" data-aos-duration="900">
-                {/* Enhanced Image Container with More Glow */}
-                <div className="relative max-w-xl mx-auto md:mx-0 rounded-3xl p-0 overflow-hidden h-80 md:h-[28rem] transition-all duration-500">
-
-                  <img
-                    src="/img/Team/jake-edited.png"
-                    alt="Jake Caballero"
-                    className="w-full h-full object-contain relative z-10 group-hover:scale-105 transition-transform duration-500"
-                  />
-
-                  {/* Enhanced Floating Elements Around Image */}
-                  <div className="absolute -top-3 -left-3 w-4 h-4 bg-[#00E0FF] rounded-full animate-ping opacity-80 drop-shadow-xl drop-shadow-[#00E0FF]/60"></div>
-                  <div className="absolute -top-3 -right-3 w-4 h-4 bg-[#00B8CC] rounded-full animate-ping opacity-80 drop-shadow-xl drop-shadow-[#00B8CC]/60" style={{ animationDelay: '0.5s' }}></div>
-                  <div className="absolute -bottom-3 -left-3 w-3 h-3 bg-[#00E0FF] rounded-full animate-pulse opacity-70 drop-shadow-lg drop-shadow-[#00E0FF]/50"></div>
-                  <div className="absolute -bottom-3 -right-3 w-3 h-3 bg-[#00B8CC] rounded-full animate-pulse opacity-70 drop-shadow-lg drop-shadow-[#00B8CC]/50" style={{ animationDelay: '0.7s' }}></div>
-
-                  {/* Additional Micro Floating Elements */}
-                  <div className="absolute -top-1 -left-1 w-1.5 h-1.5 bg-[#00E0FF] rounded-full animate-ping opacity-60 drop-shadow-md drop-shadow-[#00E0FF]/40"></div>
-                  <div className="absolute -top-1 -right-1 w-1.5 h-1.5 bg-[#00B8CC] rounded-full animate-ping opacity-60 drop-shadow-md drop-shadow-[#00B8CC]/40" style={{ animationDelay: '0.3s' }}></div>
-                  <div className="absolute -bottom-1 -left-1 w-1.5 h-1.5 bg-[#00E0FF] rounded-full animate-ping opacity-60 drop-shadow-md drop-shadow-[#00E0FF]/40" style={{ animationDelay: '0.9s' }}></div>
-                  <div className="absolute -bottom-1 -right-1 w-1.5 h-1.5 bg-[#00B8CC] rounded-full animate-ping opacity-60 drop-shadow-md drop-shadow-[#00B8CC]/40" style={{ animationDelay: '1.1s' }}></div>
-                </div>
-
-                {/* Enhanced Content with More Glow */}
-                <div className="space-y-8 relative" data-aos="fade-left" data-aos-delay="600" data-aos-duration="900">
-                  {/* Enhanced Name and Role with More Glow */}
-                  <div className="space-y-4">
-                    <h3 className="text-5xl sm:text-6xl font-bold text-white leading-tight bg-gradient-to-r from-white via-[#00E0FF]/90 to-gray-200 bg-clip-text text-transparent group-hover:from-white group-hover:via-[#00E0FF] group-hover:to-white transition-all duration-500 drop-shadow-xl whitespace-nowrap">
-                      Jake Caballero
+                  <div className={`text-left ${member.isFeatured ? "pl-3" : "px-1"}`}>
+                    <h3 className="text-xl font-bold text-white uppercase tracking-tight group-hover:text-[#00E0FF] transition-colors duration-300">
+                      {member.name}
                     </h3>
-                    <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-[#00E0FF]/25 to-[#00B8CC]/25 border-2 border-[#00E0FF]/50 rounded-full backdrop-blur-sm shadow-xl shadow-[#00E0FF]/30 relative overflow-hidden">
-                      <div className="w-3 h-3 bg-[#00E0FF] rounded-full animate-pulse drop-shadow-xl drop-shadow-[#00E0FF]/60"></div>
-                      <span className="text-[#00E0FF] text-lg font-semibold tracking-wide drop-shadow-xl drop-shadow-[#00E0FF]/40">Co-Founder • Creative Director • Motion Graphics Designer </span>
-                      <div className="w-3 h-3 bg-[#00B8CC] rounded-full animate-pulse drop-shadow-xl drop-shadow-[#00B8CC]/60" style={{ animationDelay: '0.5s' }}></div>
-                    </div>
-                  </div>
-
-                  {/* Enhanced Description with More Glow */}
-                  <p className="text-gray-300 leading-relaxed text-xl font-medium group-hover:text-gray-200 transition-colors duration-500 relative z-10 drop-shadow-lg drop-shadow-[#00E0FF]/20">
-                    Oversees animation, design, and motion direction - blending technical precision with creativity to define Creon's signature style.
-                  </p>
-
-                  {/* Enhanced Decorative Line with More Glow */}
-                  <div className="w-32 h-0.5 bg-gradient-to-r from-[#00E0FF] to-[#00B8CC] rounded-full shadow-xl shadow-[#00E0FF]/40 relative">
-                    <div className="w-full h-full bg-gradient-to-r from-transparent via-white to-transparent rounded-full animate-pulse opacity-80"></div>
-                    {/* Additional Glow Effect */}
-                    <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#00E0FF]/30 to-[#00B8CC]/30 rounded-full blur-sm"></div>
-                  </div>
-
-                  {/* Enhanced Background Glow Effects */}
-                  <div className="absolute top-0 left-0 w-40 h-40 bg-gradient-to-br from-[#00E0FF]/12 to-transparent rounded-full blur-3xl"></div>
-                  <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-[#00B8CC]/12 to-transparent rounded-full blur-2xl"></div>
-
-                  {/* Enhanced Floating Design Particles */}
-                  <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-[#00E0FF] rounded-full animate-bounce opacity-70 drop-shadow-xl drop-shadow-[#00E0FF]/50" style={{ animationDelay: '0.3s' }}></div>
-                  <div className="absolute top-3/4 right-1/4 w-3 h-3 bg-[#00B8CC] rounded-full animate-bounce opacity-70 drop-shadow-xl drop-shadow-[#00B8CC]/50" style={{ animationDelay: '0.8s' }}></div>
-                  <div className="absolute top-1/2 left-1/2 w-2 h-2 bg-[#00E0FF] rounded-full animate-pulse opacity-60 drop-shadow-lg drop-shadow-[#00E0FF]/40" style={{ animationDelay: '1.2s' }}></div>
-
-                  {/* Additional Micro Glow Particles */}
-                  <div className="absolute top-1/6 left-1/6 w-1.5 h-1.5 bg-[#00E0FF] rounded-full animate-ping opacity-50 drop-shadow-md drop-shadow-[#00E0FF]/30" style={{ animationDelay: '0.5s' }}></div>
-                  <div className="absolute bottom-1/6 right-1/6 w-1.5 h-1.5 bg-[#00B8CC] rounded-full animate-ping opacity-50 drop-shadow-md drop-shadow-[#00B8CC]/30" style={{ animationDelay: '1.0s' }}></div>
-                </div>
-              </div>
-            </div>
-
-            {/* Sophia Profile - Enhanced with More Glow */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center group mb-16" data-aos="fade-up" data-aos-delay="550" data-aos-duration="900">
-              {/* Enhanced Image Container with More Glow */}
-              <div className="relative max-w-xl mx-auto md:mx-0 rounded-3xl p-0 overflow-hidden h-80 md:h-[28rem] transition-all duration-500">
-
-
-
-                <img
-                  src="/img/Team/sophie1.png"
-                  alt="Sophia Escoro"
-                  className="w-full h-full object-contain relative z-10 group-hover:scale-105 transition-transform duration-500"
-                />
-
-                {/* Enhanced Floating Elements Around Image */}
-                <div className="absolute -top-3 -left-3 w-4 h-4 bg-[#00E0FF] rounded-full animate-ping opacity-80 drop-shadow-xl drop-shadow-[#00E0FF]/60"></div>
-                <div className="absolute -top-3 -right-3 w-4 h-4 bg-[#00B8CC] rounded-full animate-ping opacity-80 drop-shadow-xl drop-shadow-[#00B8CC]/60" style={{ animationDelay: '0.5s' }}></div>
-                <div className="absolute -bottom-3 -left-3 w-3 h-3 bg-[#00E0FF] rounded-full animate-pulse opacity-70 drop-shadow-lg drop-shadow-[#00E0FF]/50"></div>
-                <div className="absolute -bottom-3 -right-3 w-3 h-3 bg-[#00B8CC] rounded-full animate-pulse opacity-70 drop-shadow-lg drop-shadow-[#00B8CC]/50" style={{ animationDelay: '0.7s' }}></div>
-
-                {/* Additional Micro Floating Elements */}
-                <div className="absolute -top-1 -left-1 w-1.5 h-1.5 bg-[#00E0FF] rounded-full animate-ping opacity-60 drop-shadow-md drop-shadow-[#00E0FF]/40"></div>
-                <div className="absolute -top-1 -right-1 w-1.5 h-1.5 bg-[#00B8CC] rounded-full animate-ping opacity-60 drop-shadow-md drop-shadow-[#00B8CC]/40" style={{ animationDelay: '0.3s' }}></div>
-                <div className="absolute -bottom-1 -left-1 w-1.5 h-1.5 bg-[#00E0FF] rounded-full animate-ping opacity-60 drop-shadow-md drop-shadow-[#00E0FF]/40" style={{ animationDelay: '0.9s' }}></div>
-                <div className="absolute -bottom-1 -right-1 w-1.5 h-1.5 bg-[#00B8CC] rounded-full animate-ping opacity-60 drop-shadow-md drop-shadow-[#00B8CC]/40" style={{ animationDelay: '1.1s' }}></div>
-              </div>
-
-              {/* Enhanced Content with More Glow */}
-              <div className="space-y-8 relative" data-aos="fade-left" data-aos-delay="650" data-aos-duration="900">
-                {/* Enhanced Name and Role with More Glow */}
-                <div className="space-y-4">
-                  <h3 className="text-5xl sm:text-6xl font-bold text-white leading-tight bg-gradient-to-r from-white via-[#00E0FF]/90 to-gray-200 bg-clip-text text-transparent group-hover:from-white group-hover:via-[#00E0FF] group-hover:to-white transition-all duration-500 drop-shadow-xl whitespace-nowrap">
-                    Sophia Escoro
-                  </h3>
-                  <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-[#00E0FF]/25 to-[#00B8CC]/25 border-2 border-[#00E0FF]/50 rounded-full backdrop-blur-sm shadow-xl shadow-[#00E0FF]/30 relative overflow-hidden">
-                    <div className="w-3 h-3 bg-[#00E0FF] rounded-full animate-pulse drop-shadow-xl drop-shadow-[#00E0FF]/60"></div>
-                    <span className="text-[#00E0FF] text-lg font-semibold tracking-wide drop-shadow-xl drop-shadow-[#00E0FF]/40">Senior Editor • Project Manager • Motion Graphics Designer</span>
-                    <div className="w-3 h-3 bg-[#00B8CC] rounded-full animate-pulse drop-shadow-xl drop-shadow-[#00B8CC]/60" style={{ animationDelay: '0.5s' }}></div>
+                    <p className="text-[#00E0FF] text-[11px] font-bold uppercase tracking-[0.2em] opacity-80">
+                      {member.role}
+                    </p>
                   </div>
                 </div>
-
-                {/* Enhanced Description with More Glow */}
-                <p className="text-gray-300 leading-relaxed text-xl font-medium group-hover:text-gray-200 transition-colors duration-500 relative z-10 drop-shadow-lg drop-shadow-[#00E0FF]/20">
-                  Leads the team in delivering clean, on-brand edits with a focus on Vox-style storytelling.
-                </p>
-
-                {/* Enhanced Decorative Line with More Glow */}
-                <div className="w-32 h-0.5 bg-gradient-to-r from-[#00E0FF] to-[#00B8CC] rounded-full shadow-xl shadow-[#00E0FF]/40 relative">
-                  <div className="w-full h-full bg-gradient-to-r from-transparent via-white to-transparent rounded-full animate-pulse opacity-80"></div>
-                  {/* Additional Glow Effect */}
-                  <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#00E0FF]/30 to-[#00B8CC]/30 rounded-full blur-sm"></div>
-                </div>
-
-                {/* Enhanced Background Glow Effects */}
-                <div className="absolute top-0 left-0 w-40 h-40 bg-gradient-to-br from-[#00E0FF]/12 to-transparent rounded-full blur-3xl"></div>
-                <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-[#00B8CC]/12 to-transparent rounded-full blur-2xl"></div>
-
-                {/* Enhanced Floating Design Particles */}
-                <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-[#00E0FF] rounded-full animate-bounce opacity-70 drop-shadow-xl drop-shadow-[#00E0FF]/50" style={{ animationDelay: '0.3s' }}></div>
-                <div className="absolute top-3/4 right-1/4 w-3 h-3 bg-[#00B8CC] rounded-full animate-bounce opacity-70 drop-shadow-xl drop-shadow-[#00B8CC]/50" style={{ animationDelay: '0.8s' }}></div>
-                <div className="absolute top-1/2 left-1/2 w-2 h-2 bg-[#00E0FF] rounded-full animate-pulse opacity-60 drop-shadow-lg drop-shadow-[#00E0FF]/40" style={{ animationDelay: '1.2s' }}></div>
-
-                {/* Additional Micro Glow Particles */}
-                <div className="absolute top-1/6 left-1/6 w-1.5 h-1.5 bg-[#00E0FF] rounded-full animate-ping opacity-50 drop-shadow-md drop-shadow-[#00E0FF]/30" style={{ animationDelay: '0.5s' }}></div>
-                <div className="absolute bottom-1/6 right-1/6 w-1.5 h-1.5 bg-[#00B8CC] rounded-full animate-ping opacity-50 drop-shadow-md drop-shadow-[#00B8CC]/30" style={{ animationDelay: '1.0s' }}></div>
-              </div>
-            </div>
-
-            {/* Mayrose Profile - Enhanced with More Glow */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center group mb-16" data-aos="fade-up" data-aos-delay="600" data-aos-duration="900">
-              {/* Enhanced Image Container with More Glow */}
-              <div className="relative max-w-xl mx-auto md:mx-0 rounded-3xl p-0 overflow-hidden h-80 md:h-[28rem] transition-all duration-500">
-
-
-
-                <img
-                  src="/img/Team/mayrose1.png"
-                  alt="May Rose Stephan Aberlos"
-                  className="w-full h-full object-contain relative z-10 group-hover:scale-105 transition-transform duration-500"
-                />
-
-                {/* Enhanced Floating Elements Around Image */}
-                <div className="absolute -top-3 -left-3 w-4 h-4 bg-[#00E0FF] rounded-full animate-ping opacity-80 drop-shadow-xl drop-shadow-[#00E0FF]/60"></div>
-                <div className="absolute -top-3 -right-3 w-4 h-4 bg-[#00B8CC] rounded-full animate-ping opacity-80 drop-shadow-xl drop-shadow-[#00B8CC]/60" style={{ animationDelay: '0.5s' }}></div>
-                <div className="absolute -bottom-3 -left-3 w-3 h-3 bg-[#00E0FF] rounded-full animate-pulse opacity-70 drop-shadow-lg drop-shadow-[#00E0FF]/50"></div>
-                <div className="absolute -bottom-3 -right-3 w-3 h-3 bg-[#00B8CC] rounded-full animate-pulse opacity-70 drop-shadow-lg drop-shadow-[#00B8CC]/50" style={{ animationDelay: '0.7s' }}></div>
-
-                {/* Additional Micro Floating Elements */}
-                <div className="absolute -top-1 -left-1 w-1.5 h-1.5 bg-[#00E0FF] rounded-full animate-ping opacity-60 drop-shadow-md drop-shadow-[#00E0FF]/40"></div>
-                <div className="absolute -top-1 -right-1 w-1.5 h-1.5 bg-[#00B8CC] rounded-full animate-ping opacity-60 drop-shadow-md drop-shadow-[#00B8CC]/40" style={{ animationDelay: '0.3s' }}></div>
-                <div className="absolute -bottom-1 -left-1 w-1.5 h-1.5 bg-[#00E0FF] rounded-full animate-ping opacity-60 drop-shadow-md drop-shadow-[#00E0FF]/40" style={{ animationDelay: '0.9s' }}></div>
-                <div className="absolute -bottom-1 -right-1 w-1.5 h-1.5 bg-[#00B8CC] rounded-full animate-ping opacity-60 drop-shadow-md drop-shadow-[#00B8CC]/40" style={{ animationDelay: '1.1s' }}></div>
-              </div>
-
-              {/* Enhanced Content with More Glow */}
-              <div className="space-y-8 relative" data-aos="fade-left" data-aos-delay="700" data-aos-duration="900">
-                {/* Enhanced Name and Role with More Glow */}
-                <div className="space-y-4">
-                  <h3 className="text-4xl sm:text-5xl font-bold text-white leading-tight bg-gradient-to-r from-white via-[#00E0FF]/90 to-gray-200 bg-clip-text text-transparent group-hover:from-white group-hover:via-[#00E0FF] group-hover:to-white transition-all duration-500 drop-shadow-xl">
-                    <span className="block">May Rose Stephan</span>
-                    <span className="block">Aberlos</span>
-                  </h3>
-                  <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-[#00E0FF]/25 to-[#00B8CC]/25 border-2 border-[#00E0FF]/50 rounded-full backdrop-blur-sm shadow-xl shadow-[#00E0FF]/30 relative overflow-hidden">
-                    <div className="w-3 h-3 bg-[#00E0FF] rounded-full animate-pulse drop-shadow-xl drop-shadow-[#00E0FF]/60"></div>
-                    <span className="text-[#00E0FF] text-lg font-semibold tracking-wide drop-shadow-xl drop-shadow-[#00E0FF]/40">Video Editor • Motion Graphics Designer</span>
-                    <div className="w-3 h-3 bg-[#00B8CC] rounded-full animate-pulse drop-shadow-xl drop-shadow-[#00B8CC]/60" style={{ animationDelay: '0.5s' }}></div>
-                  </div>
-                </div>
-
-                {/* Enhanced Description with More Glow */}
-                <p className="text-gray-300 leading-relaxed text-xl font-medium group-hover:text-gray-200 transition-colors duration-500 relative z-10 drop-shadow-lg drop-shadow-[#00E0FF]/20">
-                  Builds the visual first, then brings it to life with animation. Focused on clean edits, strong pacing, and motion that makes sense—no fluff, just solid work that hits.
-                </p>
-
-                {/* Enhanced Decorative Line with More Glow */}
-                <div className="w-32 h-0.5 bg-gradient-to-r from-[#00E0FF] to-[#00B8CC] rounded-full shadow-xl shadow-[#00E0FF]/40 relative">
-                  <div className="w-full h-full bg-gradient-to-r from-transparent via-white to-transparent rounded-full animate-pulse opacity-80"></div>
-                  {/* Additional Glow Effect */}
-                  <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#00E0FF]/30 to-[#00B8CC]/30 rounded-full blur-sm"></div>
-                </div>
-
-                {/* Enhanced Background Glow Effects */}
-                <div className="absolute top-0 left-0 w-40 h-40 bg-gradient-to-br from-[#00E0FF]/12 to-transparent rounded-full blur-3xl"></div>
-                <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-[#00B8CC]/12 to-transparent rounded-full blur-2xl"></div>
-
-                {/* Enhanced Floating Design Particles */}
-                <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-[#00E0FF] rounded-full animate-bounce opacity-70 drop-shadow-xl drop-shadow-[#00E0FF]/50" style={{ animationDelay: '0.3s' }}></div>
-                <div className="absolute top-3/4 right-1/4 w-3 h-3 bg-[#00B8CC] rounded-full animate-bounce opacity-70 drop-shadow-xl drop-shadow-[#00B8CC]/50" style={{ animationDelay: '0.8s' }}></div>
-                <div className="absolute top-1/2 left-1/2 w-2 h-2 bg-[#00E0FF] rounded-full animate-pulse opacity-60 drop-shadow-lg drop-shadow-[#00E0FF]/40" style={{ animationDelay: '1.2s' }}></div>
-
-                {/* Additional Micro Glow Particles */}
-                <div className="absolute top-1/6 left-1/6 w-1.5 h-1.5 bg-[#00E0FF] rounded-full animate-ping opacity-50 drop-shadow-md drop-shadow-[#00E0FF]/30" style={{ animationDelay: '0.5s' }}></div>
-                <div className="absolute bottom-1/6 right-1/6 w-1.5 h-1.5 bg-[#00B8CC] rounded-full animate-ping opacity-50 drop-shadow-md drop-shadow-[#00B8CC]/30" style={{ animationDelay: '1.0s' }}></div>
-              </div>
-            </div>
-
-            {/* Joaquin Profile - Enhanced with More Glow */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center group mb-16" data-aos="fade-up" data-aos-delay="650" data-aos-duration="900">
-              {/* Enhanced Image Container with More Glow */}
-              <div className="relative max-w-xl mx-auto md:mx-0 rounded-3xl p-0 overflow-hidden h-80 md:h-[28rem] transition-all duration-500">
-
-
-
-                <img
-                  src="/img/Team/joaquin1.png"
-                  alt="Joaquin Canete"
-                  className="w-full h-full object-contain relative z-10 group-hover:scale-105 transition-transform duration-500"
-                />
-
-                {/* Enhanced Floating Elements Around Image */}
-                <div className="absolute -top-3 -left-3 w-4 h-4 bg-[#00E0FF] rounded-full animate-ping opacity-80 drop-shadow-xl drop-shadow-[#00E0FF]/60"></div>
-                <div className="absolute -top-3 -right-3 w-4 h-4 bg-[#00B8CC] rounded-full animate-ping opacity-80 drop-shadow-xl drop-shadow-[#00B8CC]/60" style={{ animationDelay: '0.5s' }}></div>
-                <div className="absolute -bottom-3 -left-3 w-3 h-3 bg-[#00E0FF] rounded-full animate-pulse opacity-70 drop-shadow-lg drop-shadow-[#00E0FF]/50"></div>
-                <div className="absolute -bottom-3 -right-3 w-3 h-3 bg-[#00B8CC] rounded-full animate-pulse opacity-70 drop-shadow-lg drop-shadow-[#00B8CC]/50" style={{ animationDelay: '0.7s' }}></div>
-
-                {/* Additional Micro Floating Elements */}
-                <div className="absolute -top-1 -left-1 w-1.5 h-1.5 bg-[#00E0FF] rounded-full animate-ping opacity-60 drop-shadow-md drop-shadow-[#00E0FF]/40"></div>
-                <div className="absolute -top-1 -right-1 w-1.5 h-1.5 bg-[#00B8CC] rounded-full animate-ping opacity-60 drop-shadow-md drop-shadow-[#00B8CC]/40" style={{ animationDelay: '0.3s' }}></div>
-                <div className="absolute -bottom-1 -left-1 w-1.5 h-1.5 bg-[#00E0FF] rounded-full animate-ping opacity-60 drop-shadow-md drop-shadow-[#00E0FF]/40" style={{ animationDelay: '0.9s' }}></div>
-                <div className="absolute -bottom-1 -right-1 w-1.5 h-1.5 bg-[#00B8CC] rounded-full animate-ping opacity-60 drop-shadow-md drop-shadow-[#00B8CC]/40" style={{ animationDelay: '1.1s' }}></div>
-              </div>
-
-              {/* Enhanced Content with More Glow */}
-              <div className="space-y-8 relative" data-aos="fade-left" data-aos-delay="750" data-aos-duration="900">
-                {/* Enhanced Name and Role with More Glow */}
-                <div className="space-y-4">
-                  <h3 className="text-5xl sm:text-6xl font-bold text-white leading-tight bg-gradient-to-r from-white via-[#00E0FF]/90 to-gray-200 bg-clip-text text-transparent group-hover:from-white group-hover:via-[#00E0FF] group-hover:to-white transition-all duration-500 drop-shadow-xl whitespace-nowrap">
-                    Joaquin Canete
-                  </h3>
-                  <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-[#00E0FF]/25 to-[#00B8CC]/25 border-2 border-[#00E0FF]/50 rounded-full backdrop-blur-sm shadow-xl shadow-[#00E0FF]/30 relative overflow-hidden">
-                    <div className="w-3 h-3 bg-[#00E0FF] rounded-full animate-pulse drop-shadow-xl drop-shadow-[#00E0FF]/60"></div>
-                    <span className="text-[#00E0FF] text-lg font-semibold tracking-wide drop-shadow-xl drop-shadow-[#00E0FF]/40">Video Editor • 2D/3D Animator</span>
-                    <div className="w-3 h-3 bg-[#00B8CC] rounded-full animate-pulse drop-shadow-xl drop-shadow-[#00B8CC]/60" style={{ animationDelay: '0.5s' }}></div>
-                  </div>
-                </div>
-
-                {/* Enhanced Description with More Glow */}
-                <p className="text-gray-300 leading-relaxed text-xl font-medium group-hover:text-gray-200 transition-colors duration-500 relative z-10 drop-shadow-lg drop-shadow-[#00E0FF]/20">
-                  Handles both 2D and 3D animation projects. Also edits explainer videos, commercial content, and animated visuals for YouTube and social platforms.
-                </p>
-
-                {/* Enhanced Decorative Line with More Glow */}
-                <div className="w-32 h-0.5 bg-gradient-to-r from-[#00E0FF] to-[#00B8CC] rounded-full shadow-xl shadow-[#00E0FF]/40 relative">
-                  <div className="w-full h-full bg-gradient-to-r from-transparent via-white to-transparent rounded-full animate-pulse opacity-80"></div>
-                  {/* Additional Glow Effect */}
-                  <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#00E0FF]/30 to-[#00B8CC]/30 rounded-full blur-sm"></div>
-                </div>
-
-                {/* Enhanced Background Glow Effects */}
-                <div className="absolute top-0 left-0 w-40 h-40 bg-gradient-to-br from-[#00E0FF]/12 to-transparent rounded-full blur-3xl"></div>
-                <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-[#00B8CC]/12 to-transparent rounded-full blur-2xl"></div>
-
-                {/* Enhanced Floating Design Particles */}
-                <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-[#00E0FF] rounded-full animate-bounce opacity-70 drop-shadow-xl drop-shadow-[#00E0FF]/50" style={{ animationDelay: '0.3s' }}></div>
-                <div className="absolute top-3/4 right-1/4 w-3 h-3 bg-[#00B8CC] rounded-full animate-bounce opacity-70 drop-shadow-xl drop-shadow-[#00B8CC]/50" style={{ animationDelay: '0.8s' }}></div>
-                <div className="absolute top-1/2 left-1/2 w-2 h-2 bg-[#00E0FF] rounded-full animate-pulse opacity-60 drop-shadow-xl drop-shadow-[#00E0FF]/40" style={{ animationDelay: '1.2s' }}></div>
-
-                {/* Additional Micro Glow Particles */}
-                <div className="absolute top-1/6 left-1/6 w-1.5 h-1.5 bg-[#00E0FF] rounded-full animate-ping opacity-50 drop-shadow-md drop-shadow-[#00E0FF]/30" style={{ animationDelay: '0.5s' }}></div>
-                <div className="absolute bottom-1/6 right-1/6 w-1.5 h-1.5 bg-[#00B8CC] rounded-full animate-ping opacity-50 drop-shadow-md drop-shadow-[#00B8CC]/30" style={{ animationDelay: '1.0s' }}></div>
-              </div>
+              ))}
             </div>
           </div>
         </section>

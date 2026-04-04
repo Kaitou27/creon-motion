@@ -31,19 +31,16 @@ const MixedThanks = () => {
       previousWorks={previousWorks}
       testimonials={[
         {
-          name: "Old Money Luxury",
-          text: "A truly holistic approach to content. They handle everything from long-form to shorts with the same high quality.",
-          logo: "/videos/Testimonial/logo/oldmoney.png"
+          name: "alex_addison",
+          text: "Excellent work video editing work, responded well to feedback and revision requests and did a great job of working with a limited amount of material. Can't recommend this editor enough, thank you very much for all your hard work - much appreciated!"
         },
         {
-          name: "Lhor",
-          text: "The most important thing for us is the trust, and the team has earned it through consistent mixed-media delivery.",
-          logo: "/videos/Testimonial/logo/lhor.jpg"
+          name: "chuckp2",
+          text: "He did a very good job. He tried mimicking the video style I had sent for reference, and did his research properly to put together the right footage. I also gave him a difficult video, and he was able to complete it without needing any assistance on my part. I will come back for more in the future. Highly recommended."
         },
         {
-          name: "Bizarre Medical Stories",
-          text: "Scaling across platforms was easy with their help. Professionalism like no other.",
-          logo: "/videos/Testimonial/logo/bizzare.jpg"
+          name: "henryhunter93",
+          text: "fantastic attention to detail and outstanding communication as well. Cheenie is extremely talented and you won't be disappointed with his service!"
         }
       ]}
     />

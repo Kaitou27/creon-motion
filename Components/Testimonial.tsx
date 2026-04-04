@@ -1,15 +1,100 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { ChevronRight } from 'lucide-react';
 
-const userImages = [
-  '/public/img/1.jpg',
-  '/public/img/2.jpg',
-  '/public/img/3.jpg',
-  '/public/img/4.jpg',
-  '/public/img/5.jpg',
-  '/public/img/6.jpg',
-  '/public/img/7.jpg',
+const testimonialsData = [
+  {
+    id: 0,
+    name: "Old Money Luxury",
+    text: "Creon Motion's video team consistently delivers high-quality, documentary-style edits that have helped generate millions of views on YouTube. With multiple videos reaching over 100K–1M views, their unique editing style resonates with both creators and audiences. They've proven to be reliable, scalable, and consistent—rare qualities in video editing.",
+    logo: "/videos/Testimonial/logo/oldmoney.png",
+    audio: "/videos/Testimonial/audio/audio1.mp3"
+  },
+  {
+    id: 1,
+    name: "Lhor",
+    text: "We've been working with Creon Motion for almost 2 years, and we are more than happy with the results, all of our 30 videos where done by them, and all of them were done in amazing quality. They're attentive, and open to suggestions, to changes. The communication is topnotch!",
+    logo: "/videos/Testimonial/logo/lhor.jpg"
+  },
+  {
+    id: 2,
+    name: "Bizarre Medical Stories",
+    text: "Creon Motion is extremely talented and very professional. They have always delivered on time and even provided regular updates to me without me asking. Their large profile speaks for itself but their professionalism is like no other on this platform.",
+    logo: "/videos/Testimonial/logo/bizzare.jpg"
+  },
+  {
+    id: 3,
+    name: "K.B.M.H",
+    text: "I was working with Creon Motion on my follow along YouTube workouts, It was pleasure working together, great communication, good quality and fair prices. Looking forward working with you again!",
+    logo: "/videos/Testimonial/logo/kbmh.png"
+  },
+  {
+    id: 4,
+    name: "Becket U",
+    text: "We have had the pleasure of working with Cheenie for over a year, and we are consistently impressed by her professionalism and attention to detail. She is a clear communicator, and she is always learning new skills that can be applied to our videos.",
+    initial: "B"
+  },
+  {
+    id: 5,
+    name: "Juan",
+    text: "Fantastic experience from start to finish. Gemar brought creative ideas, nailed the cinematic look, and maintained a great attitude throughout. Positive, responsive, and easy to collaborate with. Turnaround was fast, edits were spot-on.",
+    initial: "J"
+  },
+  {
+    id: 6,
+    name: "Josh",
+    text: "Gemar did an amazing job on this project. I'm 100% satisfied and will work with him again. Fantastic communication. Fast replies. Prompt edits on final project with very helpful suggestions along the way.",
+    initial: "J"
+  },
+  {
+    id: 7,
+    name: "Brimm",
+    text: "Excellent video, I liked it a lot. Thanks for the efforts of the team! The clips were really strong and helped tell the story effectively.",
+    initial: "B"
+  },
+  {
+    id: 8,
+    name: "Amos",
+    text: "It was a pleasure working with Gemar! He’s a skilled and reliable editor, and I highly recommend him to anyone looking for quality work. Wishing him all the best in his future endeavors!",
+    initial: "A"
+  },
+  {
+    id: 9,
+    name: "Amanda_jane_100",
+    text: "Very fast turnaround and great communication, was able to bring my idea to life! Thank you so much.",
+    initial: "A"
+  },
+  {
+    id: 10,
+    name: "alex_addison",
+    text: "Excellent work video editing work, responded well to feedback and revision requests and did a great job of working with a limited amount of material. Can't recommend this editor enough.",
+    initial: "A"
+  },
+  {
+    id: 11,
+    name: "chuckp2",
+    text: "He did a very good job. He tried mimicking the video style I had sent for reference, and did his research properly to put together the right footage. I will come back for more in the future. Highly recommended.",
+    initial: "C"
+  },
+  {
+    id: 12,
+    name: "bradocross",
+    text: "Provided me a fantastic video. The quality was amazing. Better than I could have ever imagined. Really happy and the seller was nice too! A very good experience indeed and will certainly be using again!",
+    initial: "B"
+  },
+  {
+    id: 13,
+    name: "kameronchristie",
+    text: "This seller is absolutely amazing and I definitely recommend you try him , the price is completely worth it and justifies the price. Communication is good and he made sure he hit his deadlines",
+    initial: "K"
+  },
+  {
+    id: 14,
+    name: "henryhunter93",
+    text: "fantastic attention to detail and outstanding communication as well. Cheenie is extremely talented and you won't be disappointed with his service!",
+    initial: "H"
+  }
 ];
 
 const Testimonial = () => {
@@ -18,27 +103,40 @@ const Testimonial = () => {
   const [cardIndex, setCardIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const nextCard = () => {
-    setCardIndex((prev) => {
-      if (prev >= 8) {
-        // When reaching the duplicate card, instantly jump to 0 without animation
-        setTimeout(() => setCardIndex(0), 500);
-        return 9; // Go to duplicate card
-      }
-      return prev + 1;
-    });
+    setCardIndex((prev) => (prev + 1) % testimonialsData.length);
   };
   
   const prevCard = () => {
-    setCardIndex((prev) => {
-      if (prev <= 0) {
-        // When going back from first card, go to duplicate card then jump to last real card
-        setTimeout(() => setCardIndex(8), 500);
-        return 9; // Go to duplicate card
-      }
-      return prev - 1;
-    });
+    setCardIndex((prev) => (prev - 1 + testimonialsData.length) % testimonialsData.length);
   };
-  
+
+  const getCardStyle = (index: number) => {
+    const total = testimonialsData.length;
+    let diff = index - cardIndex;
+    
+    // Handle circular distance
+    if (diff > total / 2) diff -= total;
+    if (diff < -total / 2) diff += total;
+
+    const absDiff = Math.abs(diff);
+    const isActive = diff === 0;
+    
+    // Only show center and neighbors for 3D effect, hide others or fade them
+    const opacity = absDiff > 2 ? 0 : 1 - (absDiff * 0.4);
+    const scale = 1 - (absDiff * 0.15);
+    const translateX = diff * (isMobile ? 80 : 120); // Responsive spacing
+    const translateZ = absDiff * -150;
+    const rotateY = diff * -25;
+    const zIndex = 100 - absDiff * 10;
+
+    return {
+      transform: `translateX(${translateX}%) translateZ(${translateZ}px) rotateY(${rotateY}deg) scale(${scale})`,
+      opacity: opacity,
+      zIndex: zIndex,
+      visibility: opacity === 0 ? 'hidden' : 'visible' as any,
+      transition: 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)'
+    };
+  };
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -50,13 +148,9 @@ const Testimonial = () => {
 
   useEffect(() => {
     const checkScreenSize = () => {
-      setIsMobile(window.innerWidth < 640);
+      setIsMobile(window.innerWidth < 1024); // Use 1024 for better 3D stage on desktop
     };
-
-    // Check initial screen size
     checkScreenSize();
-
-    // Listen for resize events
     window.addEventListener('resize', checkScreenSize);
     return () => window.removeEventListener('resize', checkScreenSize);
   }, []);
@@ -337,153 +431,86 @@ const Testimonial = () => {
             </video>
           </div>
                 </div>
-        {/* Testimonial card below video */}
-        <div className="mt-6 sm:mt-8 w-full max-w-6xl relative px-8 sm:px-6 md:px-8">
-          <button onClick={prevCard} className="absolute left-2 sm:-left-12 md:-left-14 lg:-left-16 top-1/2 -translate-y-1/2 bg-gradient-to-r from-[#00E0FF] to-[#00B8CC] text-black p-2 sm:p-3 rounded-full shadow hover:scale-110 transition-transform duration-200 z-10"> 
-            <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"/></svg>
+        {/* 3D Curved Carousel */}
+        <div className="mt-12 sm:mt-16 w-full max-w-7xl relative px-4 sm:px-6 lg:px-8 mx-auto" style={{ perspective: '1500px' }}>
+          {/* Navigation Buttons */}
+          <button 
+            onClick={prevCard} 
+            className="absolute left-4 sm-left-0 top-1/2 -translate-y-1/2 bg-[#00E0FF] text-black p-3 rounded-full shadow-[0_0_20px_rgba(0,224,255,0.4)] hover:scale-110 active:scale-95 transition-all duration-200 z-50 group"
+            aria-label="Previous testimonial"
+          > 
+            <ChevronRight className="w-6 h-6 rotate-180 group-hover:-translate-x-0.5 transition-transform" />
           </button>
-          <button onClick={nextCard} className="absolute right-2 sm:-right-12 md:-right-14 lg:-right-16 top-1/2 -translate-y-1/2 bg-gradient-to-r from-[#00E0FF] to-[#00B8CC] text-black p-2 sm:p-3 rounded-full shadow hover:scale-110 transition-transform duration-200 z-10"> 
-            <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"/></svg>
+          
+          <button 
+            onClick={nextCard} 
+            className="absolute right-4 sm-right-0 top-1/2 -translate-y-1/2 bg-[#00E0FF] text-black p-3 rounded-full shadow-[0_0_20px_rgba(0,224,255,0.4)] hover:scale-110 active:scale-95 transition-all duration-200 z-50 group"
+            aria-label="Next testimonial"
+          > 
+            <ChevronRight className="w-6 h-6 group-hover:translate-x-0.5 transition-transform" />
           </button>
-          <div className="overflow-hidden">
-            <div className="flex items-stretch transition-transform duration-500 ease-in-out" style={{ 
-              transform: `translateX(-${cardIndex * (isMobile ? 100 : 50)}%)` 
-            }}>
-              {/* Card 0: Old Money Luxury */}
-              <div className="flex-none w-full sm:basis-1/2 lg:basis-1/2 pr-2 sm:pr-4">
-                <div className="h-full min-h-[200px] sm:min-h-[260px] flex flex-col justify-between rounded-xl sm:rounded-2xl border border-[#00E0FF]/20 bg-gradient-to-br from-[#0A0F1A] via-[#1A1F2A] to-[#0A0F1A] p-4 sm:p-5 md:p-6 text-[#E0E0E0]">
-                  <p className="text-justify text-sm sm:text-base leading-relaxed">
-               Creon Motion's video team consistently delivers high-quality, documentary-style edits that have helped generate millions of views on YouTube. With multiple videos reaching over 100K–1M views, their unique editing style resonates with both creators and audiences. They've proven to be reliable, scalable, and consistent—rare qualities in video editing. After nearly a year of collaboration, this client continues to trust and recommend Creon Motion's team for anyone aiming to create viral, professional content. Their ability to maintain quality across multiple projects makes them a go-to team for long-term creative partnerships.
-              </p>
-                  <div className="mt-3 sm:mt-4 flex items-center">
-                    <img src="/videos/Testimonial/logo/oldmoney.png" alt="Old Money Luxury" className="h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 rounded-full bg-white p-1 shadow object-contain" />
-                    <div className="ml-2 sm:ml-3 flex flex-col">
-                      <span className="font-semibold text-[#00E0FF] text-sm sm:text-base">Old Money Luxury</span>
-                      <audio className="mt-1 sm:mt-2 w-full max-w-32 sm:max-w-40 md:max-w-48 lg:max-w-56" controls>
-                        <source src="/videos/Testimonials/audio/audio1.mp3" type="audio/mp3" />
-                    <source src="/videos/Testimonial/audio/audio1.mp3" type="audio/mp3" />
-                    Your browser does not support the audio element.
-                  </audio>
+
+          {/* 3D Stage */}
+          <div className="relative h-[450px] sm:h-[500px] w-full flex items-center justify-center overflow-visible" style={{ transformStyle: 'preserve-3d' }}>
+            {testimonialsData.map((t, i) => {
+              const style = getCardStyle(i);
+              return (
+                <div 
+                  key={t.id}
+                  className="absolute w-[90%] max-w-[450px] transition-all duration-700 ease-out cursor-pointer group"
+                  style={style}
+                  onClick={() => setCardIndex(i)}
+                >
+                  <div className="relative flex flex-col h-full min-h-[320px] bg-[#020D12]/60 backdrop-blur-3xl p-8 sm:p-10 rounded-[2.5rem] border border-white/5 hover:border-[#00E0FF]/40 transition-all duration-500 hover:shadow-[0_20px_50px_rgba(0,0,0,0.6),0_0_30px_rgba(0,224,255,0.1)] overflow-hidden">
+                    {/* Background Styling */}
+                    <div className="absolute -top-32 -right-32 w-64 h-64 bg-[#00E0FF]/5 rounded-full blur-[80px] group-hover:bg-[#00E0FF]/15 transition-all duration-700"></div>
+                    <div className="absolute -bottom-32 -left-32 w-64 h-64 bg-[#00B8CC]/5 rounded-full blur-[80px] group-hover:bg-[#00B8CC]/10 transition-all duration-700"></div>
+
+                    {/* Stylized Quote Mark */}
+                    <span className="absolute top-4 left-6 text-9xl font-black text-[#00E0FF]/[0.05] pointer-events-none select-none transition-all duration-700 group-hover:text-[#00E0FF]/[0.1] group-hover:scale-110">
+                      “
+                    </span>
+
+                    <p className="relative z-10 flex-grow text-base sm:text-lg leading-relaxed mb-8 font-medium text-gray-300 italic group-hover:text-white transition-colors duration-500 line-clamp-6">
+                      "{t.text}"
+                    </p>
+
+                    <div className="relative z-10 flex items-center gap-4 mt-auto">
+                      {/* Avatar / Logo */}
+                      <div className="flex-shrink-0">
+                        {t.logo ? (
+                          <img src={t.logo} alt={t.name} className="h-12 w-12 sm:h-14 sm:w-14 rounded-full bg-white/10 p-1 shadow-lg border border-white/10 object-contain" />
+                        ) : (
+                          <div className="h-12 w-12 sm:h-14 sm:w-14 rounded-full bg-[#00E0FF]/10 flex items-center justify-center border border-[#00E0FF]/20 text-[#00E0FF] font-bold text-xl">
+                            {t.initial}
+                          </div>
+                        )}
+                      </div>
+
+                      <div className="flex flex-col">
+                        <span className="text-[#00E0FF] font-black text-sm sm:text-base uppercase tracking-wider group-hover:text-white transition-colors duration-300">
+                          {t.name}
+                        </span>
+                        <span className="text-gray-500 text-[9px] sm:text-[10px] uppercase font-bold tracking-[0.25em] mt-0.5">
+                          Verified Partner
+                        </span>
+                        
+                        {t.audio && (
+                          <audio className="mt-3 h-8 w-32 sm:w-40 opacity-70 hover:opacity-100 transition-opacity" controls>
+                            <source src={t.audio} type="audio/mp3" />
+                          </audio>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Bottom Accentuating Line */}
+                    <div className="absolute bottom-0 left-0 w-full h-[4px] bg-white/[0.02] overflow-hidden">
+                      <div className="h-full w-0 bg-gradient-to-r from-[#00E0FF] via-[#00B8CC] to-[#00E0FF] transition-all duration-1000 ease-in-out group-hover:w-full"></div>
                     </div>
                   </div>
                 </div>
-              </div>
-              {/* Card 1: Lhor */}
-              <div className="flex-none w-full sm:basis-1/2 lg:basis-1/2 pr-2 sm:pr-4">
-                <div className="h-full min-h-[200px] sm:min-h-[260px] flex flex-col justify-between rounded-xl sm:rounded-2xl border border-[#00E0FF]/20 bg-gradient-to-br from-[#0A0F1A] via-[#1A1F2A] to-[#0A0F1A] p-4 sm:p-5 md:p-6 text-[#E0E0E0]">
-                  <p className="text-justify text-sm sm:text-base leading-relaxed">
-                    We've been working with Creon Motion for almost 2 years, and we are more than happy with the results, all of our 30 videos where done by them, and all of them were done in amazing quality. They're attentive, and open to suggestions, to changes. The communication is topnotch! You won't find a friendlier person on the internet. But the most important thing we built is not the collaboration, it is the trust. We trust them, we know we don't even have to check the work no more, the journey has been amazing so far and we hope to continue this path with Creon Motion, they always thrive for perfection. Thank you Creon Motion!
-                  </p>
-                  <div className="mt-3 sm:mt-4 flex items-center">
-                    <img src="/videos/Testimonial/logo/lhor.jpg" alt="Lhor" className="h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 rounded-full bg-white p-1 shadow object-contain" />
-                    <span className="ml-2 sm:ml-3 font-semibold text-[#00E0FF] text-sm sm:text-base">Lhor</span>
-                  </div>
-                </div>
-              </div>
-              {/* Card 2: Bizarre Medical Stories */}
-              <div className="flex-none w-full sm:basis-1/2 lg:basis-1/2 pr-2 sm:pr-4">
-                <div className="h-full min-h-[200px] sm:min-h-[260px] flex flex-col justify-between rounded-xl sm:rounded-2xl border border-[#00E0FF]/20 bg-gradient-to-br from-[#0A0F1A] via-[#1A1F2A] to-[#0A0F1A] p-4 sm:p-5 md:p-6 text-[#E0E0E0]">
-                  <p className="text-justify text-sm sm:text-base leading-relaxed">
-                    Creon Motion is extremely talented and very professional. They have always delivered on time and even provided regular updates to me without me asking. Their large profile speaks for itself but their professionalism is like no other on this platform. If you are reading this Creon Motion is the go-to person!!!
-                  </p>
-                  <div className="mt-3 sm:mt-4 flex items-center">
-                    <img src="/videos/Testimonial/logo/bizzare.jpg" alt="Bizarre Medical Stories" className="h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 rounded-full bg-white p-1 shadow object-contain" />
-                    <span className="ml-2 sm:ml-3 font-semibold text-[#00E0FF] text-sm sm:text-base">Bizarre Medical Stories</span>
-                  </div>
-                </div>
-              </div>
-              {/* Card 3: K.B.M.H */}
-              <div className="flex-none w-full sm:basis-1/2 lg:basis-1/2 pr-2 sm:pr-4">
-                <div className="h-full min-h-[200px] sm:min-h-[260px] flex flex-col justify-between rounded-xl sm:rounded-2xl border border-[#00E0FF]/20 bg-gradient-to-br from-[#0A0F1A] via-[#1A1F2A] to-[#0A0F1A] p-4 sm:p-5 md:p-6 text-[#E0E0E0]">
-                  <p className="text-justify text-sm sm:text-base leading-relaxed">
-                    I was working with Creon Motion on my follow along YouTube workouts, It was pleasure working together, great communication, good quality and fair prices. Looking forward working with you again!
-                  </p>
-                  <div className="mt-3 sm:mt-4 flex items-center">
-                    <img src="/videos/Testimonial/logo/kbmh.png" alt="K.B.M.H" className="h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 rounded-full bg-white p-1 shadow object-contain" />
-                    <span className="ml-2 sm:ml-3 font-semibold text-[#00E0FF] text-sm sm:text-base">K.B.M.H</span>
-                  </div>
-                </div>
-              </div>
-              {/* Card 4: Becket U */}
-              <div className="flex-none w-full sm:basis-1/2 lg:basis-1/2 pr-2 sm:pr-4">
-                <div className="h-full min-h-[200px] sm:min-h-[260px] flex flex-col justify-between rounded-xl sm:rounded-2xl border border-[#00E0FF]/20 bg-gradient-to-br from-[#0A0F1A] via-[#1A1F2A] to-[#0A0F1A] p-4 sm:p-5 md:p-6 text-[#E0E0E0]">
-                  <p className="text-justify text-sm sm:text-base leading-relaxed">
-                    "We have had the pleasure of working with Cheenie for over a year, and we are consistently impressed by her professionalism and attention to detail. She is a clear communicator, and she is always learning new skills that can be applied to our videos. Her skills have brought many exciting projects to life, and we highly recommend her to anyone seeking a talented and reliable animator."
-                  </p>
-                  <div className="mt-3 sm:mt-4 flex items-center">
-                    <div className="h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 rounded-full bg-[#00E0FF]/10 flex items-center justify-center border border-[#00E0FF]/20 text-[#00E0FF] font-bold">B</div>
-                    <span className="ml-2 sm:ml-3 font-semibold text-[#00E0FF] text-sm sm:text-base">Becket U</span>
-                  </div>
-                </div>
-              </div>
-              {/* Card 5: Juan */}
-              <div className="flex-none w-full sm:basis-1/2 lg:basis-1/2 pr-2 sm:pr-4">
-                <div className="h-full min-h-[200px] sm:min-h-[260px] flex flex-col justify-between rounded-xl sm:rounded-2xl border border-[#00E0FF]/20 bg-gradient-to-br from-[#0A0F1A] via-[#1A1F2A] to-[#0A0F1A] p-4 sm:p-5 md:p-6 text-[#E0E0E0]">
-                  <p className="text-justify text-sm sm:text-base leading-relaxed">
-                    "Fantastic experience from start to finish. Gemar brought creative ideas, nailed the cinematic look, and maintained a great attitude throughout. Positive, responsive, and easy to collaborate with. Turnaround was fast, edits were spot-on, and the final product exceeded expectations. Strongly recommend."
-                  </p>
-                  <div className="mt-3 sm:mt-4 flex items-center">
-                    <div className="h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 rounded-full bg-[#00E0FF]/10 flex items-center justify-center border border-[#00E0FF]/20 text-[#00E0FF] font-bold">J</div>
-                    <span className="ml-2 sm:ml-3 font-semibold text-[#00E0FF] text-sm sm:text-base">Juan</span>
-                  </div>
-                </div>
-              </div>
-              {/* Card 6: Josh */}
-              <div className="flex-none w-full sm:basis-1/2 lg:basis-1/2 pr-2 sm:pr-4">
-                <div className="h-full min-h-[200px] sm:min-h-[260px] flex flex-col justify-between rounded-xl sm:rounded-2xl border border-[#00E0FF]/20 bg-gradient-to-br from-[#0A0F1A] via-[#1A1F2A] to-[#0A0F1A] p-4 sm:p-5 md:p-6 text-[#E0E0E0]">
-                  <p className="text-justify text-sm sm:text-base leading-relaxed">
-                    "Gemar did an amazing job on this project. I'm 100% satisfied and will work with him again. Fantastic communication. Fast replies. Prompt edits on final project with very helpful suggestions along the way. I recommend him without reservation."
-                  </p>
-                  <div className="mt-3 sm:mt-4 flex items-center">
-                    <div className="h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 rounded-full bg-[#00E0FF]/10 flex items-center justify-center border border-[#00E0FF]/20 text-[#00E0FF] font-bold">J</div>
-                    <span className="ml-2 sm:ml-3 font-semibold text-[#00E0FF] text-sm sm:text-base">Josh</span>
-                  </div>
-                </div>
-              </div>
-              {/* Card 7: Brimm */}
-              <div className="flex-none w-full sm:basis-1/2 lg:basis-1/2 pr-2 sm:pr-4">
-                <div className="h-full min-h-[200px] sm:min-h-[260px] flex flex-col justify-between rounded-xl sm:rounded-2xl border border-[#00E0FF]/20 bg-gradient-to-br from-[#0A0F1A] via-[#1A1F2A] to-[#0A0F1A] p-4 sm:p-5 md:p-6 text-[#E0E0E0]">
-                  <p className="text-justify text-sm sm:text-base leading-relaxed">
-                    "Excellent video, I liked it a lot. Thanks for the efforts of the team! The clips were really strong and helped tell the story effectively."
-                  </p>
-                  <div className="mt-3 sm:mt-4 flex items-center">
-                    <div className="h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 rounded-full bg-[#00E0FF]/10 flex items-center justify-center border border-[#00E0FF]/20 text-[#00E0FF] font-bold">B</div>
-                    <span className="ml-2 sm:ml-3 font-semibold text-[#00E0FF] text-sm sm:text-base">Brimm</span>
-                  </div>
-                </div>
-              </div>
-              {/* Card 8: Amos */}
-              <div className="flex-none w-full sm:basis-1/2 lg:basis-1/2 pr-2 sm:pr-4">
-                <div className="h-full min-h-[200px] sm:min-h-[260px] flex flex-col justify-between rounded-xl sm:rounded-2xl border border-[#00E0FF]/20 bg-gradient-to-br from-[#0A0F1A] via-[#1A1F2A] to-[#0A0F1A] p-4 sm:p-5 md:p-6 text-[#E0E0E0]">
-                  <p className="text-justify text-sm sm:text-base leading-relaxed">
-                    "It was a pleasure working with Gemar! He’s a skilled and reliable editor, and I highly recommend him to anyone looking for quality work. Wishing him all the best in his future endeavors!"
-                  </p>
-                  <div className="mt-3 sm:mt-4 flex items-center">
-                    <div className="h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 rounded-full bg-[#00E0FF]/10 flex items-center justify-center border border-[#00E0FF]/20 text-[#00E0FF] font-bold">A</div>
-                    <span className="ml-2 sm:ml-3 font-semibold text-[#00E0FF] text-sm sm:text-base">Amos</span>
-                  </div>
-                </div>
-              </div>
-              {/* Duplicate first card for seamless loop */}
-              <div className="flex-none w-full sm:basis-1/2 lg:basis-1/2 pr-2 sm:pr-4">
-                <div className="h-full min-h-[200px] sm:min-h-[260px] flex flex-col justify-between rounded-xl sm:rounded-2xl border border-[#00E0FF]/20 bg-gradient-to-br from-[#0A0F1A] via-[#1A1F2A] to-[#0A0F1A] p-4 sm:p-5 md:p-6 text-[#E0E0E0]">
-                  <p className="text-justify text-sm sm:text-base leading-relaxed">
-                    Creon Motion's video team consistently delivers high-quality, documentary-style edits that have helped generate millions of views on YouTube. With multiple videos reaching over 100K–1M views, their unique editing style resonates with both creators and audiences. They've proven to be reliable, scalable, and consistent—rare qualities in video editing. After nearly a year of collaboration, this client continues to trust and recommend Creon Motion's team for anyone aiming to create viral, professional content. Their ability to maintain quality across multiple projects makes them a go-to team for long-term creative partnerships.
-                  </p>
-                  <div className="mt-3 sm:mt-4 flex items-center">
-                    <img src="/videos/Testimonial/logo/oldmoney.png" alt="Old Money Luxury" className="h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 rounded-full bg-white p-1 shadow object-contain" />
-                    <div className="ml-2 sm:ml-3 flex flex-col">
-                      <span className="font-semibold text-[#00E0FF] text-sm sm:text-base">Old Money Luxury</span>
-                      <audio className="mt-1 sm:mt-2 w-full max-w-32 sm:max-w-40 md:max-w-48 lg:max-w-56" controls>
-                        <source src="/videos/Testimonials/audio/audio1.mp3" type="audio/mp3" />
-                        <source src="/videos/Testimonial/audio/audio1.mp3" type="audio/mp3" />
-                        Your browser does not support the audio element.
-                      </audio>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+              );
+            })}
           </div>
         </div>
         {/* Additional video below cards */}

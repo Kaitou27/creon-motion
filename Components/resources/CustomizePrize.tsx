@@ -2,6 +2,22 @@
 
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { 
+  User, 
+  Target, 
+  Video, 
+  Palette, 
+  Layers, 
+  Clock, 
+  DollarSign, 
+  Handshake, 
+  TrendingUp,
+  FileSearch,
+  CheckCircle,
+  Briefcase,
+  Globe,
+  Sparkles
+} from 'lucide-react';
 
 const FloatingParticle = ({ delay, duration, className, size = "w-2 h-2" }: { delay: number, duration: number, className: string, size?: string }) => (
   <div 
@@ -148,26 +164,40 @@ const CustomizePriceForm: React.FC = () => {
     </button>
   );
 
+  const sectionStyle = "relative bg-[#020D12]/60 backdrop-blur-3xl border border-white/5 p-8 md:p-10 rounded-[2rem] mb-10 overflow-hidden hover:border-[#00E0FF]/30 transition-all duration-700 shadow-2xl";
+  const labelStyle = "block text-gray-400 text-sm font-bold uppercase tracking-wider mb-3 ml-1";
+  const inputStyle = "w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-white/20 focus:outline-none focus:border-[#00E0FF]/60 focus:bg-[#00E0FF]/5 transition-all duration-300 font-medium";
+  const textAreaStyle = "w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-white/20 focus:outline-none focus:border-[#00E0FF]/60 focus:bg-[#00E0FF]/5 transition-all duration-300 font-medium min-h-[100px] resize-none";
+
   return (
     <section id="quote-form" className="relative bg-[#001A1F] min-h-screen py-24 px-4 sm:px-6 lg:px-8 overflow-hidden flex flex-col items-center" style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}>
       {/* Enhanced Background Elements */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-20 left-10 w-80 h-80 bg-[#00E0FF]/3 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#00E0FF]/4 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#00E0FF]/2 rounded-full blur-3xl animate-pulse" style={{animationDelay: '4s'}}></div>
+      <div className="absolute inset-0 pointer-events-none z-0">
+        <div className="absolute top-20 left-10 w-96 h-96 bg-[#00E0FF]/10 rounded-full blur-[140px] animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-[#00B8CC]/10 rounded-full blur-[160px] animate-pulse" style={{animationDelay: '2s'}}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#00E0FF]/5 rounded-full blur-[180px] animate-pulse" style={{animationDelay: '4s'}}></div>
         
-        {/* Additional floating elements */}
-        <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-[#00E0FF]/3 rounded-full blur-2xl animate-pulse" style={{animationDelay: '1s'}}></div>
-        <div className="absolute bottom-1/3 left-1/3 w-48 h-48 bg-[#00E0FF]/4 rounded-full blur-2xl animate-pulse" style={{animationDelay: '3s'}}></div>
-        <div className="absolute top-3/4 right-1/3 w-56 h-56 bg-[#00E0FF]/2 rounded-full blur-3xl animate-pulse" style={{animationDelay: '5s'}}></div>
-      </div>
+        {/* Dot Background Pattern (Primary) */}
+        <div className="absolute inset-0 opacity-30">
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.2) 1px, transparent 0)",
+              backgroundSize: "32px 32px",
+            }}
+          ></div>
+        </div>
 
-      {/* Subtle dotted grid overlay */}
-      <div className="absolute inset-0 pointer-events-none opacity-10">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, #00E0FF 1px, transparent 0)`,
-          backgroundSize: '36px 36px'
-        }}></div>
+        {/* Secondary Dot Pattern (Cyan) */}
+        <div className="absolute inset-0 opacity-20">
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: "radial-gradient(circle at 1px 1px, rgba(0, 224, 255, 0.2) 1px, transparent 0)",
+              backgroundSize: "64px 64px",
+            }}
+          ></div>
+        </div>
       </div>
       
       {/* Animated Lines */}
@@ -186,95 +216,78 @@ const CustomizePriceForm: React.FC = () => {
       <FloatingParticle delay={4} duration={4.5} className="bottom-20 right-1/3" />
       <FloatingParticle delay={5} duration={3} className="top-1/4 left-1/3" />
 
-      <div className="relative w-full max-w-4xl">
-        <div className="text-center mb-16">
-          <h2 className="text-[#00E0FF] font-black tracking-[0.2em] uppercase text-sm mb-4">Creon Motion</h2>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 uppercase tracking-tight">Apply for Production Partnership</h1>
-          <p className="text-[#00E0FF] font-medium mb-2">(3–5 minutes)</p>
-          <p className="text-gray-400 max-w-xl mx-auto">We review every submission personally before scheduling a fit call.</p>
+      <div className="max-w-4xl mx-auto w-full relative z-10">
+        {/* Header Section */}
+        <div className="text-center mb-16" data-aos="fade-down" data-aos-duration="1000">
+          <div className="inline-flex items-center gap-2 px-6 py-2 bg-[#00E0FF]/10 border border-[#00E0FF]/30 rounded-full text-[#00E0FF] text-xs font-bold tracking-widest uppercase mb-8 animate-pulse">
+            <Sparkles size={14} />
+            Creon Motion Production
+          </div>
+          <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tight mb-4 leading-none text-white drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+            Partner <span className="text-[#00E0FF] block">Application Form</span>
+          </h1>
+          <div className="h-1.5 w-32 bg-gradient-to-r from-transparent via-[#00E0FF] to-transparent mx-auto rounded-full mt-6"></div>
+          
+          <div className="flex flex-col items-center gap-4 mt-10">
+            <p className="text-gray-300 max-w-xl mx-auto text-sm md:text-base font-medium leading-relaxed italic opacity-80">
+              "We partner with high-growth creators and brands to produce world-class storytelling content."
+            </p>
+            <div className="flex items-center gap-2 text-[#00B8CC] text-[10px] font-black uppercase tracking-[0.3em] mt-4">
+              <Clock size={12} />
+              <span>ESTIMATED TIME: 3–5 MINUTES</span>
+            </div>
+          </div>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-12">
-          {/* 1. Basic Information */}
-          <div className="bg-gradient-to-br from-[#0A0F1A] to-[#0F1F2A] border border-[#00E0FF]/20 rounded-3xl p-8 space-y-6 backdrop-blur-sm">
-            <h3 className="text-xl font-bold text-white flex items-center">
-              <span className="text-[#00E0FF] mr-3">01.</span> Basic Information
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <label className="text-sm font-bold text-gray-400 uppercase tracking-wider ml-1">Full Name *</label>
-                <input
-                  type="text"
-                  required
-                  value={fullName}
-                  onChange={(e) => setFullName(e.target.value)}
-                  placeholder="Enter your name"
-                  className="w-full bg-[#001A1F]/60 border border-[#00E0FF]/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#00E0FF] transition-all"
-                  style={{ fontFamily: 'inherit' }}
-                />
+        <form onSubmit={handleSubmit} className="space-y-8">
+          {/* SECTION 01: Basic Information */}
+          <div className={sectionStyle} data-aos="fade-up">
+            <div className="absolute -top-12 -right-12 text-[10rem] font-black text-white/[0.015] pointer-events-none select-none">01</div>
+            <div className="flex items-center gap-4 mb-8">
+              <div className="p-3 bg-[#00E0FF]/10 rounded-xl border border-[#00E0FF]/10 text-[#00E0FF]">
+                <User size={22} />
               </div>
-              <div className="space-y-2">
-                <label className="text-sm font-bold text-gray-400 uppercase tracking-wider ml-1">Company / Brand Name *</label>
-                <input
-                  type="text"
-                  required
-                  value={company}
-                  onChange={(e) => setCompany(e.target.value)}
-                  placeholder="Your brand name"
-                  className="w-full bg-[#001A1F]/60 border border-[#00E0FF]/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#00E0FF] transition-all"
-                  style={{ fontFamily: 'inherit' }}
-                />
+              <h2 className="text-xl font-bold uppercase tracking-tight">Contact & Brand</h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div>
+                <label className={labelStyle}>Full Name *</label>
+                <input type="text" required value={fullName} onChange={(e) => setFullName(e.target.value)} placeholder="Enter your name" className={inputStyle} />
               </div>
-              <div className="space-y-2">
-                <label className="text-sm font-bold text-gray-400 uppercase tracking-wider ml-1">Your Role *</label>
-                <input
-                  type="text"
-                  required
-                  value={role}
-                  onChange={(e) => setRole(e.target.value)}
-                  placeholder="Founder, Creator, etc."
-                  className="w-full bg-[#001A1F]/60 border border-[#00E0FF]/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#00E0FF] transition-all"
-                  style={{ fontFamily: 'inherit' }}
-                />
+              <div>
+                <label className={labelStyle}>Email Address *</label>
+                <input type="email" required value={email} onChange={(e) => setEmail(e.target.value)} placeholder="name@email.com" className={inputStyle} />
               </div>
-              <div className="space-y-2">
-                <label className="text-sm font-bold text-gray-400 uppercase tracking-wider ml-1">Email Address *</label>
-                <input
-                  type="email"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="name@email.com"
-                  className="w-full bg-[#001A1F]/60 border border-[#00E0FF]/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#00E0FF] transition-all"
-                  style={{ fontFamily: 'inherit' }}
-                />
+              <div>
+                <label className={labelStyle}>Company / Brand Name *</label>
+                <input type="text" required value={company} onChange={(e) => setCompany(e.target.value)} placeholder="Your brand name" className={inputStyle} />
               </div>
-              <div className="md:col-span-2 space-y-2">
-                <label className="text-sm font-bold text-gray-400 uppercase tracking-wider ml-1">Website or Channel Link (Optional)</label>
-                <input
-                  type="text"
-                  value={website}
-                  onChange={(e) => setWebsite(e.target.value)}
-                  placeholder="https://..."
-                  className="w-full bg-[#001A1F]/60 border border-[#00E0FF]/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#00E0FF] transition-all"
-                  style={{ fontFamily: 'inherit' }}
-                />
+              <div>
+                <label className={labelStyle}>Your Role *</label>
+                <input type="text" required value={role} onChange={(e) => setRole(e.target.value)} placeholder="Founder, Creator, etc." className={inputStyle} />
+              </div>
+              <div className="md:col-span-2">
+                <label className={labelStyle}>Website or Channel Link (Optional)</label>
+                <input type="text" value={website} onChange={(e) => setWebsite(e.target.value)} placeholder="https://youtube.com/@yourchannel" className={inputStyle} />
               </div>
             </div>
           </div>
 
-          {/* 2. Content Type */}
-          <div className="bg-gradient-to-br from-[#0A0F1A] to-[#0F1F2A] border border-[#00E0FF]/20 rounded-3xl p-8 space-y-6 backdrop-blur-sm">
-            <h3 className="text-xl font-bold text-white flex items-center">
-              <span className="text-[#00E0FF] mr-3">02.</span> Content Type
-            </h3>
-            <p className="text-gray-400 text-sm">What type of content are you planning to produce?</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {/* SECTION 02: Content Type */}
+          <div className={sectionStyle} data-aos="fade-up" data-aos-delay="100">
+            <div className="absolute -top-12 -right-12 text-[10rem] font-black text-white/[0.015] pointer-events-none select-none">02</div>
+            <div className="flex items-center gap-4 mb-8">
+              <div className="p-3 bg-[#00E0FF]/10 rounded-xl border border-[#00E0FF]/10 text-[#00E0FF]">
+                <Palette size={22} />
+              </div>
+              <h2 className="text-xl font-bold uppercase tracking-tight">Content Type</h2>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {[
-                { label: 'YouTube long-form videos (8–20 minutes)', value: 'long-form' },
-                { label: 'Short-form content (TikTok, Reels, Shorts)', value: 'short-form' },
-                { label: 'Documentary or motion-graphics driven videos', value: 'documentary' },
-                { label: 'Talking-head or educational videos', value: 'talking-head' },
+                { label: 'YouTube Long-form (8–20 min)', value: 'long-form' },
+                { label: 'Short-form Content (TikTok, Shorts)', value: 'short-form' },
+                { label: 'Documentary or motion-graphics', value: 'documentary' },
+                { label: 'Talking-head or educational', value: 'talking-head' },
                 { label: 'Mixed content strategy', value: 'mixed' },
                 { label: 'Branded & Commercial videos', value: 'branded' }
               ].map((opt) => (
@@ -283,17 +296,20 @@ const CustomizePriceForm: React.FC = () => {
             </div>
           </div>
 
-          {/* 3. Content Volume */}
-          <div className="bg-gradient-to-br from-[#0A0F1A] to-[#0F1F2A] border border-[#00E0FF]/20 rounded-3xl p-8 space-y-6 backdrop-blur-sm">
-            <h3 className="text-xl font-bold text-white flex items-center">
-              <span className="text-[#00E0FF] mr-3">03.</span> Content Volume
-            </h3>
-            <p className="text-gray-400 text-sm">How much content are you planning to produce?</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          {/* SECTION 03: Content Volume */}
+          <div className={sectionStyle} data-aos="fade-up" data-aos-delay="200">
+            <div className="absolute -top-12 -right-12 text-[10rem] font-black text-white/[0.015] pointer-events-none select-none">03</div>
+            <div className="flex items-center gap-4 mb-8">
+              <div className="p-3 bg-[#00E0FF]/10 rounded-xl border border-[#00E0FF]/10 text-[#00E0FF]">
+                <Layers size={22} />
+              </div>
+              <h2 className="text-xl font-bold uppercase tracking-tight">Content Volume</h2>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {[
-                { label: '4–8 videos per month', value: '4-8' },
-                { label: '9–15 videos per month', value: '9-15' },
-                { label: '16+ videos per month', value: '16+' },
+                { label: '4–8 videos / mo', value: '4-8' },
+                { label: '9–15 videos / mo', value: '9-15' },
+                { label: '16+ videos / mo', value: '16+' },
                 { label: 'One-time project', value: 'one-time' }
               ].map((opt) => (
                 <OptionButton key={opt.value} label={opt.label} value={opt.value} current={contentVolume} setter={setContentVolume} />
@@ -301,15 +317,18 @@ const CustomizePriceForm: React.FC = () => {
             </div>
           </div>
 
-          {/* 4. Video Length */}
-          <div className="bg-gradient-to-br from-[#0A0F1A] to-[#0F1F2A] border border-[#00E0FF]/20 rounded-3xl p-8 space-y-6 backdrop-blur-sm">
-            <h3 className="text-xl font-bold text-white flex items-center">
-              <span className="text-[#00E0FF] mr-3">04.</span> Video Length
-            </h3>
-            <p className="text-gray-400 text-sm">What is the typical length of your videos? (Very important for pricing clarity.)</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          {/* SECTION 04: Video Length */}
+          <div className={sectionStyle} data-aos="fade-up" data-aos-delay="300">
+            <div className="absolute -top-12 -right-12 text-[10rem] font-black text-white/[0.015] pointer-events-none select-none">04</div>
+            <div className="flex items-center gap-4 mb-8">
+              <div className="p-3 bg-[#00E0FF]/10 rounded-xl border border-[#00E0FF]/10 text-[#00E0FF]">
+                <Video size={22} />
+              </div>
+              <h2 className="text-xl font-bold uppercase tracking-tight">Video Length</h2>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {[
-                { label: 'Under 60 seconds', value: '<60s' },
+                { label: 'Under 60s', value: '<60s' },
                 { label: '3–8 minutes', value: '3-8m' },
                 { label: '8–15 minutes', value: '8-15m' },
                 { label: '15+ minutes', value: '15m+' }
@@ -319,31 +338,38 @@ const CustomizePriceForm: React.FC = () => {
             </div>
           </div>
 
-          {/* 5. Production Complexity */}
-          <div className="bg-gradient-to-br from-[#0A0F1A] to-[#0F1F2A] border border-[#00E0FF]/20 rounded-3xl p-8 space-y-6 backdrop-blur-sm">
-            <h3 className="text-xl font-bold text-white flex items-center">
-              <span className="text-[#00E0FF] mr-3">05.</span> Production Complexity
-            </h3>
-            <p className="text-gray-400 text-sm">What type of production style are you looking for? (This tells us if Growth or Authority plan is the fit.)</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {/* SECTION 05: Production Complexity */}
+          <div className={sectionStyle} data-aos="fade-up" data-aos-delay="400">
+            <div className="absolute -top-12 -right-12 text-[10rem] font-black text-white/[0.015] pointer-events-none select-none">05</div>
+            <div className="flex items-center gap-4 mb-8">
+              <div className="p-3 bg-[#00E0FF]/10 rounded-xl border border-[#00E0FF]/10 text-[#00E0FF]">
+                <Layers size={22} />
+              </div>
+              <h2 className="text-xl font-bold uppercase tracking-tight">Production Complexity</h2>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {[
                 { label: 'Basic editing and captions', value: 'basic' },
-                { label: 'Mixed footage with motion graphics', value: 'mixed-motion' },
-                { label: 'Research-driven documentary editing', value: 'documentary-style' },
-                { label: 'High-production content with custom visuals', value: 'high-production' }
+                { label: 'Mixed footage / motion graphics', value: 'mixed-motion' },
+                { label: 'Research-driven docu-style', value: 'documentary-style' },
+                { label: 'High-production / custom visuals', value: 'high-production' }
               ].map((opt) => (
                 <OptionButton key={opt.value} label={opt.label} value={opt.value} current={productionComplexity} setter={setProductionComplexity} />
               ))}
             </div>
           </div>
 
-          {/* 6. Investment Range */}
-          <div className="bg-gradient-to-br from-[#0A0F1A] to-[#0F1F2A] border border-[#00E0FF]/20 rounded-3xl p-8 space-y-6 backdrop-blur-sm">
-            <h3 className="text-xl font-bold text-white flex items-center">
-              <span className="text-[#00E0FF] mr-3">06.</span> Investment Range
-            </h3>
-            <p className="text-gray-400 text-sm">What is your estimated monthly budget for production? (This helps us recommend the right production structure.)</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          {/* SECTION 06: Investment Range */}
+          <div className={sectionStyle} data-aos="fade-up" data-aos-delay="500">
+            <div className="absolute -top-12 -right-12 text-[10rem] font-black text-white/[0.015] pointer-events-none select-none">06</div>
+            <div className="flex items-center gap-4 mb-4">
+              <div className="p-3 bg-[#00E0FF]/10 rounded-xl border border-[#00E0FF]/10 text-[#00E0FF]">
+                <DollarSign size={22} />
+              </div>
+              <h2 className="text-xl font-bold uppercase tracking-tight">Investment Range</h2>
+            </div>
+            <p className="text-gray-500 text-[10px] font-black uppercase tracking-[0.2em] mb-8 ml-1">Monthly production budget</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {[
                 { label: '$1,000–$2,500', value: '1k-2.5k' },
                 { label: '$2,500–$5,000', value: '2.5k-5k' },
@@ -355,68 +381,70 @@ const CustomizePriceForm: React.FC = () => {
             </div>
           </div>
 
-          {/* 7. Timeline */}
-          <div className="bg-gradient-to-br from-[#0A0F1A] to-[#0F1F2A] border border-[#00E0FF]/20 rounded-3xl p-8 space-y-6 backdrop-blur-sm">
-            <h3 className="text-xl font-bold text-white flex items-center">
-              <span className="text-[#00E0FF] mr-3">07.</span> Timeline
-            </h3>
-            <p className="text-gray-400 text-sm">When are you planning to start?</p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          {/* SECTION 07: Timeline */}
+          <div className={sectionStyle} data-aos="fade-up" data-aos-delay="600">
+            <div className="absolute -top-12 -right-12 text-[10rem] font-black text-white/[0.015] pointer-events-none select-none">07</div>
+            <div className="flex items-center gap-4 mb-8">
+              <div className="p-3 bg-[#00E0FF]/10 rounded-xl border border-[#00E0FF]/10 text-[#00E0FF]">
+                <Clock size={22} />
+              </div>
+              <h2 className="text-xl font-bold uppercase tracking-tight">Timeline</h2>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {[
                 { label: 'Immediately', value: 'immediately' },
                 { label: 'Within 2–4 weeks', value: '2-4-weeks' },
-                { label: 'Exploring / planning phase', value: 'exploring' }
+                { label: 'Planning phase', value: 'exploring' }
               ].map((opt) => (
                 <OptionButton key={opt.value} label={opt.label} value={opt.value} current={timeline} setter={setTimeline} />
               ))}
             </div>
           </div>
 
-          {/* 8. Project Objective */}
-          <div className="bg-gradient-to-br from-[#0A0F1A] to-[#0F1F2A] border border-[#00E0FF]/20 rounded-3xl p-8 space-y-6 backdrop-blur-sm">
-            <h3 className="text-xl font-bold text-white flex items-center">
-              <span className="text-[#00E0FF] mr-3">08.</span> Project Objective
-            </h3>
-            <div className="space-y-4">
-              <p className="text-gray-400 text-sm">In 1–2 sentences, what is the main outcome you want from this content?</p>
-              <p className="text-gray-500 text-xs italic">Examples: Grow a YouTube channel, Educate customers, Build authority, Promote a product or service</p>
-              <textarea
-                required
-                value={objective}
-                onChange={(e) => setObjective(e.target.value)}
-                placeholder="Describe your goals..."
-                className="w-full bg-[#001A1F]/60 border border-[#00E0FF]/20 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-[#00E0FF] transition-all resize-none h-32"
-                style={{ fontFamily: 'inherit' }}
-              />
+          {/* SECTION 08: Project Objective */}
+          <div className={sectionStyle} data-aos="fade-up" data-aos-delay="700">
+            <div className="absolute -top-12 -right-12 text-[10rem] font-black text-white/[0.015] pointer-events-none select-none">08</div>
+            <div className="flex items-center gap-4 mb-8">
+              <div className="p-3 bg-[#00E0FF]/10 rounded-xl border border-[#00E0FF]/10 text-[#00E0FF]">
+                <Target size={22} />
+              </div>
+              <h2 className="text-xl font-bold uppercase tracking-tight">Main Outcome</h2>
+            </div>
+            <div>
+              <label className={labelStyle}>What is the single most important outcome you want from this partnership?</label>
+              <textarea required value={objective} onChange={(e) => setObjective(e.target.value)} placeholder="Describe your main goals..." className={textAreaStyle} />
             </div>
           </div>
 
-          {/* 9. References */}
-          <div className="bg-gradient-to-br from-[#0A0F1A] to-[#0F1F2A] border border-[#00E0FF]/20 rounded-3xl p-8 space-y-6 backdrop-blur-sm">
-            <h3 className="text-xl font-bold text-white flex items-center">
-              <span className="text-[#00E0FF] mr-3">09.</span> References
-            </h3>
-            <p className="text-gray-400 text-sm">Share 1–2 videos or channels you like. (Paste links here.)</p>
-            <textarea
-              value={references}
-              onChange={(e) => setReferences(e.target.value)}
-              placeholder="Paste links here..."
-              className="w-full bg-[#001A1F]/60 border border-[#00E0FF]/20 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-[#00E0FF] transition-all resize-none h-24"
-              style={{ fontFamily: 'inherit' }}
-            />
+          {/* SECTION 09: References */}
+          <div className={sectionStyle} data-aos="fade-up" data-aos-delay="800">
+            <div className="absolute -top-12 -right-12 text-[10rem] font-black text-white/[0.015] pointer-events-none select-none">09</div>
+            <div className="flex items-center gap-4 mb-8">
+              <div className="p-3 bg-[#00E0FF]/10 rounded-xl border border-[#00E0FF]/10 text-[#00E0FF]">
+                <Briefcase size={22} />
+              </div>
+              <h2 className="text-xl font-bold uppercase tracking-tight">Visual References</h2>
+            </div>
+            <div>
+              <label className={labelStyle}>Paste links to 1–2 videos or channels you admire</label>
+              <textarea value={references} onChange={(e) => setReferences(e.target.value)} placeholder="YouTube, Vimeo, or Portfolio links..." className={textAreaStyle} />
+            </div>
           </div>
 
-          {/* 10. Assets */}
-          <div className="bg-gradient-to-br from-[#0A0F1A] to-[#0F1F2A] border border-[#00E0FF]/20 rounded-3xl p-8 space-y-6 backdrop-blur-sm">
-            <h3 className="text-xl font-bold text-white flex items-center">
-              <span className="text-[#00E0FF] mr-3">10.</span> Assets
-            </h3>
-            <p className="text-gray-400 text-sm">Do you already have materials prepared?</p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          {/* SECTION 10: Logic Assets */}
+          <div className={sectionStyle} data-aos="fade-up" data-aos-delay="900">
+            <div className="absolute -top-12 -right-12 text-[10rem] font-black text-white/[0.015] pointer-events-none select-none">10</div>
+            <div className="flex items-center gap-4 mb-8">
+              <div className="p-3 bg-[#00E0FF]/10 rounded-xl border border-[#00E0FF]/10 text-[#00E0FF]">
+                <Globe size={22} />
+              </div>
+              <h2 className="text-xl font-bold uppercase tracking-tight">Existing Materials</h2>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {[
-                { label: 'Yes! script, footage, or voiceover ready', value: 'ready' },
+                { label: 'Yes, everything ready', value: 'ready' },
                 { label: 'Partially prepared', value: 'partial' },
-                { label: 'Still planning the content', value: 'planning' }
+                { label: 'Still planning phase', value: 'planning' }
               ].map((opt) => (
                 <OptionButton key={opt.value} label={opt.label} value={opt.value} current={assetsStatus} setter={setAssetsStatus} />
               ))}
@@ -424,62 +452,32 @@ const CustomizePriceForm: React.FC = () => {
           </div>
 
           {/* Messages */}
-          {submitError && (
-            <div className="p-4 bg-red-400/10 border border-red-400/20 rounded-xl text-red-400 text-center font-medium">
-              {submitError}
-            </div>
-          )}
-          {submitSuccess && (
-            <div className="p-6 bg-[#00E0FF]/10 border border-[#00E0FF]/20 rounded-2xl text-[#00E0FF] text-center font-bold">
-              {submitSuccess}
-            </div>
-          )}
+          <div className="max-w-xl mx-auto space-y-4">
+            {submitError && (
+              <div className="p-4 bg-red-400/10 border border-red-400/20 rounded-xl text-red-400 text-center font-medium" data-aos="fade-in">
+                {submitError}
+              </div>
+            )}
+            {submitSuccess && (
+              <div className="p-6 bg-[#00E0FF]/10 border border-[#00E0FF]/20 rounded-2xl text-[#00E0FF] text-center font-bold" data-aos="fade-in">
+                {submitSuccess}
+              </div>
+            )}
+          </div>
 
-          {/* Submit Button */}
-          <div className="pt-4 flex flex-col items-center">
-            <button
+          <div className="text-center pt-8 pb-16" data-aos="zoom-in">
+            <button 
               type="submit"
               disabled={isSubmitting}
-              className={`w-full max-w-xl bg-gradient-to-r from-[#0A0F1A] to-[#00B8CC] text-white py-5 px-8 rounded-full font-black text-xl transition-all duration-300 transform shadow-[0_10px_30px_rgba(0,224,255,0.3)] ${isSubmitting ? 'opacity-60 cursor-wait' : 'hover:scale-[1.02] hover:shadow-[0_15px_40px_rgba(0,224,255,0.4)] active:scale-[0.98]'
-                }`}
-              style={{ fontFamily: 'inherit' }}
+              className={`w-full max-w-xl bg-gradient-to-r from-[#0A0F1A] to-[#00B8CC] text-white py-6 px-12 rounded-full font-black text-xl transition-all duration-300 transform shadow-[0_10px_30px_rgba(0,224,255,0.3)] ${isSubmitting ? 'opacity-60 cursor-wait' : 'hover:scale-[1.02] hover:shadow-[0_15px_40px_rgba(0,224,255,0.4)] active:scale-[0.98]'} uppercase tracking-widest flex items-center justify-center mx-auto group`}
             >
               {isSubmitting ? 'Submitting Application...' : 'Apply for Partnership'}
             </button>
-            <p className="text-gray-500 text-xs text-center mt-6 uppercase tracking-widest font-bold">Creon Motion Production Partnership</p>
+            <p className="text-gray-500 text-[10px] font-black uppercase tracking-[0.4em] mt-10">Creon Motion Production Partnership</p>
           </div>
         </form>
       </div>
 
-      <style jsx>{`
-        @keyframes float {
-          0%, 100% {
-            transform: translateY(0px);
-          }
-          50% {
-            transform: translateY(-10px);
-          }
-        }
-        
-        @keyframes glow {
-          0%, 100% {
-            opacity: 0.6;
-            box-shadow: 0 0 5px rgba(0, 224, 255, 0.5);
-          }
-          50% {
-            opacity: 1;
-            box-shadow: 0 0 20px rgba(0, 224, 255, 0.8);
-          }
-        }
-        
-        .animate-float {
-          animation: float 3s ease-in-out infinite;
-        }
-        
-        .animate-glow {
-          animation: glow 2s ease-in-out infinite;
-        }
-      `}</style>
     </section>
   );
 };
