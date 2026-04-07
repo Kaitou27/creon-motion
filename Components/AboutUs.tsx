@@ -1115,7 +1115,8 @@ const AboutUs = () => {
                   color: "bg-[#00E0FF]",
                   isTransparent: true,
                   frame: "/img/Team/frame.png",
-                  isFeatured: true
+                  isFeatured: true,
+                  portfolioUrl: "https://stephanaberlos.wixsite.com/video-edit-showcas-2"
                 },
                 {
                   name: "CLARENCE ARIATE",
@@ -1253,7 +1254,13 @@ const AboutUs = () => {
                   </div>
                   <div className={`text-left ${member.isFeatured ? "pl-3" : "px-1"}`}>
                     <h3 className="text-xl font-bold text-white uppercase tracking-tight group-hover:text-[#00E0FF] transition-colors duration-300">
-                      {member.name}
+                      {(member as any).portfolioUrl ? (
+                        <a href={(member as any).portfolioUrl} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                          {member.name}
+                        </a>
+                      ) : (
+                        member.name
+                      )}
                     </h3>
                     <p className="text-[#00E0FF] text-[11px] font-bold uppercase tracking-[0.2em] opacity-80">
                       {member.role}
