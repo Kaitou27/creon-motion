@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { ArrowRight, CheckCircle, Video, ChevronRight } from 'lucide-react';
+import { ArrowRight, CheckCircle, Video, ChevronRight, Heart, MessageSquare } from 'lucide-react';
 import ScopeOverview from './ScopeOverview';
 
 
@@ -22,6 +22,7 @@ interface ThanksLayoutProps {
     name: string;
     text: string;
     logo?: string;
+    initial?: string;
   }[];
   category: 'youtube' | 'short' | 'brand' | 'docu' | 'edu' | 'mixed';
   hideIcons?: boolean;
@@ -133,6 +134,19 @@ const ThanksLayout: React.FC<ThanksLayoutProps> = ({
                 </p>
 
                 <div className="relative z-10 flex items-center gap-4 mt-auto">
+                  <div className="flex-shrink-0">
+                    {t.logo ? (
+                      <img 
+                        src={t.logo} 
+                        alt={t.name} 
+                        className="h-12 w-12 rounded-full shadow-lg border border-white/10 object-cover transition-transform duration-500 group-hover:scale-110" 
+                      />
+                    ) : (
+                      <div className="h-12 w-12 rounded-full bg-[#00E0FF]/10 flex items-center justify-center border border-[#00E0FF]/20 text-[#00E0FF] font-black shadow-lg shadow-[#00E0FF]/5 transition-all duration-500 group-hover:scale-110 group-hover:bg-[#00E0FF]/20">
+                        {t.initial || t.name.charAt(0).toUpperCase()}
+                      </div>
+                    )}
+                  </div>
                   <div className="flex flex-col">
                     <span className="text-[#00E0FF] font-black text-base uppercase tracking-wider group-hover:text-white transition-colors duration-300">{t.name}</span>
                     <span className="text-gray-500 text-[10px] uppercase font-bold tracking-[0.25em] mt-0.5">Verified Partner</span>
@@ -192,6 +206,29 @@ const ThanksLayout: React.FC<ThanksLayoutProps> = ({
               );
             })}
           </div>
+        </div>
+
+        {/* Feedback CTA */}
+        <div className="mt-32 pt-20 border-t border-white/5 text-center">
+          <div className="inline-flex items-center gap-2 mb-6 text-[#00E0FF]/60 text-xs font-bold uppercase tracking-widest">
+            <Heart size={14} className="fill-[#00E0FF]/20" />
+            Your Voice Matters
+          </div>
+          <h3 className="text-3xl md:text-5xl font-black uppercase mb-8 leading-tight">
+            How was your <span className="text-[#00E0FF]">experience?</span>
+          </h3>
+          <p className="text-gray-400 max-w-xl mx-auto mb-10 text-lg">
+            Help us shape the future of Creon Motion. Tell us what we did great or where we can improve.
+          </p>
+          <Link 
+            href="/feedback" 
+            className="group relative inline-flex items-center gap-3 px-10 py-5 bg-transparent border-2 border-[#00E0FF] text-[#00E0FF] font-black rounded-2xl overflow-hidden transition-all duration-300 hover:text-[#001A1F]"
+          >
+            <div className="absolute inset-0 w-0 bg-[#00E0FF] transition-all duration-300 ease-out group-hover:w-full -z-10"></div>
+            <MessageSquare size={20} />
+            GIVE FEEDBACK
+            <ChevronRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
+          </Link>
         </div>
 
       </div>

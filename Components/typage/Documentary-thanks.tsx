@@ -33,7 +33,8 @@ const DocumentaryThanks = () => {
       testimonials={[
         {
           name: "Brimm",
-          text: "Excellent video, I liked it a lot. Thanks for the efforts of the team! The clips were really strong and helped tell the story effectively."
+          text: "Excellent video, I liked it a lot. Thanks for the efforts of the team! The clips were really strong and helped tell the story effectively.",
+          logo: "/img/Logo/brimm.png"
         },
         {
           name: "Amos",

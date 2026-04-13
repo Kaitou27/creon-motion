@@ -59,12 +59,12 @@ const services = [
     thumbnails: [
       'https://img.youtube.com/vi/NDRNIVqqu4c/maxresdefault.jpg',
       'https://img.youtube.com/vi/iANvo7hIaqE/maxresdefault.jpg',
-      '/img/Images/branded.png'
+      'https://img.youtube.com/vi/hejyfAFTnGw/maxresdefault.jpg'
     ],
     thumbnailLinks: [
       'https://www.youtube.com/watch?v=NDRNIVqqu4c',
       'https://www.youtube.com/watch?v=iANvo7hIaqE',
-      '#'
+      'https://www.youtube.com/watch?v=hejyfAFTnGw'
     ],
     route: '/brand'
   }

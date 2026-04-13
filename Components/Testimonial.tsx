@@ -33,25 +33,25 @@ const testimonialsData = [
     id: 4,
     name: "Becket U",
     text: "We have had the pleasure of working with Cheenie for over a year, and we are consistently impressed by her professionalism and attention to detail. She is a clear communicator, and she is always learning new skills that can be applied to our videos.",
-    initial: "B"
+    logo: "/img/Logo/becket.png"
   },
   {
     id: 5,
     name: "Juan",
     text: "Fantastic experience from start to finish. Gemar brought creative ideas, nailed the cinematic look, and maintained a great attitude throughout. Positive, responsive, and easy to collaborate with. Turnaround was fast, edits were spot-on.",
-    initial: "J"
+    logo: "/img/Logo/juan1.jpg"
   },
   {
     id: 6,
     name: "Josh",
     text: "Gemar did an amazing job on this project. I'm 100% satisfied and will work with him again. Fantastic communication. Fast replies. Prompt edits on final project with very helpful suggestions along the way.",
-    initial: "J"
+    logo: "/img/Logo/josh.jpg"
   },
   {
     id: 7,
     name: "Brimm",
     text: "Excellent video, I liked it a lot. Thanks for the efforts of the team! The clips were really strong and helped tell the story effectively.",
-    initial: "B"
+    logo: "/img/Logo/brimm.png"
   },
   {
     id: 8,
@@ -75,7 +75,7 @@ const testimonialsData = [
     id: 11,
     name: "chuckp2",
     text: "He did a very good job. He tried mimicking the video style I had sent for reference, and did his research properly to put together the right footage. I will come back for more in the future. Highly recommended.",
-    initial: "C"
+    logo: "/img/Logo/chuckp2.jpg"
   },
   {
     id: 12,
@@ -396,7 +396,7 @@ const Testimonial = () => {
                     <div className="relative z-10 flex items-center gap-4 mt-auto">
                       <div className="flex-shrink-0">
                         {t.logo ? (
-                          <img src={t.logo} alt={t.name} className="h-12 w-12 sm:h-14 sm:w-14 rounded-full bg-white/10 p-1 shadow-lg border border-white/10 object-contain" />
+                          <img src={t.logo} alt={t.name} className="h-12 w-12 sm:h-14 sm:w-14 rounded-full shadow-lg border border-white/10 object-cover" />
                         ) : (
                           <div className="h-12 w-12 sm:h-14 sm:w-14 rounded-full bg-[#00E0FF]/10 flex items-center justify-center border border-[#00E0FF]/20 text-[#00E0FF] font-bold text-xl">
                             {t.initial}

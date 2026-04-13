@@ -33,15 +33,18 @@ const ShortThanks = () => {
       testimonials={[
         {
           name: "Becket U",
-          text: "We have had the pleasure of working with Cheenie for over a year, and we are consistently impressed by her professionalism and attention to detail. She is a clear communicator, and she is always learning new skills that can be applied to our videos. Her skills have brought many exciting projects to life, and we highly recommend her to anyone seeking a talented and reliable animator."
+          text: "We have had the pleasure of working with Cheenie for over a year, and we are consistently impressed by her professionalism and attention to detail. She is a clear communicator, and she is always learning new skills that can be applied to our videos. Her skills have brought many exciting projects to life, and we highly recommend her to anyone seeking a talented and reliable animator.",
+          logo: "/img/Logo/becket.png"
         },
         {
           name: "Juan",
-          text: "Fantastic experience from start to finish. Gemar brought creative ideas, nailed the cinematic look, and maintained a great attitude throughout. Positive, responsive, and easy to collaborate with. Turnaround was fast, edits were spot-on, and the final product exceeded expectations. Strongly recommend."
+          text: "Fantastic experience from start to finish. Gemar brought creative ideas, nailed the cinematic look, and maintained a great attitude throughout. Positive, responsive, and easy to collaborate with. Turnaround was fast, edits were spot-on, and the final product exceeded expectations. Strongly recommend.",
+          logo: "/img/Logo/juan1.jpg"
         },
         {
           name: "Josh",
-          text: "Gemar did an amazing job on this project. I'm 100% satisfied and will work with him again. Fantastic communication. Fast replies. Prompt edits on final project with very helpful suggestions along the way. I recommend him without reservation."
+          text: "Gemar did an amazing job on this project. I'm 100% satisfied and will work with him again. Fantastic communication. Fast replies. Prompt edits on final project with very helpful suggestions along the way. I recommend him without reservation.",
+          logo: "/img/Logo/josh.jpg"
         }
       ]}
     />

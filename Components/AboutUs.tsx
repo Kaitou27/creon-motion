@@ -1115,8 +1115,7 @@ const AboutUs = () => {
                   color: "bg-[#00E0FF]",
                   isTransparent: true,
                   frame: "/img/Team/frame.png",
-                  isFeatured: true,
-                  portfolioUrl: "https://stephanaberlos.wixsite.com/video-edit-showcas-2"
+                  isFeatured: true
                 },
                 {
                   name: "CLARENCE ARIATE",

@@ -7,6 +7,7 @@ import ContactUsSection from '../Components/ContactUsSection';
 import Faq from '../Components/Faq';
 import Reels from '../Components/reels';
 import PricingSection from '../Components/pricing/PricingSection';
+import HowToOrderSection from '../Components/HowToOrderSection';
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <ClientStatsSection />
       <ServicesSection />
       <PricingSection />
+      <HowToOrderSection />
       <WhyChooseUsSection />
       <Faq />
       <ContactUsSection />

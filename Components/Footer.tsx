@@ -74,6 +74,7 @@ const Footer = () => {
               <li><a href="https://www.instagram.com/creonmotion" target="_blank" rel="noopener noreferrer" className="hover:underline hover:text-white transition-colors duration-200">Instagram</a></li>
               <li><a href="https://www.youtube.com/@creonmotion" target="_blank" rel="noopener noreferrer" className="hover:underline hover:text-white transition-colors duration-200">YouTube</a></li>
               <li><a href="https://www.tiktok.com/@creonmotion?_t=ZS-90i9pAadHma&_r=1" target="_blank" rel="noopener noreferrer" className="hover:underline hover:text-white transition-colors duration-200">TikTok</a></li>
+              <li><a href="/feedback" className="hover:underline hover:text-white transition-colors duration-200 font-bold text-[#00E0FF]">Give Feedback</a></li>
             </ul>
           </div>
 

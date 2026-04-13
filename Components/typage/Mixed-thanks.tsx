@@ -36,7 +36,8 @@ const MixedThanks = () => {
         },
         {
           name: "chuckp2",
-          text: "He did a very good job. He tried mimicking the video style I had sent for reference, and did his research properly to put together the right footage. I also gave him a difficult video, and he was able to complete it without needing any assistance on my part. I will come back for more in the future. Highly recommended."
+          text: "He did a very good job. He tried mimicking the video style I had sent for reference, and did his research properly to put together the right footage. I also gave him a difficult video, and he was able to complete it without needing any assistance on my part. I will come back for more in the future. Highly recommended.",
+          logo: "/img/Logo/chuckp2.jpg"
         },
         {
           name: "henryhunter93",
