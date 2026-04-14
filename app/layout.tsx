@@ -5,6 +5,7 @@ import "./globals.css";
 import AOSProvider from "../Components/AOSProvider";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
+import FeedbackWidget from "../Components/FeedbackWidget";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -75,6 +76,7 @@ export default function RootLayout({
       <body className={`${geistSans.className} ${montserrat.variable}`}>
         <AOSProvider>
           <Header />
+          <FeedbackWidget />
           {children}
           <Footer />
         </AOSProvider>

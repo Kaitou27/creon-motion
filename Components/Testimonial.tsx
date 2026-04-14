@@ -1,111 +1,158 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, Star } from 'lucide-react';
 
-const testimonialsData = [
+const staticTestimonials = [
   {
     id: 0,
     name: "Old Money Luxury",
     text: "Creon Motion's video team consistently delivers high-quality, documentary-style edits that have helped generate millions of views on YouTube. With multiple videos reaching over 100K–1M views, their unique editing style resonates with both creators and audiences. They've proven to be reliable, scalable, and consistent—rare qualities in video editing.",
     logo: "/videos/Testimonial/logo/oldmoney.png",
-    audio: "/videos/Testimonial/audio/audio1.mp3"
+    audio: "/videos/Testimonial/audio/audio1.mp3",
+    rating: 5
   },
   {
     id: 1,
     name: "Lhor",
     text: "We've been working with Creon Motion for almost 2 years, and we are more than happy with the results, all of our 30 videos where done by them, and all of them were done in amazing quality. They're attentive, and open to suggestions, to changes. The communication is topnotch!",
-    logo: "/videos/Testimonial/logo/lhor.jpg"
+    logo: "/videos/Testimonial/logo/lhor.jpg",
+    rating: 5
   },
   {
     id: 2,
     name: "Bizarre Medical Stories",
     text: "Creon Motion is extremely talented and very professional. They have always delivered on time and even provided regular updates to me without me asking. Their large profile speaks for itself but their professionalism is like no other on this platform.",
-    logo: "/videos/Testimonial/logo/bizzare.jpg"
+    logo: "/videos/Testimonial/logo/bizzare.jpg",
+    rating: 5
   },
   {
     id: 3,
     name: "K.B.M.H",
     text: "I was working with Creon Motion on my follow along YouTube workouts, It was pleasure working together, great communication, good quality and fair prices. Looking forward working with you again!",
-    logo: "/videos/Testimonial/logo/kbmh.png"
+    logo: "/videos/Testimonial/logo/kbmh.png",
+    rating: 5
   },
   {
     id: 4,
     name: "Becket U",
     text: "We have had the pleasure of working with Cheenie for over a year, and we are consistently impressed by her professionalism and attention to detail. She is a clear communicator, and she is always learning new skills that can be applied to our videos.",
-    logo: "/img/Logo/becket.png"
+    logo: "/img/Logo/becket.png",
+    rating: 5
   },
   {
     id: 5,
     name: "Juan",
     text: "Fantastic experience from start to finish. Gemar brought creative ideas, nailed the cinematic look, and maintained a great attitude throughout. Positive, responsive, and easy to collaborate with. Turnaround was fast, edits were spot-on.",
-    logo: "/img/Logo/juan1.jpg"
+    logo: "/img/Logo/juan1.jpg",
+    rating: 5
   },
   {
     id: 6,
     name: "Josh",
     text: "Gemar did an amazing job on this project. I'm 100% satisfied and will work with him again. Fantastic communication. Fast replies. Prompt edits on final project with very helpful suggestions along the way.",
-    logo: "/img/Logo/josh.jpg"
+    logo: "/img/Logo/josh.jpg",
+    rating: 5
   },
   {
     id: 7,
     name: "Brimm",
     text: "Excellent video, I liked it a lot. Thanks for the efforts of the team! The clips were really strong and helped tell the story effectively.",
-    logo: "/img/Logo/brimm.png"
+    logo: "/img/Logo/brimm.png",
+    rating: 5
   },
   {
     id: 8,
     name: "Amos",
     text: "It was a pleasure working with Gemar! He's a skilled and reliable editor, and I highly recommend him to anyone looking for quality work. Wishing him all the best in his future endeavors!",
-    initial: "A"
+    initial: "A",
+    rating: 5
   },
   {
     id: 9,
     name: "Amanda_jane_100",
     text: "Very fast turnaround and great communication, was able to bring my idea to life! Thank you so much.",
-    initial: "A"
+    initial: "A",
+    rating: 5
   },
   {
     id: 10,
     name: "alex_addison",
     text: "Excellent work video editing work, responded well to feedback and revision requests and did a great job of working with a limited amount of material. Can't recommend this editor enough.",
-    initial: "A"
+    initial: "A",
+    rating: 5
   },
   {
     id: 11,
     name: "chuckp2",
     text: "He did a very good job. He tried mimicking the video style I had sent for reference, and did his research properly to put together the right footage. I will come back for more in the future. Highly recommended.",
-    logo: "/img/Logo/chuckp2.jpg"
+    logo: "/img/Logo/chuckp2.jpg",
+    rating: 5
   },
   {
     id: 12,
     name: "bradocross",
     text: "Provided me a fantastic video. The quality was amazing. Better than I could have ever imagined. Really happy and the seller was nice too! A very good experience indeed and will certainly be using again!",
-    initial: "B"
+    initial: "B",
+    rating: 5
   },
   {
     id: 13,
     name: "kameronchristie",
     text: "This seller is absolutely amazing and I definitely recommend you try him , the price is completely worth it and justifies the price. Communication is good and he made sure he hit his deadlines",
-    initial: "K"
+    initial: "K",
+    rating: 5
   },
   {
     id: 14,
     name: "henryhunter93",
     text: "fantastic attention to detail and outstanding communication as well. Cheenie is extremely talented and you won't be disappointed with his service!",
-    initial: "H"
+    initial: "H",
+    rating: 5
   }
 ];
 
 const Testimonial = () => {
   const [cardIndex, setCardIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+  const [testimonials, setTestimonials] = useState(staticTestimonials);
+  const [loading, setLoading] = useState(true);
 
-  const nextCard = () => setCardIndex((prev) => (prev + 1) % testimonialsData.length);
-  const prevCard = () => setCardIndex((prev) => (prev - 1 + testimonialsData.length) % testimonialsData.length);
+  useEffect(() => {
+    const fetchDynamicTestimonials = async () => {
+      try {
+        const response = await fetch('/api/testimonials');
+        if (response.ok) {
+          const dynamicData = await response.json();
+          // Map dynamic fields to match component expected structure
+          const formattedDynamic = dynamicData.map((t: any) => ({
+            id: `dyn-${t.id}`,
+            name: t.name,
+            text: t.text,
+            rating: t.rating || 5,
+            initial: t.name.charAt(0).toUpperCase(),
+            isDynamic: true
+          }));
+          
+          if (formattedDynamic.length > 0) {
+            setTestimonials([...formattedDynamic, ...staticTestimonials]);
+          }
+        }
+      } catch (error) {
+        console.error('Error loading dynamic testimonials:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchDynamicTestimonials();
+  }, []);
+
+  const nextCard = () => setCardIndex((prev) => (prev + 1) % testimonials.length);
+  const prevCard = () => setCardIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
 
   const getCardStyle = (index: number) => {
-    const total = testimonialsData.length;
+    const total = testimonials.length;
     let diff = index - cardIndex;
     if (diff > total / 2) diff -= total;
     if (diff < -total / 2) diff += total;
@@ -366,7 +413,7 @@ const Testimonial = () => {
 
           {/* 3D Stage */}
           <div className="relative h-[420px] sm:h-[480px] w-full flex items-center justify-center overflow-visible" style={{ transformStyle: 'preserve-3d' }}>
-            {testimonialsData.map((t, i) => {
+            {testimonials.map((t, i) => {
               const style = getCardStyle(i);
               return (
                 <div
@@ -388,6 +435,20 @@ const Testimonial = () => {
                     <span className="absolute top-2 left-5 text-9xl font-black text-[#00E0FF]/[0.05] pointer-events-none select-none group-hover:text-[#00E0FF]/[0.12] group-hover:scale-110 transition-all duration-700">
                       "
                     </span>
+
+                    {/* Star Rating */}
+                    <div className="relative z-10 flex gap-1 mb-4">
+                      {[...Array(5)].map((_, i) => (
+                        <Star
+                          key={i}
+                          className={`w-4 h-4 ${
+                            i < (t.rating || 5) 
+                              ? "fill-[#00E0FF] text-[#00E0FF] drop-shadow-[0_0_8px_rgba(0,224,255,0.8)]" 
+                              : "text-gray-600 fill-transparent"
+                          }`}
+                        />
+                      ))}
+                    </div>
 
                     <p className="relative z-10 flex-grow text-base sm:text-lg leading-relaxed mb-8 font-medium text-gray-300 italic group-hover:text-white transition-colors duration-500 line-clamp-6">
                       "{t.text}"
@@ -430,7 +491,7 @@ const Testimonial = () => {
 
           {/* Dot indicators */}
           <div className="flex justify-center gap-2 mt-6">
-            {testimonialsData.map((_, i) => (
+            {testimonials.map((_, i) => (
               <button
                 key={i}
                 onClick={() => setCardIndex(i)}

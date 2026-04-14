@@ -86,7 +86,7 @@ const FeedbackPage = () => {
             Community Driven
           </div>
           <h1 className="text-5xl md:text-7xl font-black text-white mb-6 uppercase tracking-tighter">
-            Share Your <span className="text-[#00E0FF]">Pulse</span>
+            Share Your <span className="text-[#00E0FF]">Feedback</span>
           </h1>
           <p className="text-gray-400 text-lg max-w-xl mx-auto font-medium">
             How was your experience with Creon Motion? Your honest feedback helps us evolve.
@@ -111,8 +111,8 @@ const FeedbackPage = () => {
                     <Star
                       size={42}
                       className={`transition-all duration-300 ${star <= (hoverRating || rating)
-                          ? 'text-[#00E0FF] fill-[#00E0FF] drop-shadow-[0_0_15px_rgba(0,224,255,0.5)]'
-                          : 'text-white/10 fill-transparent'
+                        ? 'text-[#00E0FF] fill-[#00E0FF] drop-shadow-[0_0_15px_rgba(0,224,255,0.5)]'
+                        : 'text-white/10 fill-transparent'
                         }`}
                     />
                   </button>

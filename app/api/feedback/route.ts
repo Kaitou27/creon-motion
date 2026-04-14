@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import { Resend } from 'resend';
+import { supabase } from '@/app/lib/supabase';
+import crypto from 'crypto';
 
 export async function POST(request: NextRequest) {
   try {
@@ -11,6 +13,35 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Rating and message are required' }, { status: 400 });
     }
 
+    // Save to Supabase (approved is false by default in DB)
+    const { data: dbData, error: dbError } = await supabase
+      .from('testimonials')
+      .insert([
+        { 
+          name: name || 'Anonymous', 
+          email: email || null, 
+          rating, 
+          text: message 
+        }
+      ])
+      .select();
+
+    if (dbError) {
+      console.error('Database Error:', dbError);
+    }
+
+    const insertedId = dbData?.[0]?.id;
+    const secret = process.env.APPROVE_SECRET || '';
+    
+    // Generate secure token for one-click approval
+    const token = crypto
+      .createHash('sha256')
+      .update(`${insertedId}-${secret}`)
+      .digest('hex');
+
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+    const approveUrl = `${baseUrl}/api/approve-feedback?id=${insertedId}&token=${token}`;
+
     const smtpHost = process.env.SMTP_HOST;
     const smtpPort = Number(process.env.SMTP_PORT || 587);
     const smtpUser = process.env.SMTP_USER;
@@ -19,7 +50,7 @@ export async function POST(request: NextRequest) {
     const toAddress = 'info@creonmotion.com';
     const subject = `⭐ NEW FEEDBACK: ${rating}/5 from ${name || 'Anonymous'}`;
 
-    const text = `NEW FEEDBACK SUBMISSION\n\nName: ${name || 'Anonymous'}\nEmail: ${email || 'Not provided'}\nRating: ${rating}/5\nMessage: ${message}`;
+    const text = `NEW FEEDBACK SUBMISSION\n\nName: ${name || 'Anonymous'}\nEmail: ${email || 'Not provided'}\nRating: ${rating}/5\nMessage: ${message}\n\nAPPROVE & PUBLISH: ${approveUrl}`;
 
     const html = `
       <!DOCTYPE html>
@@ -37,12 +68,19 @@ export async function POST(request: NextRequest) {
             </div>
             <div style="margin-bottom: 20px;">
               <span style="color: #00E0FF; font-size: 12px; font-weight: bold; text-transform: uppercase;">From</span>
-              <p style="margin: 5px 0; font-size: 16px; font-weight: bold;">${name || 'Anonymous'}</p>
-              <p style="margin: 0; font-size: 14px; color: #00B8CC;">${email || 'Not provided'}</p>
+              <p style="margin: 5px 0; font-size: 16px; font-weight: bold;"><span style="color: #00B8CC; font-weight: normal; font-size: 13px;">Name:</span> ${name || 'Anonymous'}</p>
+              <p style="margin: 0; font-size: 14px; color: #00B8CC;"><span style="color: #00B8CC; font-weight: normal; font-size: 13px;">Email:</span> ${email || 'Not provided'}</p>
             </div>
-            <div style="background-color: #0A0F1A; padding: 20px; border-radius: 8px; border: 1px solid rgba(0, 224, 255, 0.1);">
+            <div style="background-color: #0A0F1A; padding: 20px; border-radius: 8px; border: 1px solid rgba(0, 224, 255, 0.1); margin-bottom: 30px;">
               <span style="color: #00E0FF; font-size: 11px; font-weight: bold; text-transform: uppercase;">Message</span>
               <p style="margin: 10px 0 0 0; font-size: 15px; line-height: 1.6; color: rgba(255, 255, 255, 0.9);">${message}</p>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+              <a href="${approveUrl}" style="display: inline-block; background-color: #00E0FF; color: #001A1F; padding: 18px 36px; border-radius: 12px; font-weight: 900; text-decoration: none; text-transform: uppercase; letter-spacing: 1px; font-size: 14px; box-shadow: 0 10px 20px rgba(0,224,255,0.2);">
+                APPROVE & PUBLISH
+              </a>
+              <p style="color: #666; font-size: 10px; margin-top: 15px;">Clicking this will immediately show the testimonial on your homepage.</p>
             </div>
           </div>
           <div style="background-color: #0A0F1A; padding: 20px; text-align: center; font-size: 10px; color: rgba(0, 224, 255, 0.5); letter-spacing: 1px;">
