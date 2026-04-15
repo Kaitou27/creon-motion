@@ -81,7 +81,7 @@ const Faq = () => {
   };
 
   return (
-    <section className="bg-[#001A1F] py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden border-t border-[#00E0FF]/15" style={{ fontFamily: 'var(--font-montserrat)' }}>
+    <section id="faq" className="bg-[#001A1F] py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden border-t border-[#00E0FF]/15" style={{ fontFamily: 'var(--font-montserrat)' }}>
       {/* Decorative top line */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00E0FF]/40 to-transparent"></div>
       {/* Enhanced Background Elements */}

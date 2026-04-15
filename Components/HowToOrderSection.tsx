@@ -10,7 +10,7 @@ const HowToOrderSection = () => {
   }, []);
 
   return (
-    <section className="bg-[#001A1F] min-h-screen relative overflow-hidden flex flex-col items-center justify-center py-20 px-4 sm:px-6 lg:px-8" style={{ fontFamily: 'var(--font-montserrat)' }}>
+    <section id="how-we-work" className="bg-[#001A1F] min-h-screen relative overflow-hidden flex flex-col items-center justify-center py-20 px-4 sm:px-6 lg:px-8" style={{ fontFamily: 'var(--font-montserrat)' }}>
       
       {/* ─── PREMIUM BACKGROUND ELEMENTS ───────────────────────────────── */}
       <div className="absolute inset-0 pointer-events-none">
