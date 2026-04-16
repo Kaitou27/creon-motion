@@ -18,7 +18,6 @@ const AIChatWidget = () => {
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const messagesEndRef = useRef<HTMLDivElement>(null);
 
   // Persistence Hydration
   useEffect(() => {
@@ -27,7 +26,10 @@ const AIChatWidget = () => {
 
     if (savedMessages) {
       try {
-        setMessages(JSON.parse(savedMessages));
+        const parsed = JSON.parse(savedMessages);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          setMessages(parsed);
+        }
       } catch (e) {
         console.error('Failed to parse saved chat messages');
       }
@@ -46,14 +48,6 @@ const AIChatWidget = () => {
   useEffect(() => {
     sessionStorage.setItem(CHAT_OPEN_KEY, isOpen.toString());
   }, [isOpen]);
-
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  useEffect(() => {
-    scrollToBottom();
-  }, [messages]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -198,8 +192,25 @@ const AIChatWidget = () => {
           </div>
 
           {/* Messages Area */}
-          <div className="flex-1 overflow-y-auto p-6 space-y-6 scrollbar-thin scrollbar-thumb-[#00E0FF]/20 scrollbar-track-transparent">
-            {messages.map((m, idx) => (
+          <div 
+            className="flex-1 overflow-y-auto p-6 flex flex-col-reverse gap-6 scrollbar-thin scrollbar-thumb-[#00E0FF]/20 scrollbar-track-transparent"
+          >
+            {/* 
+              In flex-col-reverse, the order is visually flipped. 
+              The first child in the DOM is at the visual bottom.
+            */}
+            {isLoading && (
+              <div className="flex items-start gap-3 animate-pulse">
+                <div className="w-8 h-8 bg-[#002A30] border border-[#00E0FF]/20 text-[#00E0FF] rounded-lg flex items-center justify-center">
+                  <Bot className="w-4 h-4" />
+                </div>
+                <div className="bg-[#020D12] text-white/40 border border-white/5 rounded-2xl rounded-tl-none px-4 py-3 text-sm">
+                  <Loader2 className="w-4 h-4 animate-spin" />
+                </div>
+              </div>
+            )}
+
+            {[...messages].reverse().map((m, idx) => (
               <div key={idx} className={`flex items-start gap-3 ${m.role === 'user' ? 'flex-row-reverse' : ''}`}>
                 <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 shadow-lg ${
                   m.role === 'user' 
@@ -217,17 +228,6 @@ const AIChatWidget = () => {
                 </div>
               </div>
             ))}
-            {isLoading && (
-              <div className="flex items-start gap-3 animate-pulse">
-                <div className="w-8 h-8 bg-[#002A30] border border-[#00E0FF]/20 text-[#00E0FF] rounded-lg flex items-center justify-center">
-                  <Bot className="w-4 h-4" />
-                </div>
-                <div className="bg-[#020D12] text-white/40 border border-white/5 rounded-2xl rounded-tl-none px-4 py-3 text-sm">
-                  <Loader2 className="w-4 h-4 animate-spin" />
-                </div>
-              </div>
-            )}
-            <div ref={messagesEndRef} />
           </div>
 
           {/* Input Area */}

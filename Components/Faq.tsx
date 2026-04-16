@@ -4,53 +4,64 @@ import React, { useState } from 'react';
 
 const FAQS = [
   {
-    question: 'What types of videos do you edit?',
+    question: 'How fast will I receive my videos?',
     answer:
-      'We specialize in short-form editing for Reels, TikToks, and Shorts, YouTube and faceless channel content, as well as motion graphics and 2D animation.',
+      'Delivery depends on the package and the complexity of the project. Most videos are delivered within 2 to 4 days, balancing speed and quality.',
   },
   {
-    question: 'What services do you offer?',
+    question: 'How do I request videos?',
     answer:
-      'You can check our Services page for a complete list. TikToks, and Shorts, YouTube and faceless channel content, as well as motion graphics and 2D animation.',
+      'You can start by submitting a project brief with the details of your video. From there, we review the scope, align on the direction, and guide you through the next steps.',
   },
   {
-    question: 'How much do your editing services cost?',
+    question: 'What happens after I submit a project brief?',
     answer:
-      'Visit our Pricing page for detailed packages and rates. We offer flexible pricing to suit different project scopes and budgets.',
+      'After you submit your brief, we review your answers and send relevant samples based on your content type. This helps you understand the quality and style we deliver.\n\nWe also provide a short overview of how the process works, including what’s included, timelines, and how approvals are handled.\n\nFrom there, we guide you to the next step, either a short call or a simple scope confirmation to get started.',
   },
   {
-    question: 'Can I request revisions?',
-    answer: 'Yes! We offer revision rounds to ensure you\'re completely satisfied with the final result.',
+    question: 'Why wouldn’t I just hire my own editor?',
+    answer:
+      'Hiring one editor means managing everything yourself. We handle the full process from editing and visuals to quality control, so you get consistent output without the extra workload.',
   },
   {
-    question: 'Do you work with content creators, businesses, or agencies?',
+    question: 'What if I’m not happy with my video?',
     answer:
-      'All of the above! Whether you\'re a solo creator or a brand, we tailor our editing to match your style and goals.',
+      'Revisions are included in every project. We refine the video until it aligns with your expectations and goals.',
   },
   {
-    question: 'Do you provide sample work or client feedback?',
+    question: 'Do you offer trials or sample videos?',
     answer:
-      'Absolutely! Check out our Testimonials page to hear from satisfied clients and see examples of our previous work.',
+      'We can share relevant samples of our previous work. For custom styles, we offer a paid pilot project to make sure we are aligned before moving forward.',
   },
   {
-    question: 'What if the package doesn\'t fit my needs?',
+    question: 'Are there any refunds if I don’t like the service?',
     answer:
-      'We also offer custom pricing. If your project is different from our standard packages, just tell us what you need and we\'ll make a plan that works for you.',
+      'Because of the time and resources involved, we don’t offer refunds. However, we work closely with you through revisions to make sure you’re satisfied with the final result.',
   },
   {
     question: 'Can I mix long-form and short-form videos in one plan?',
     answer:
-      'Yes. We can adjust your plan if you want a mix of long and short videos instead of sticking to one type.',
+      'Yes, depending on your needs. We can structure your plan to include both and recommend the best setup based on your content goals.',
   },
   {
-    question: 'If I don\'t use all my videos this month, can I use them next month?',
+    question: 'What if the package doesn’t fit my needs?',
     answer:
-      'No. Unused videos or minutes don\'t roll over. Each plan resets monthly, but you can adjust your package anytime if your needs change.',
+      'No problem. We can adjust the plan or recommend a better setup based on your content, workflow, and volume.',
   },
   {
-    question: 'Do you also provide thumbnails, scripts, and voiceovers?',
+    question: 'Do you work with content creators, businesses, or agencies?',
     answer:
-      'Yes. We can include thumbnails, scripts, and voiceovers in your package if you need them.',
+      'We work with all three, especially creators and brands focused on building consistent, high-quality content.',
+  },
+  {
+    question: 'What makes your service different?',
+    answer:
+      'We don’t just edit videos. We focus on how your content flows, combining structure, visuals, and pacing to keep viewers watching from start to finish.',
+  },
+  {
+    question: 'Do I need to prepare everything before starting?',
+    answer:
+      'No. You can start with what you have, and we’ll help organize the direction, visuals, and overall flow from there.',
   },
 ];
 
@@ -169,24 +180,33 @@ const Faq = () => {
             </p>
             
             {/* Enhanced Info Box */}
-            <div className="bg-gradient-to-r from-[#0A0F1A] to-[#0F1F2A] rounded-2xl p-6 border border-[#00E0FF]/20 shadow-lg relative overflow-hidden group">
+            <div className="bg-gradient-to-r from-[#0A0F1A] to-[#0F1F2A] rounded-2xl p-8 border border-[#00E0FF]/25 shadow-xl relative overflow-hidden group">
               {/* Background pattern */}
               <div className="absolute inset-0 opacity-5">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-[#00E0FF] rounded-full blur-2xl"></div>
               </div>
               
               <div className="relative z-10">
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="w-8 h-8 bg-[#00E0FF]/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <svg className="w-5 h-5 text-[#00E0FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 bg-[#00E0FF]/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-[0_0_15px_rgba(0,224,255,0.2)]">
+                    <svg className="w-6 h-6 text-[#00E0FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
-                  <h3 className="text-white font-semibold group-hover:text-[#00E0FF] transition-colors duration-300">Need More Help?</h3>
+                  <h3 className="text-xl font-bold text-white group-hover:text-[#00E0FF] transition-colors duration-300">Still unsure?</h3>
                 </div>
-                <p className="text-gray-300 text-sm group-hover:text-gray-200 transition-colors duration-300">
-                  Can't find what you're looking for? Our team is here to help with any specific questions about your project.
+                <p className="text-gray-300 text-base group-hover:text-gray-200 transition-colors duration-300 mb-8 leading-relaxed">
+                  We’ll guide you based on your content and goals.
                 </p>
+                
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <a href="/quote" className="flex-1 px-6 py-3.5 bg-[#00E0FF] text-[#001A1F] rounded-xl font-bold text-center hover:bg-[#00B8CC] transition-all duration-300 shadow-lg hover:shadow-[#00E0FF]/20 transform hover:-translate-y-0.5 whitespace-nowrap">
+                    Start Project
+                  </a>
+                  <a href="/discovery" className="flex-1 px-6 py-3.5 bg-transparent border-2 border-[#00E0FF]/40 text-white rounded-xl font-bold text-center hover:border-[#00E0FF] hover:bg-[#00E0FF]/5 transition-all duration-300 transform hover:-translate-y-0.5 whitespace-nowrap">
+                    Book a Call
+                  </a>
+                </div>
               </div>
               
               {/* Corner accent */}

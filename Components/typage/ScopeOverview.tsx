@@ -16,30 +16,30 @@ const ScopeOverview = () => {
   const sections = [
     {
       id: "01",
-      title: "1. What You’re Paying For",
+      title: "1. WHAT YOU’RE PAYING FOR",
       icon: <Zap className="text-[#00E0FF]" size={24} />,
       content: [
-        { type: 'text', value: "You are not paying for “editing hours.” You are paying for a structured production workflow designed to improve clarity, retention, and performance." },
-        { type: 'text', value: "Each deliverable includes:" },
+        { type: 'text', value: "You’re not paying for editing time. You’re paying for a structured system that improves how your content performs." },
+        { type: 'text', value: "Each video is handled through a complete production workflow, including:" },
         {
           type: 'list', value: [
             "Script and objective review",
             "Retention-focused structure and pacing",
             "Professional editing",
             "Motion graphics (if included in scope)",
-            "Sound design and polish",
-            "Quality control review before delivery"
+            "Sound design and final polish",
+            "Quality control before delivery"
           ]
         },
-        { type: 'text', value: "Work is handled through a structured team workflow not informal, single editor production." }
+        { type: 'text', value: "Work is handled by a team, not a single editor, to ensure consistency and quality." }
       ]
     },
     {
       id: "02",
-      title: "2. Deliverables",
+      title: "2. DELIVERABLES",
       icon: <Package className="text-[#00E0FF]" size={24} />,
       content: [
-        { type: 'text', value: "Before production begins, we formally define:" },
+        { type: 'text', value: "Before production begins, we clearly define the scope of each project, including:" },
         {
           type: 'list', value: [
             "Deliverable type and format",
@@ -47,18 +47,18 @@ const ScopeOverview = () => {
             "Output volume",
             "Complexity level",
             "Timeline",
-            "Revision limits"
+            "Revision rounds"
           ]
         },
-        { type: 'text', value: "If it is not defined in writing, it is not included." }
+        { type: 'text', value: "Each project is scoped in advance so you know exactly what to expect before we start." }
       ]
     },
     {
       id: "03",
-      title: "3. Timeline & Start Conditions",
+      title: "3. TIMELINE AND START CONDITIONS",
       icon: <Clock className="text-[#00E0FF]" size={24} />,
       content: [
-        { type: 'text', value: "Production timelines begin only when required inputs are received, including:" },
+        { type: 'text', value: "Production begins once all required inputs are received, including:" },
         {
           type: 'list', value: [
             "Final script (if applicable)",
@@ -68,100 +68,70 @@ const ScopeOverview = () => {
             "Confirmed decision-maker"
           ]
         },
-        { type: 'text', value: "Delays in asset submission or feedback may shift delivery timelines." }
+        { type: 'text', value: "Delays in feedback or missing assets may affect delivery timelines." }
       ]
     },
     {
       id: "04",
-      title: "4. Revisions",
+      title: "4. REVISIONS",
       icon: <RefreshCcw className="text-[#00E0FF]" size={24} />,
       content: [
-        { type: 'text', value: "Each deliverable includes defined revision rounds." },
+        { type: 'text', value: "Each project includes defined revision rounds based on scope." },
         { type: 'text', value: "Revisions include:" },
         {
           type: 'list', value: [
-            "Adjustments within approved direction",
-            "Clarifications within scope"
+            "Adjustments within the approved direction",
+            "Minor refinements and improvements",
+            "Clarifications within the agreed scope"
           ]
         },
         { type: 'text', value: "Revisions do not include:" },
         {
           type: 'list', value: [
-            "New creative direction",
-            "Additional scenes",
-            "Increased duration",
-            "Expanded animation complexity",
-            "Additional deliverables"
+            "New creative direction after approval",
+            "Additional scenes or restructuring",
+            "Increased duration"
           ]
         },
-        { type: 'text', value: "Material scope changes trigger formal change management." }
+        { type: 'text', value: "Major changes may require additional scope." }
       ]
     },
     {
       id: "05",
-      title: "5. What Is Not Included",
+      title: "5. WHAT’S NOT INCLUDED",
       icon: <XCircle className="text-[#00E0FF]" size={24} />,
       content: [
-        { type: 'text', value: "Unless explicitly scoped:" },
+        { type: 'text', value: "Unless clearly defined in the project scope, the following are not included:" },
         {
           type: 'list', value: [
             "Unlimited revisions",
             "Unpaid trial edits",
             "Speculative work",
-            "Undefined-scope starts",
-            "Same day turnaround",
-            "Platform strategy / ads"
+            "Undefined or unclear requests",
+            "Same-day turnaround",
+            "Platform strategy or marketing services"
           ]
         },
-        { type: 'text', value: "Structured production protects quality." }
+        { type: 'text', value: "Structured production ensures consistent quality and delivery." }
       ]
     },
     {
       id: "06",
-      title: "6. What Increases Investment",
+      title: "6. WHAT MAY INCREASE INVESTMENT",
       icon: <TrendingUp className="text-[#00E0FF]" size={24} />,
       content: [
-        { type: 'text', value: "Investment adjusts when scope changes, including:" },
+        { type: 'text', value: "Project scope and pricing may adjust based on:" },
         {
           type: 'list', value: [
             "Increased output volume",
             "Higher complexity",
-            "Accelerated timelines",
+            "Faster turnaround requirements",
             "Additional revision cycles",
-            "Expanded deliverables"
+            "Expanded deliverables",
+            "3D animation or advanced custom visuals"
           ]
         },
-        { type: 'text', value: "Any scope change requires written approval before continuation." }
-      ]
-    },
-    {
-      id: "07",
-      title: "7. Engagement Models",
-      icon: <Users className="text-[#00E0FF]" size={24} />,
-      content: [
-        { type: 'text', value: "Engagement Framework Original:" },
-        {
-          type: 'list', value: [
-            "Retainer Commitment",
-            "Paid Pilot",
-            "Single Project"
-          ]
-        },
-        { type: 'text', value: "Production capacity is reserved upon deposit." }
-      ]
-    },
-    {
-      id: "08",
-      title: "8. Decision & Scheduling",
-      icon: <FileCheck className="text-[#00E0FF]" size={24} />,
-      content: [
-        {
-          type: 'list', value: [
-            "Proposals are valid for 7–10 days",
-            "Scheduling confirmed upon deposit",
-            "Capacity is intentionally allocated"
-          ]
-        }
+        { type: 'text', value: "Any changes are discussed and approved before continuing." }
       ]
     }
   ];
