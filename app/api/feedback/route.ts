@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import { Resend } from 'resend';
-import { supabase } from '@/app/lib/supabase';
+import { supabaseAdmin } from '@/app/lib/supabaseAdmin';
 import crypto from 'crypto';
 
 export async function POST(request: NextRequest) {
@@ -13,24 +13,29 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Rating and message are required' }, { status: 400 });
     }
 
-    // Save to Supabase (approved is false by default in DB)
-    const { data: dbData, error: dbError } = await supabase
+    // Save to Supabase using ADMIN client to bypass RLS
+    const { data: dbData, error: dbError } = await supabaseAdmin
       .from('testimonials')
       .insert([
         { 
           name: name || 'Anonymous', 
           email: email || null, 
-          rating, 
+          rating: Number(rating), 
           text: message 
         }
       ])
-      .select();
+      .select('id');
 
     if (dbError) {
-      console.error('Database Error:', dbError);
+      console.error('Feedback API: Supabase Error:', dbError);
+      return NextResponse.json({ error: 'Failed to save feedback' }, { status: 500 });
     }
 
     const insertedId = dbData?.[0]?.id;
+    if (!insertedId) {
+      return NextResponse.json({ error: 'Failed to retrieve entry ID' }, { status: 500 });
+    }
+
     const secret = process.env.APPROVE_SECRET || '';
     
     // Generate secure token for one-click approval

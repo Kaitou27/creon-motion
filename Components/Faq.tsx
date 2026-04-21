@@ -203,7 +203,7 @@ const Faq = () => {
                   <a href="/quote" className="flex-1 px-6 py-3.5 bg-[#00E0FF] text-[#001A1F] rounded-xl font-bold text-center hover:bg-[#00B8CC] transition-all duration-300 shadow-lg hover:shadow-[#00E0FF]/20 transform hover:-translate-y-0.5 whitespace-nowrap">
                     Start Project
                   </a>
-                  <a href="/discovery" className="flex-1 px-6 py-3.5 bg-transparent border-2 border-[#00E0FF]/40 text-white rounded-xl font-bold text-center hover:border-[#00E0FF] hover:bg-[#00E0FF]/5 transition-all duration-300 transform hover:-translate-y-0.5 whitespace-nowrap">
+                  <a href="/book-a-call" className="flex-1 px-6 py-3.5 bg-transparent border-2 border-[#00E0FF]/40 text-white rounded-xl font-bold text-center hover:border-[#00E0FF] hover:bg-[#00E0FF]/5 transition-all duration-300 transform hover:-translate-y-0.5 whitespace-nowrap">
                     Book a Call
                   </a>
                 </div>
