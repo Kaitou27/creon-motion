@@ -130,6 +130,7 @@ const Testimonial = () => {
             name: t.name,
             text: t.text,
             rating: t.rating || 5,
+            logo: t.logo || null,
             initial: t.name.charAt(0).toUpperCase(),
             isDynamic: true
           }));

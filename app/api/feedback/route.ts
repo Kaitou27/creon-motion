@@ -7,7 +7,40 @@ import crypto from 'crypto';
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { name, email, rating, message } = body;
+    const { name, email, rating, message, logo } = body;
+
+    let logoUrl = null;
+
+    // Handle Logo Upload if provided
+    if (logo && logo.includes('base64')) {
+      try {
+        const base64Data = logo.split(',')[1];
+        const buffer = Buffer.from(base64Data, 'base64');
+        const fileExt = logo.split(';')[0].split('/')[1] || 'png';
+        const fileName = `logo-${Date.now()}-${Math.random().toString(36).substring(7)}.${fileExt}`;
+
+        const { data: storageData, error: storageError } = await supabaseAdmin
+          .storage
+          .from('logos')
+          .upload(fileName, buffer, { 
+            contentType: `image/${fileExt}`,
+            upsert: true
+          });
+
+        if (storageError) {
+          console.error('Feedback API: Storage Error:', storageError);
+        } else {
+          const { data: urlData } = supabaseAdmin
+            .storage
+            .from('logos')
+            .getPublicUrl(fileName);
+          
+          logoUrl = urlData.publicUrl;
+        }
+      } catch (uploadError) {
+        console.error('Feedback API: Logo Process Error:', uploadError);
+      }
+    }
 
     if (!rating || !message) {
       return NextResponse.json({ error: 'Rating and message are required' }, { status: 400 });
@@ -21,7 +54,8 @@ export async function POST(request: NextRequest) {
           name: name || 'Anonymous', 
           email: email || null, 
           rating: Number(rating), 
-          text: message 
+          text: message,
+          logo: logoUrl
         }
       ])
       .select('id');
@@ -55,7 +89,7 @@ export async function POST(request: NextRequest) {
     const toAddress = 'info@creonmotion.com';
     const subject = `⭐ NEW FEEDBACK: ${rating}/5 from ${name || 'Anonymous'}`;
 
-    const text = `NEW FEEDBACK SUBMISSION\n\nName: ${name || 'Anonymous'}\nEmail: ${email || 'Not provided'}\nRating: ${rating}/5\nMessage: ${message}\n\nAPPROVE & PUBLISH: ${approveUrl}`;
+    const text = `NEW FEEDBACK SUBMISSION\n\nName: ${name || 'Anonymous'}\nEmail: ${email || 'Not provided'}\nRating: ${rating}/5\nMessage: ${message}\nLogo: ${logoUrl || 'No logo provided'}\n\nAPPROVE & PUBLISH: ${approveUrl}`;
 
     const html = `
       <!DOCTYPE html>
@@ -71,10 +105,17 @@ export async function POST(request: NextRequest) {
               <span style="color: #00E0FF; font-size: 12px; font-weight: bold; text-transform: uppercase;">Rating</span>
               <div style="font-size: 32px; font-weight: 900; color: #00E0FF; margin-top: 5px;">${rating} / 5</div>
             </div>
-            <div style="margin-bottom: 20px;">
-              <span style="color: #00E0FF; font-size: 12px; font-weight: bold; text-transform: uppercase;">From</span>
-              <p style="margin: 5px 0; font-size: 16px; font-weight: bold;"><span style="color: #00B8CC; font-weight: normal; font-size: 13px;">Name:</span> ${name || 'Anonymous'}</p>
-              <p style="margin: 0; font-size: 14px; color: #00B8CC;"><span style="color: #00B8CC; font-weight: normal; font-size: 13px;">Email:</span> ${email || 'Not provided'}</p>
+            <div style="margin-bottom: 20px; display: flex; align-items: center; gap: 15px;">
+              ${logoUrl ? `
+                <div style="width: 50px; height: 50px; border-radius: 50%; border: 2px solid #00E0FF; overflow: hidden; background-color: #0A0F1A;">
+                  <img src="${logoUrl}" style="width: 100%; height: 100%; object-cover: cover;" />
+                </div>
+              ` : ''}
+              <div>
+                <span style="color: #00E0FF; font-size: 12px; font-weight: bold; text-transform: uppercase;">From</span>
+                <p style="margin: 5px 0; font-size: 16px; font-weight: bold;"><span style="color: #00B8CC; font-weight: normal; font-size: 13px;">Name:</span> ${name || 'Anonymous'}</p>
+                <p style="margin: 0; font-size: 14px; color: #00B8CC;"><span style="color: #00B8CC; font-weight: normal; font-size: 13px;">Email:</span> ${email || 'Not provided'}</p>
+              </div>
             </div>
             <div style="background-color: #0A0F1A; padding: 20px; border-radius: 8px; border: 1px solid rgba(0, 224, 255, 0.1); margin-bottom: 30px;">
               <span style="color: #00E0FF; font-size: 11px; font-weight: bold; text-transform: uppercase;">Message</span>

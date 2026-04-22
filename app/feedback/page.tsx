@@ -7,10 +7,29 @@ import Link from 'next/link';
 const FeedbackPage = () => {
   const [rating, setRating] = useState(0);
   const [hoverRating, setHoverRating] = useState(0);
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', message: '', logo: '' });
+  const [logoPreview, setLogoPreview] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState('');
+
+  const handleLogoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      if (file.size > 2 * 1024 * 1024) {
+        setError('Logo must be smaller than 2MB.');
+        return;
+      }
+      
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        const base64String = reader.result as string;
+        setLogoPreview(base64String);
+        setFormData(prev => ({ ...prev, logo: base64String }));
+      };
+      reader.readAsDataURL(file);
+    }
+  };
 
   const handleRatingClick = (value: number) => setRating(value);
 
@@ -140,6 +159,43 @@ const FeedbackPage = () => {
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-white/20 focus:outline-none focus:border-[#00E0FF]/50 focus:bg-white/[0.08] transition-all"
                 />
+              </div>
+            </div>
+
+            {/* Logo Upload Section */}
+            <div className="space-y-3">
+              <label className="text-[10px] font-black text-gray-500 uppercase tracking-widest ml-1">Brand Logo (Optional)</label>
+              <div className="flex items-center gap-6 p-6 bg-white/5 border border-white/10 rounded-2xl">
+                <div className="relative group/logo">
+                  {logoPreview ? (
+                    <div className="w-16 h-16 rounded-full border-2 border-[#00E0FF] overflow-hidden bg-[#0A0F1A]">
+                      <img src={logoPreview} alt="Preview" className="w-full h-full object-cover" />
+                    </div>
+                  ) : (
+                    <div className="w-16 h-16 rounded-full border-2 border-white/10 flex items-center justify-center bg-[#0A0F1A] text-white/20">
+                      <Sparkles size={24} />
+                    </div>
+                  )}
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={handleLogoChange}
+                    className="absolute inset-0 opacity-0 cursor-pointer"
+                  />
+                </div>
+                <div className="flex-1">
+                  <p className="text-sm text-white font-bold">{logoPreview ? 'Logo selected' : 'Upload your logo'}</p>
+                  <p className="text-[10px] text-gray-500 uppercase tracking-wider mt-1">PNG or JPG, Max 2MB</p>
+                </div>
+                <label className="cursor-pointer px-4 py-2 bg-white/10 hover:bg-white/20 text-white text-[10px] font-black uppercase tracking-widest rounded-lg transition-all">
+                  Choose File
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={handleLogoChange}
+                    className="hidden"
+                  />
+                </label>
               </div>
             </div>
 

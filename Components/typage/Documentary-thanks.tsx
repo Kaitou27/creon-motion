@@ -6,16 +6,16 @@ import ThanksLayout from './ThanksLayout';
 const DocumentaryThanks = () => {
   const previousWorks = [
     {
-      thumbnail: 'https://img.youtube.com/vi/4OxKDnC29go/hqdefault.jpg',
-      link: 'https://www.youtube.com/shorts/4OxKDnC29go'
+      thumbnail: 'https://img.youtube.com/vi/ukW2gvjDgJg/hqdefault.jpg',
+      link: 'https://youtu.be/ukW2gvjDgJg'
     },
     {
-      thumbnail: 'https://img.youtube.com/vi/f-Lmp2y_Gn4/hqdefault.jpg',
-      link: 'https://www.youtube.com/shorts/f-Lmp2y_Gn4'
+      thumbnail: 'https://img.youtube.com/vi/ZWw1q-ZizGM/hqdefault.jpg',
+      link: 'https://youtu.be/ZWw1q-ZizGM'
     },
     {
-      thumbnail: 'https://img.youtube.com/vi/SWyn1EblWso/hqdefault.jpg',
-      link: 'https://www.youtube.com/shorts/SWyn1EblWso'
+      thumbnail: 'https://img.youtube.com/vi/VZtMpcdPMpU/hqdefault.jpg',
+      link: 'https://youtu.be/VZtMpcdPMpU'
     }
   ];
 
