@@ -2,6 +2,15 @@
 module.exports = {
   siteUrl: 'https://creonmotion.com',
   generateRobotsTxt: true,
-  sitemapSize: 7000,
+  exclude: ['/thanks/*', '/api/*', '/feedback'],
+  robotsTxtOptions: {
+    policies: [
+      {
+        userAgent: '*',
+        allow: '/',
+        disallow: ['/thanks', '/api', '/feedback'],
+      },
+    ],
+  },
 };
 
