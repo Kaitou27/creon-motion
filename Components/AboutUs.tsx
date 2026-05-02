@@ -5,7 +5,7 @@ const AboutUs = () => {
     <div className="min-h-screen bg-[#001A1F]" style={{ fontFamily: 'var(--font-montserrat)' }}>
       <div className="pt-0">
         {/* Hero Section - Full Screen About Us */}
-        <section className="w-full h-screen bg-gradient-to-br from-[#001A1F] via-[#002A2F] to-[#001A1F] relative overflow-hidden flex items-center" data-aos="fade-up" data-aos-duration="900">
+        <section className="w-full h-screen bg-gradient-to-br from-[#001A1F] via-[#002A2F] to-[#001A1F] relative overflow-hidden flex items-start sm:items-center" data-aos="fade-up" data-aos-duration="900">
           {/* Header Area Subtle Designs */}
           <div className="absolute top-0 left-0 right-0 h-32 overflow-hidden pointer-events-none">
             {/* Top Edge Glow */}
@@ -147,7 +147,7 @@ const AboutUs = () => {
           </div>
 
           {/* Main Content Container */}
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 grid grid-cols-1 place-items-center gap-8 sm:gap-10 md:gap-12 relative z-10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 grid grid-cols-1 place-items-center gap-8 sm:gap-10 md:gap-12 relative z-10 pt-12 sm:pt-0">
             {/* Left: Heading + Copy */}
             <div className="space-y-6 sm:space-y-8 md:space-y-10 text-center md:pr-0 lg:pr-0 flex flex-col items-center">
               <div className="space-y-3 sm:space-y-4">
@@ -1079,7 +1079,7 @@ const AboutUs = () => {
             </div>
 
             {/* Atlassian-Style Team Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12 sm:gap-y-40">
               {[
                 {
                   name: "Cheenie Caballero",
@@ -1210,7 +1210,7 @@ const AboutUs = () => {
               ].map((member, i) => (
                 <div
                   key={i}
-                  className={`group ${i >= 3 ? "lg:mt-20" : ""}`}
+                  className="group"
                   data-aos="fade-up"
                   data-aos-delay={i * 100}
                 >
@@ -1221,7 +1221,7 @@ const AboutUs = () => {
                         <img
                           src={member.frame}
                           alt="Frame"
-                          className="absolute inset-0 w-full h-full object-contain z-0 transition-transform duration-700 scale-110" 
+                          className="absolute inset-0 w-full h-full object-contain z-0 transition-transform duration-700 scale-100 sm:scale-110" 
                         />
                       )}
 
@@ -1231,12 +1231,12 @@ const AboutUs = () => {
                       )}
 
                       {/* Framing Box */}
-                      <div className={`relative w-full h-full ${member.isTransparent ? "bg-transparent shadow-none" : "bg-[#01161B] rounded-lg shadow-inner overflow-hidden"} flex items-center justify-center transition-transform duration-500`}>
+                      <div className={`relative w-full h-full ${member.isTransparent ? "bg-transparent shadow-none overflow-hidden sm:overflow-visible" : "bg-[#01161B] rounded-lg shadow-inner overflow-hidden"} flex items-center justify-center transition-transform duration-500`}>
                         {/* Portrait */}
                         <img
                           src={member.image}
                           alt={member.name}
-                          className={`w-full h-full object-contain z-10 transition-transform duration-700 ${member.isTransparent ? (member.isFeatured ? "p-0 translate-y-[-98px] scale-115" : "p-4") : "pt-4"}`}
+                          className={`w-full h-full object-contain z-10 transition-transform duration-700 ${member.isTransparent ? (member.isFeatured ? "p-4 sm:p-0 translate-y-0 sm:translate-y-[-98px] scale-100 sm:scale-115" : "p-4") : "pt-4"}`}
                         />
                       </div>
 
