@@ -243,7 +243,7 @@ const ServicesSection = () => {
   }, []);
 
   return (
-    <section id="services" className="bg-[#001A1F] text-white py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 relative overflow-hidden border-t border-white/10" style={{ fontFamily: 'var(--font-montserrat)' }}>
+    <section id="services" className="bg-[#001A1F] text-white py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 relative overflow-x-hidden border-t border-white/10" style={{ fontFamily: 'var(--font-montserrat)' }}>
       {/* Enhanced Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-80 h-80 bg-[#00E0FF]/3 rounded-full blur-3xl animate-pulse"></div>

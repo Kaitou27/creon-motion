@@ -18,6 +18,18 @@ const AIChatWidget = () => {
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [isLabelVisible, setIsLabelVisible] = useState(true);
+
+  // Auto-hide label on mobile after 3 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      // Check if mobile (approx < 640px)
+      if (window.innerWidth < 640) {
+        setIsLabelVisible(false);
+      }
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, []);
 
   // Persistence Hydration
   useEffect(() => {
@@ -146,29 +158,45 @@ const AIChatWidget = () => {
   };
 
   return (
-    <div className="fixed bottom-8 right-8 z-[9999] font-sans">
+    <div className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 z-[9999] font-sans">
       {/* Floating Toggle Button */}
       {!isOpen && (
-        <button
-          onClick={() => setIsOpen(true)}
-          className="relative group flex items-center justify-center w-16 h-16 bg-[#001A1F] border border-[#00E0FF]/50 rounded-2xl shadow-[0_0_30px_rgba(0,224,255,0.2)] hover:scale-110 transition-all duration-500 cursor-pointer overflow-hidden"
-        >
-          <div className="absolute inset-0 bg-gradient-to-br from-[#00E0FF]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-          <div className="absolute inset-0 border-2 border-[#00E0FF]/20 rounded-2xl animate-pulse" />
-          <MessageSquare className="w-7 h-7 text-[#00E0FF] relative z-10 transition-transform duration-500 group-hover:rotate-[360deg]" />
-          
-          {/* Tooltip */}
+        <div className="relative group">
+          {/* Permanent Label Above Icon (Auto-hides on mobile) */}
+          {isLabelVisible && (
+            <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 px-3 py-1 bg-[#001A1F]/80 backdrop-blur-md border border-[#00E0FF]/30 rounded-full shadow-[0_0_15px_rgba(0,224,255,0.1)] transition-opacity duration-1000">
+              <span className="text-[#00E0FF] text-[9px] font-bold uppercase tracking-[0.15em] whitespace-nowrap">
+                Chat Assistant
+              </span>
+            </div>
+          )}
+
+          <button
+            onClick={() => setIsOpen(true)}
+            className="relative flex items-center justify-center w-16 h-16 bg-[#001A1F] border border-[#00E0FF]/50 rounded-2xl shadow-[0_0_30px_rgba(0,224,255,0.2)] hover:scale-110 transition-all duration-500 cursor-pointer overflow-hidden"
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-[#00E0FF]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute inset-0 border-2 border-[#00E0FF]/20 rounded-2xl animate-pulse" />
+            <MessageSquare className="w-7 h-7 text-[#00E0FF] relative z-10 transition-transform duration-500 group-hover:rotate-[360deg]" />
+            
+            {/* Notification Pulse */}
+            <div className="absolute top-3 right-3 w-3 h-3 bg-[#00E0FF] rounded-full shadow-[0_0_10px_#00E0FF] z-20">
+              <div className="absolute inset-0 bg-[#00E0FF] rounded-full animate-ping opacity-75" />
+            </div>
+          </button>
+
+          {/* Tooltip (Hover) */}
           <div className="absolute right-full mr-6 top-1/2 -translate-y-1/2 px-4 py-2 bg-[#020D12] border border-[#00E0FF]/30 text-[#00E0FF] text-[10px] font-bold uppercase tracking-[0.2em] rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0 whitespace-nowrap pointer-events-none shadow-[0_0_20px_rgba(0,224,255,0.1)]">
             Chat Assistant
           </div>
-        </button>
+        </div>
       )}
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="flex flex-col w-[380px] h-[550px] bg-[#001A1F] border border-[#00E0FF]/30 rounded-3xl shadow-[0_0_50px_rgba(0,0,0,0.8)] overflow-hidden animate-in fade-in slide-in-from-bottom-10 duration-500">
+        <div className="flex flex-col w-[calc(100vw-32px)] sm:w-[380px] h-[500px] sm:h-[550px] bg-[#001A1F] border border-[#00E0FF]/30 rounded-3xl shadow-[0_0_50px_rgba(0,0,0,0.8)] overflow-hidden animate-in fade-in slide-in-from-bottom-10 duration-500">
           {/* Header */}
-          <div className="flex items-center justify-between p-6 bg-gradient-to-r from-[#001A1F] via-[#002A30] to-[#001A1F] border-b border-[#00E0FF]/10">
+          <div className="flex items-center justify-between p-4 sm:p-6 bg-gradient-to-r from-[#001A1F] via-[#002A30] to-[#001A1F] border-b border-[#00E0FF]/10">
             <div className="flex items-center gap-3">
               <div className="relative">
                 <div className="w-10 h-10 bg-[#001A1F] border border-[#00E0FF]/50 rounded-xl flex items-center justify-center">
@@ -193,7 +221,7 @@ const AIChatWidget = () => {
 
           {/* Messages Area */}
           <div 
-            className="flex-1 overflow-y-auto p-6 flex flex-col-reverse gap-6 scrollbar-thin scrollbar-thumb-[#00E0FF]/20 scrollbar-track-transparent"
+            className="flex-1 overflow-y-auto p-4 sm:p-6 flex flex-col-reverse gap-4 sm:gap-6 scrollbar-thin scrollbar-thumb-[#00E0FF]/20 scrollbar-track-transparent"
           >
             {/* 
               In flex-col-reverse, the order is visually flipped. 
@@ -231,7 +259,7 @@ const AIChatWidget = () => {
           </div>
 
           {/* Input Area */}
-          <div className="p-6 bg-[#001418] border-t border-white/5">
+          <div className="p-4 sm:p-6 bg-[#001418] border-t border-white/5">
             <form onSubmit={handleSubmit} className="relative group">
               <textarea
                 ref={textareaRef}

@@ -160,7 +160,7 @@ const Testimonial = () => {
     const absDiff = Math.abs(diff);
     const opacity = absDiff > 2 ? 0 : 1 - absDiff * 0.4;
     const scale = 1 - absDiff * 0.15;
-    const translateX = diff * (isMobile ? 80 : 120);
+    const translateX = diff * (isMobile ? 50 : 120);
     const translateZ = absDiff * -150;
     const rotateY = diff * -25;
     const zIndex = 100 - absDiff * 10;
@@ -181,7 +181,7 @@ const Testimonial = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#001A1F] relative overflow-hidden" style={{ fontFamily: 'var(--font-montserrat)' }}>
+    <div className="min-h-screen flex flex-col bg-[#001A1F] relative overflow-x-hidden" style={{ fontFamily: 'var(--font-montserrat)' }}>
 
       {/* ─── HERO SECTION ─────────────────────────────────────────── */}
       <section className="w-full h-screen bg-[#001A1F] relative overflow-hidden flex items-center" data-aos="fade-up" data-aos-duration="900">
@@ -300,7 +300,7 @@ const Testimonial = () => {
       </div>
 
       {/* ─── WHAT OUR CLIENTS SAY + CAROUSEL ────────────────────────── */}
-      <section className="relative w-full flex flex-col items-center py-16 px-4 overflow-hidden">
+      <section className="relative w-full flex flex-col items-center py-16 px-4 overflow-x-hidden">
 
         {/* Section dot grid */}
         <div className="pointer-events-none absolute inset-0 opacity-25">
@@ -397,7 +397,7 @@ const Testimonial = () => {
           {/* Nav – Prev */}
           <button
             onClick={prevCard}
-            className="absolute left-2 sm:left-0 top-1/2 -translate-y-1/2 bg-[#00E0FF] text-black p-3 rounded-full shadow-[0_0_20px_rgba(0,224,255,0.5)] hover:scale-110 active:scale-95 transition-all duration-200 z-50 group"
+            className="absolute left-1 sm:left-0 top-1/2 -translate-y-1/2 bg-[#00E0FF] text-black p-2 sm:p-3 rounded-full shadow-[0_0_20px_rgba(0,224,255,0.5)] hover:scale-110 active:scale-95 transition-all duration-200 z-50 group"
             aria-label="Previous testimonial"
           >
             <ChevronRight className="w-5 h-5 rotate-180 group-hover:-translate-x-0.5 transition-transform" />
@@ -406,7 +406,7 @@ const Testimonial = () => {
           {/* Nav – Next */}
           <button
             onClick={nextCard}
-            className="absolute right-2 sm:right-0 top-1/2 -translate-y-1/2 bg-[#00E0FF] text-black p-3 rounded-full shadow-[0_0_20px_rgba(0,224,255,0.5)] hover:scale-110 active:scale-95 transition-all duration-200 z-50 group"
+            className="absolute right-1 sm:right-0 top-1/2 -translate-y-1/2 bg-[#00E0FF] text-black p-2 sm:p-3 rounded-full shadow-[0_0_20px_rgba(0,224,255,0.5)] hover:scale-110 active:scale-95 transition-all duration-200 z-50 group"
             aria-label="Next testimonial"
           >
             <ChevronRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
@@ -491,7 +491,7 @@ const Testimonial = () => {
           </div>
 
           {/* Dot indicators */}
-          <div className="flex justify-center gap-2 mt-6">
+          <div className="flex justify-center flex-wrap gap-2 mt-6 max-w-full">
             {testimonials.map((_, i) => (
               <button
                 key={i}

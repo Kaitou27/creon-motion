@@ -167,8 +167,8 @@ const Brand = () => {
             {/* Centered: Heading + Copy */}
                           <div className="space-y-10 text-center md:pr-0 lg:pr-0">  
             <div className="space-y-6">
-              <h1 className="text-6xl sm:text-7xl lg:text-8xl font-extrabold leading-[1.05] tracking-tight">
-                    <span className="block whitespace-nowrap bg-gradient-to-r from-white via-gray-200 to-gray-300 bg-clip-text text-transparent drop-shadow-2xl relative">
+              <h1 className="text-4xl xs:text-5xl sm:text-7xl lg:text-8xl font-extrabold leading-[1.1] tracking-tight">
+                    <span className="block bg-gradient-to-r from-white via-gray-200 to-gray-300 bg-clip-text text-transparent drop-shadow-2xl relative">
                       Branded &
                       <div className="absolute -top-2 -right-2 w-3 h-3 bg-[#00E0FF] rounded-full animate-ping opacity-80"></div>
                     </span>
@@ -187,7 +187,7 @@ const Brand = () => {
                 </div>
                 
                 <div className="relative mx-auto">
-                  <p className="text-gray-100 max-w-[780px] text-xl sm:text-2xl leading-relaxed font-medium mx-auto text-center">
+                  <p className="text-gray-100 max-w-[780px] text-lg sm:text-2xl leading-relaxed font-medium mx-auto text-center">
                 Story-driven edits using cinematic stock, text overlays, and motion graphics. Ideal for business, finance, and real-world breakdowns.
               </p>
                   <div className="absolute -right-4 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-[#00E0FF] rounded-full animate-ping opacity-80"></div>
@@ -198,25 +198,25 @@ const Brand = () => {
                 <div className="relative rounded-2xl border border-[#00E0FF]/20 bg-[#0A0F1A]/60 p-5">
                   <div className="pointer-events-none absolute -top-px left-1/2 -translate-x-1/2 w-12 h-px bg-gradient-to-r from-transparent via-[#00E0FF]/60 to-transparent" />
                   <span className="pointer-events-none absolute -top-1 left-1/2 -translate-x-1/2 inline-block w-1.5 h-1.5 rounded-full bg-[#00E0FF]/80" />
-                  <div className="text-4xl sm:text-5xl font-black text-white">2000+</div>
+                  <div className="text-3xl sm:text-5xl font-black text-white">2000+</div>
                   <div className="mt-1 text-xs sm:text-sm tracking-wide uppercase text-gray-300">Videos Brought to Life</div>
                 </div>
                 <div className="relative rounded-2xl border border-[#00E0FF]/20 bg-[#0A0F1A]/60 p-5">
                   <div className="pointer-events-none absolute -top-px left-1/2 -translate-x-1/2 w-12 h-px bg-gradient-to-r from-transparent via-[#00E0FF]/60 to-transparent" />
                   <span className="pointer-events-none absolute -top-1 left-1/2 -translate-x-1/2 inline-block w-1.5 h-1.5 rounded-full bg-[#00E0FF]/80" />
-                  <div className="text-4xl sm:text-5xl font-black text-white">100+</div>
+                  <div className="text-3xl sm:text-5xl font-black text-white">100+</div>
                   <div className="mt-1 text-xs sm:text-sm tracking-wide uppercase text-gray-300">Clients We have Worked With</div>
                 </div>
                 <div className="relative rounded-2xl border border-[#00E0FF]/20 bg-[#0A0F1A]/60 p-5">
                   <div className="pointer-events-none absolute -top-px left-1/2 -translate-x-1/2 w-12 h-px bg-gradient-to-r from-transparent via-[#00E0FF]/60 to-transparent" />
                   <span className="pointer-events-none absolute -top-1 left-1/2 -translate-x-1/2 inline-block w-1.5 h-1.5 rounded-full bg-[#00E0FF]/80" />
-                  <div className="text-4xl sm:text-5xl font-black text-white">20+</div>
+                  <div className="text-3xl sm:text-5xl font-black text-white">20+</div>
                   <div className="mt-1 text-xs sm:text-sm tracking-wide uppercase text-gray-300">Countries Served</div>
                 </div>
                 <div className="relative rounded-2xl border border-[#00E0FF]/20 bg-[#0A0F1A]/60 p-5">
                   <div className="pointer-events-none absolute -top-px left-1/2 -translate-x-1/2 w-12 h-px bg-gradient-to-r from-transparent via-[#00E0FF]/60 to-transparent" />
                   <span className="pointer-events-none absolute -top-1 left-1/2 -translate-x-1/2 inline-block w-1.5 h-1.5 rounded-full bg-[#00E0FF]/80" />
-                  <div className="text-4xl sm:text-5xl font-black text-white">98%</div>
+                  <div className="text-3xl sm:text-5xl font-black text-white">98%</div>
                   <div className="mt-1 text-xs sm:text-sm tracking-wide uppercase text-gray-300">Client Satisfaction</div>
                 </div>
               </div>

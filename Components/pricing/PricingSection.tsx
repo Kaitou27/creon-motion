@@ -66,11 +66,11 @@ const PricingSection = () => {
         </div>
 
         {/* Pricing Card Display area */}
-        <div className="flex justify-center max-w-[1600px] w-full mx-auto mb-16 relative px-4 lg:px-8">
+        <div className="flex justify-center max-w-[1600px] w-full mx-auto mb-16 relative px-2 sm:px-4 lg:px-8">
 
           {/* Paid Pilot Plan */}
           {activePlan === 'Paid Pilot' && (
-            <div className="bg-gradient-to-br from-[#0A0F1A] to-[#0F1F2A] rounded-2xl border border-[#00E0FF]/25 shadow-lg hover:shadow-xl hover:border-[#00E0FF]/40 transition-all duration-300 flex flex-col h-full group transform relative z-0 max-w-md w-full" data-aos="fade-up" data-aos-duration="600">
+            <div className="bg-gradient-to-br from-[#0A0F1A] to-[#0F1F2A] rounded-2xl border border-[#00E0FF]/25 shadow-lg hover:shadow-xl hover:border-[#00E0FF]/40 transition-all duration-300 flex flex-col h-full group transform relative z-0 max-w-full sm:max-w-md w-full" data-aos="fade-up" data-aos-duration="600">
               <div className="absolute inset-0 bg-[#00E0FF]/0 group-hover:bg-[#00E0FF]/5 transition-all duration-500 rounded-2xl"></div>
               <div className="p-8 pb-6 border-b border-[#00E0FF]/10 relative z-10">
                 <h3 className="text-2xl font-bold text-white mb-4 uppercase group-hover:text-[#00E0FF] transition-colors">Paid Pilot</h3>
@@ -121,7 +121,7 @@ const PricingSection = () => {
 
           {/* Foundation Plan */}
           {activePlan === 'Foundation' && (
-            <div className="bg-gradient-to-br from-[#0A0F1A] to-[#0F1F2A] rounded-2xl border border-[#00E0FF]/25 shadow-lg hover:shadow-xl hover:border-[#00E0FF]/40 transition-all duration-300 flex flex-col h-full group transform relative z-0 max-w-md w-full" data-aos="fade-up" data-aos-duration="600">
+            <div className="bg-gradient-to-br from-[#0A0F1A] to-[#0F1F2A] rounded-2xl border border-[#00E0FF]/25 shadow-lg hover:shadow-xl hover:border-[#00E0FF]/40 transition-all duration-300 flex flex-col h-full group transform relative z-0 max-w-full sm:max-w-md w-full" data-aos="fade-up" data-aos-duration="600">
               <div className="absolute inset-0 bg-[#00E0FF]/0 group-hover:bg-[#00E0FF]/5 transition-all duration-500 rounded-2xl"></div>
               <div className="p-8 pb-6 border-b border-[#00E0FF]/10 relative z-10">
                 <h3 className="text-2xl font-bold text-white mb-4 uppercase group-hover:text-[#00E0FF] transition-colors">Foundation</h3>
@@ -166,7 +166,7 @@ const PricingSection = () => {
 
           {/* Growth Plan */}
           {activePlan === 'Growth' && (
-            <div className="bg-gradient-to-br from-[#0F1F2A] to-[#012A34] rounded-2xl border-2 border-[#00E0FF] shadow-[0_0_30px_rgba(0,224,255,0.15)] hover:shadow-[0_0_40px_rgba(0,224,255,0.3)] transition-all duration-300 flex flex-col h-full transform relative z-10 max-w-md w-full scale-105" data-aos="fade-up" data-aos-duration="600">
+            <div className="bg-gradient-to-br from-[#0F1F2A] to-[#012A34] rounded-2xl border-2 border-[#00E0FF] shadow-[0_0_30px_rgba(0,224,255,0.15)] hover:shadow-[0_0_40px_rgba(0,224,255,0.3)] transition-all duration-300 flex flex-col h-full transform relative z-10 max-w-full sm:max-w-md w-full sm:scale-105" data-aos="fade-up" data-aos-duration="600">
               <div className="absolute inset-0 bg-[#00E0FF]/5 transition-all duration-500 rounded-2xl"></div>
               <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-[#00E0FF] text-[#001A1F] px-8 py-1.5 rounded-full font-bold text-sm tracking-wider uppercase shadow-[0_4px_10px_rgba(0,224,255,0.4)] z-20 whitespace-nowrap">
                 Most Popular
@@ -214,7 +214,7 @@ const PricingSection = () => {
 
           {/* Authority Plan */}
           {activePlan === 'Authority' && (
-            <div className="bg-gradient-to-br from-[#0A0F1A] to-[#0F1F2A] rounded-2xl border border-[#00E0FF]/25 shadow-lg hover:shadow-xl hover:border-[#00E0FF]/40 transition-all duration-300 flex flex-col h-full group transform relative z-0 max-w-md w-full" data-aos="fade-up" data-aos-duration="600">
+            <div className="bg-gradient-to-br from-[#0A0F1A] to-[#0F1F2A] rounded-2xl border border-[#00E0FF]/25 shadow-lg hover:shadow-xl hover:border-[#00E0FF]/40 transition-all duration-300 flex flex-col h-full group transform relative z-0 max-w-full sm:max-w-md w-full" data-aos="fade-up" data-aos-duration="600">
               <div className="absolute inset-0 bg-[#00E0FF]/0 group-hover:bg-[#00E0FF]/5 transition-all duration-500 rounded-2xl"></div>
               <div className="p-8 pb-6 border-b border-[#00E0FF]/10 relative z-10">
                 <h3 className="text-2xl font-bold text-white mb-4 uppercase group-hover:text-[#00E0FF] transition-colors">Authority</h3>
