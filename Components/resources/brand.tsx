@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import Testimonial from '../Testimonial';
 import WhoWeAreSection from '../WhoWeAreSection';
 import StartProjectSection from '../StartProjectSection';
 
@@ -420,7 +419,8 @@ const Brand = () => {
       
       {/* </section> */}
 
-      <Testimonial hideHero={true} />
+
+    
       <WhoWeAreSection />
       <StartProjectSection />
     </>

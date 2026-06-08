@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import Testimonial from '../Testimonial';
 import WhoWeAreSection from '../WhoWeAreSection';
 import StartProjectSection from '../StartProjectSection';
 
@@ -509,7 +508,8 @@ const TwoDThreeD = () => {
         </div>
       </section>
       
-      {false && (
+      
+{false && (
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#001A1F] via-[#002A2F] to-[#001A1F] relative overflow-hidden">
         {/* Dot Background Pattern */}
         <div className="absolute inset-0 opacity-25">
@@ -876,7 +876,6 @@ const TwoDThreeD = () => {
         </div>
       </section>)}
 
-      <Testimonial hideHero={true} />
       <WhoWeAreSection />
       <StartProjectSection />
     </>
