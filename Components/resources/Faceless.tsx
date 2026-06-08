@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Testimonial from '../Testimonial';
 import WhoWeAreSection from '../WhoWeAreSection';
+import StartProjectSection from '../StartProjectSection';
 
 const Faceless = () => {
   const [category, setCategory] = useState<'Compilation' | 'Documentary' | 'Animation' | 'TalkingHead'>('Compilation');
@@ -657,6 +658,7 @@ const Faceless = () => {
 
       <Testimonial hideHero={true} />
       <WhoWeAreSection />
+      <StartProjectSection />
     </>
   );
 };
