@@ -112,7 +112,7 @@ const staticTestimonials = [
   }
 ];
 
-const Testimonial = () => {
+const Testimonial = ({ hideHero = false }: { hideHero?: boolean }) => {
   const [cardIndex, setCardIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const [testimonials, setTestimonials] = useState(staticTestimonials);
@@ -181,10 +181,11 @@ const Testimonial = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#001A1F] relative overflow-x-hidden" style={{ fontFamily: 'var(--font-montserrat)' }}>
+    <div className={`${hideHero ? 'w-full' : 'min-h-screen'} flex flex-col bg-[#001A1F] relative overflow-hidden`} style={{ fontFamily: 'var(--font-montserrat)' }}>
 
       {/* ─── HERO SECTION ─────────────────────────────────────────── */}
-      <section className="w-full h-screen bg-[#001A1F] relative overflow-hidden flex items-center" data-aos="fade-up" data-aos-duration="900">
+      {!hideHero && (
+        <section className="w-full h-screen bg-[#001A1F] relative overflow-hidden flex items-center" data-aos="fade-up" data-aos-duration="900">
 
         {/* Top edge glow line */}
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00E0FF]/60 to-transparent pointer-events-none" />
@@ -292,15 +293,18 @@ const Testimonial = () => {
           </div>
         </div>
       </section>
+      )}
 
       {/* ─── SECTION DIVIDER ─────────────────────────────────────────── */}
+      {!hideHero && (
       <div className="relative flex items-center justify-center py-2 pointer-events-none">
         <div className="w-full h-px bg-gradient-to-r from-transparent via-[#00E0FF]/30 to-transparent" />
         <div className="absolute w-2 h-2 bg-[#00E0FF] rounded-full animate-ping opacity-60" />
       </div>
+      )}
 
       {/* ─── WHAT OUR CLIENTS SAY + CAROUSEL ────────────────────────── */}
-      <section className="relative w-full flex flex-col items-center py-16 px-4 overflow-x-hidden">
+      <section className={`relative w-full flex flex-col items-center ${hideHero ? 'py-4' : 'py-16'} px-4 overflow-hidden`}>
 
         {/* Section dot grid */}
         <div className="pointer-events-none absolute inset-0 opacity-25">
@@ -361,20 +365,25 @@ const Testimonial = () => {
         </div>
 
         {/* ── "What Our Client Says" badge ── */}
-        <div className="relative z-10 inline-flex items-center gap-3 px-8 py-3 rounded-full border border-[#00E0FF]/70 bg-[#001A1F]/60 backdrop-blur-md shadow-[0_0_24px_rgba(0,224,255,0.15)]">
-          <span className="w-2.5 h-2.5 bg-[#00E0FF] rounded-full animate-pulse shadow-md shadow-[#00E0FF]/50" />
-          <span className="text-[#00E0FF] text-sm sm:text-base md:text-lg font-bold tracking-widest uppercase">What Our Client Says</span>
-          <span className="w-2.5 h-2.5 bg-[#00B8CC] rounded-full animate-pulse shadow-md shadow-[#00B8CC]/50" style={{animationDelay:'0.5s'}} />
-        </div>
+        {!hideHero && (
+          <>
+            <div className="relative z-10 inline-flex items-center gap-3 px-8 py-3 rounded-full border border-[#00E0FF]/70 bg-[#001A1F]/60 backdrop-blur-md shadow-[0_0_24px_rgba(0,224,255,0.15)]">
+              <span className="w-2.5 h-2.5 bg-[#00E0FF] rounded-full animate-pulse shadow-md shadow-[#00E0FF]/50" />
+              <span className="text-[#00E0FF] text-sm sm:text-base md:text-lg font-bold tracking-widest uppercase">What Our Client Says</span>
+              <span className="w-2.5 h-2.5 bg-[#00B8CC] rounded-full animate-pulse shadow-md shadow-[#00B8CC]/50" style={{animationDelay:'0.5s'}} />
+            </div>
 
-        {/* Decorative rule below badge */}
-        <div className="relative z-10 mt-5 flex items-center gap-4">
-          <div className="w-16 h-px bg-gradient-to-r from-transparent to-[#00E0FF]/60" />
-          <div className="w-1.5 h-1.5 bg-[#00E0FF] rounded-full animate-ping opacity-70" />
-          <div className="w-16 h-px bg-gradient-to-l from-transparent to-[#00E0FF]/60" />
-        </div>
+            {/* Decorative rule below badge */}
+            <div className="relative z-10 mt-5 flex items-center gap-4">
+              <div className="w-16 h-px bg-gradient-to-r from-transparent to-[#00E0FF]/60" />
+              <div className="w-1.5 h-1.5 bg-[#00E0FF] rounded-full animate-ping opacity-70" />
+              <div className="w-16 h-px bg-gradient-to-l from-transparent to-[#00E0FF]/60" />
+            </div>
+          </>
+        )}
 
         {/* ── Top video ── */}
+        {!hideHero && (
         <div className="relative z-10 mt-8 w-full flex justify-center px-4">
           <div className="relative group rounded-2xl sm:rounded-3xl overflow-hidden border border-white/10 shadow-[0_8px_40px_rgba(0,224,255,0.15)] hover:shadow-[0_12px_60px_rgba(0,224,255,0.3)] transition-all duration-500 w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl bg-[#020D12]/80 backdrop-blur-sm">
             {/* Glow on hover */}
@@ -390,6 +399,7 @@ const Testimonial = () => {
             </video>
           </div>
         </div>
+        )}
 
         {/* ─── 3D Carousel ─────────────────────────────────────────── */}
         <div className="relative z-10 mt-14 sm:mt-16 w-full max-w-7xl px-4 sm:px-6 lg:px-8 mx-auto" style={{ perspective: '1500px' }}>
@@ -504,13 +514,16 @@ const Testimonial = () => {
         </div>
 
         {/* ─── Bottom decorative divider ─────────────────────────────── */}
+        {!hideHero && (
         <div className="relative z-10 mt-14 flex items-center gap-4 w-full max-w-xs">
           <div className="flex-1 h-px bg-gradient-to-r from-transparent to-[#00E0FF]/40" />
           <div className="w-1.5 h-1.5 bg-[#00E0FF] rounded-full animate-ping opacity-60" />
           <div className="flex-1 h-px bg-gradient-to-l from-transparent to-[#00E0FF]/40" />
         </div>
+        )}
 
         {/* ── Bottom video ── */}
+        {!hideHero && (
         <div className="relative z-10 mt-10 w-full flex justify-center px-4">
           <div className="relative group rounded-2xl sm:rounded-3xl overflow-hidden border border-white/10 shadow-[0_8px_40px_rgba(0,224,255,0.12)] hover:shadow-[0_12px_60px_rgba(0,224,255,0.28)] transition-all duration-500 w-full max-w-48 sm:max-w-64 md:max-w-80 lg:max-w-96 bg-[#020D12]/80 backdrop-blur-sm">
             <div className="absolute inset-0 bg-gradient-to-t from-[#00E0FF]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-10" />
@@ -524,6 +537,7 @@ const Testimonial = () => {
             </video>
           </div>
         </div>
+        )}
 
         {/* Bottom edge glow line */}
         <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00E0FF]/30 to-transparent mt-10" />
