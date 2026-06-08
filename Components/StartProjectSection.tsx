@@ -94,23 +94,9 @@ export default function StartProjectSection() {
 			<div className="max-w-6xl mx-auto px-4 relative">
 				{/* Heading Glow */}
 				<div className="absolute -top-6 left-1/2 -translate-x-1/2 w-80 h-24 bg-gradient-to-r from-[#00E0FF]/20 via-[#00B8CC]/15 to-[#0099B3]/10 blur-3xl rounded-full"></div>
-				<h2
-					className="text-4xl sm:text-5xl font-extrabold mb-2 font-montserrat tracking-tight text-white"
-					data-aos="fade-up"
-					data-aos-duration="900"
-				>
-					Start Project
-				</h2>
 
 				<div
-					className="w-14 h-1 bg-gradient-to-r from-[#00E0FF] to-[#00B8CC] mb-10"
-					data-aos="zoom-in"
-					data-aos-delay="200"
-					data-aos-duration="900"
-				/>
-
-				<div
-					className="text-center mb-10"
+					className="text-center"
 					data-aos="fade-up"
 					data-aos-delay="400"
 					data-aos-duration="900"
