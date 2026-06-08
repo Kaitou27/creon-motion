@@ -1,6 +1,9 @@
 # *
 User-agent: *
 Allow: /
+Disallow: /thanks
+Disallow: /api
+Disallow: /feedback
 
 # Host
 Host: https://creonmotion.com
