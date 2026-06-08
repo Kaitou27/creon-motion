@@ -1,7 +1,9 @@
 'use client';
 
 import React, { useState } from 'react';
-
+import Testimonial from '../Testimonial';
+import WhoWeAreSection from '../WhoWeAreSection';
+import StartProjectSection from '../StartProjectSection';
 
 const TwoDThreeD = () => {
   const [activeTab, setActiveTab] = useState<'shorts' | 'motion' | 'creator'>('shorts');
@@ -874,7 +876,9 @@ const TwoDThreeD = () => {
         </div>
       </section>)}
 
-
+      <Testimonial hideHero={true} />
+      <WhoWeAreSection />
+      <StartProjectSection />
     </>
   );
 };
