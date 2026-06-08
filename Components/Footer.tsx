@@ -21,7 +21,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-[#0A0F1A] text-gray-300 pt-6 sm:pt-8 md:pt-10 pb-4 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 border-t border-[#00E0FF]/10" style={{ fontFamily: 'var(--font-montserrat)' }}>
+    <footer id="contact" className="bg-[#0A0F1A] text-gray-300 pt-6 sm:pt-8 md:pt-10 pb-4 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 border-t border-[#00E0FF]/10" style={{ fontFamily: 'var(--font-montserrat)' }}>
       <div className="max-w-7xl mx-auto flex flex-col">
         <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 md:gap-10 lg:gap-8 items-start">
           {/* Connect Block */}
