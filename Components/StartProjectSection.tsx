@@ -96,7 +96,7 @@ export default function StartProjectSection() {
 				<div className="absolute -top-6 left-1/2 -translate-x-1/2 w-80 h-24 bg-gradient-to-r from-[#00E0FF]/20 via-[#00B8CC]/15 to-[#0099B3]/10 blur-3xl rounded-full"></div>
 
 				<div
-					className="text-center mb-10"
+					className="text-center"
 					data-aos="fade-up"
 					data-aos-delay="400"
 					data-aos-duration="900"
