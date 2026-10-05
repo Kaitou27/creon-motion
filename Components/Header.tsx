@@ -3,14 +3,14 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { ChevronRight } from 'lucide-react';
 
 const navItems = [
-  { name: "HOME", href: "/" },
-  { name: "SERVICES", href: "/#services", isAnchor: true },
-  { name: "PRICING", href: "/#pricing", isAnchor: true },
-  { name: "ABOUT US", href: "/about" },
-  { name: "TESTIMONIAL", href: "/testimonial" },
-  { name: "CONTACT US", href: "/#contact", isAnchor: true },
+  { name: "Home", href: "/" },
+  { name: "Services", href: "/#services", isAnchor: true },
+  { name: "About", href: "/about" },
+  { name: "Pricing", href: "/#pricing", isAnchor: true },
+  { name: "Contact", href: "/#contact", isAnchor: true },
 ];
 
 const Header = () => {
@@ -35,12 +35,11 @@ const Header = () => {
     
     // Base styles
     const baseClass = isMobile 
-      ? "text-white text-lg sm:text-xl font-medium flex items-center justify-center gap-1 no-underline transition-all duration-200 hover:text-[#00E0FF] w-full text-center mx-4 mb-3 uppercase tracking-wide py-2"
-      : "text-white text-base sm:text-lg font-medium flex items-center justify-center gap-1 no-underline transition-all duration-200 hover:text-[#00E0FF] w-full md:w-auto text-center uppercase tracking-wide";
+      ? "text-gray-300 text-lg sm:text-xl font-medium flex items-center justify-center gap-1 no-underline transition-all duration-200 hover:text-white w-full text-center mx-4 mb-3 py-2"
+      : "text-gray-300 text-sm font-medium flex items-center justify-center gap-1 no-underline transition-all duration-200 hover:text-white w-full md:w-auto text-center";
     
     const style = { 
-      fontFamily: 'var(--font-montserrat)',
-      textShadow: !isMobile ? '2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 8px rgba(0, 0, 0, 0.6)' : undefined
+      fontFamily: 'var(--font-montserrat)'
     };
 
     if (isAnchor && isHome) {
@@ -71,50 +70,52 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 w-full bg-transparent text-white flex items-center justify-between px-3 sm:px-6 md:px-8 lg:px-10 py-2 sm:py-3 md:py-4 z-[99999]">
-      {/* Mobile Logo */}
-      <div className="md:hidden flex items-center">
-        <span 
-          className="text-lg sm:text-xl font-medium uppercase tracking-wide" 
-          style={{ 
-            fontFamily: 'var(--font-montserrat)',
-            textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 8px rgba(0, 0, 0, 0.6)'
-          }}
-        >
-          Creon Motion
-        </span>
-      </div>
+    <header className="fixed top-0 left-0 w-full bg-[#001A1F]/80 backdrop-blur-md text-white px-6 sm:px-8 md:px-12 py-4 z-[99999] border-b border-white/5" style={{ fontFamily: 'var(--font-montserrat)' }}>
+      <div className="max-w-7xl mx-auto w-full flex items-center justify-between">
+        
+        {/* Left: Logo */}
+        <div className="flex items-center z-50">
+          <a href="/" className="flex flex-col items-center leading-none group no-underline">
+            <span className="text-2xl sm:text-3xl font-black text-white tracking-tight group-hover:text-gray-200 transition-colors leading-none">CREON</span>
+            <span className="flex justify-between w-[94%] text-[9px] sm:text-[11px] font-bold text-gray-400 uppercase group-hover:text-gray-300 transition-colors mt-[3px]">
+              <span>M</span><span>O</span><span>T</span><span>I</span><span>O</span><span>N</span>
+            </span>
+          </a>
+        </div>
 
-      {/* Centered Logo and Nav */}
-      <div className="hidden md:flex items-center justify-center gap-12 lg:gap-16 xl:gap-20 w-full">
-        <span 
-          className="text-lg sm:text-xl md:text-2xl font-medium uppercase tracking-wide" 
-          style={{ 
-            fontFamily: 'var(--font-montserrat)',
-            textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 8px rgba(0, 0, 0, 0.6)'
-          }}
-        >
-          Creon Motion
-        </span>
-        <nav className="flex items-center gap-6 md:gap-10">
+        {/* Center: Nav (Desktop) */}
+        <nav className="hidden md:flex items-center gap-8 lg:gap-10">
           {navItems.map(item => renderNavItem(item))}
         </nav>
+
+        {/* Right: CTA (Desktop) */}
+        <div className="hidden md:flex items-center">
+          <a href="/quote" className="flex items-center border border-white/20 hover:border-white/50 text-white text-sm font-medium px-5 py-2.5 rounded-full transition-all duration-300 hover:bg-white/5 no-underline">
+            Start a Project <ChevronRight className="w-4 h-4 ml-1" />
+          </a>
+        </div>
+
+        {/* Hamburger Toggle Button (Mobile) */}
+        <button
+          className="md:hidden flex flex-col justify-center items-center w-10 h-10 focus:outline-none z-50 ml-auto"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
+        >
+          <span className={`block w-6 h-0.5 bg-white mb-1.5 transition-transform duration-300 ease-in-out ${menuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
+          <span className={`block w-6 h-0.5 bg-white mb-1.5 transition-opacity duration-300 ${menuOpen ? 'opacity-0' : 'opacity-100'}`}></span>
+          <span className={`block w-6 h-0.5 bg-white transition-transform duration-300 ease-in-out ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+        </button>
+
       </div>
 
-      {/* Hamburger Toggle Button (Mobile) */}
-      <button
-        className="md:hidden flex flex-col justify-center items-center w-8 h-8 sm:w-10 sm:h-10 focus:outline-none z-40 ml-auto"
-        onClick={() => setMenuOpen(!menuOpen)}
-        aria-label="Toggle menu"
-      >
-        <span className={`block w-5 h-0.5 sm:w-6 sm:h-0.5 bg-white mb-1 transition-transform duration-300 ease-in-out ${menuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></span>
-        <span className={`block w-5 h-0.5 sm:w-6 sm:h-0.5 bg-white mb-1 transition-opacity duration-300 ${menuOpen ? 'opacity-0' : 'opacity-100'}`}></span>
-        <span className={`block w-5 h-0.5 sm:w-6 sm:h-0.5 bg-white transition-transform duration-300 ease-in-out ${menuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></span>
-      </button>
-
       {/* Mobile Navigation Menu */}
-      <nav className={`md:hidden flex-col absolute top-full left-0 w-full bg-[#0A0F1A] backdrop-blur-md py-6 border-t border-[#00E0FF]/20 transition-all duration-300 ease-in-out z-30 ${menuOpen ? 'flex' : 'hidden'}`}>
-        {navItems.map(item => renderNavItem(item, true))}
+      <nav className={`md:hidden flex-col absolute top-0 left-0 w-full h-screen bg-[#0A0F1A] flex items-center justify-center transition-all duration-300 ease-in-out z-40 ${menuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>
+        <div className="flex flex-col items-center w-full gap-4">
+          {navItems.map(item => renderNavItem(item, true))}
+          <a href="/quote" className="mt-8 border border-white/20 hover:border-white/50 text-white text-lg font-medium px-8 py-3 rounded-full transition-all duration-300 hover:bg-white/5 no-underline flex items-center" onClick={() => setMenuOpen(false)}>
+            Start a Project <ChevronRight className="w-5 h-5 ml-2" />
+          </a>
+        </div>
       </nav>
     </header>
   );

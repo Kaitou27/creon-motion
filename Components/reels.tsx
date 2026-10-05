@@ -98,7 +98,7 @@ const Reels: React.FC<ReelsProps> = () => {
   };
 
   return (
-    <section className="relative w-full h-[100svh] min-h-[100svh] max-h-screen flex items-center justify-center overflow-hidden sm:h-[100svh] bg-black">
+    <section id="work" className="relative w-full h-[100svh] min-h-[100svh] max-h-screen flex items-center justify-center overflow-hidden sm:h-[100svh] bg-black">
       {(!isPlaying || isSmallScreen) && (
         <div className="absolute top-4 sm:top-6 md:top-8 left-0 w-full z-[2] px-4">
           <div className="mx-auto w-fit flex flex-col items-center gap-2">

@@ -7,9 +7,9 @@ const PricingSection = () => {
 
   const plans = [
     { name: 'Paid Pilot', delay: 100 },
-    { name: 'Foundation', delay: 100 },
+    { name: 'Editing Partner', delay: 100 },
     { name: 'Growth', delay: 100, isPopular: true },
-    { name: 'Authority', delay: 100 }
+    { name: 'Visual Partner', delay: 100 }
   ];
 
   return (
@@ -70,102 +70,110 @@ const PricingSection = () => {
 
           {/* Paid Pilot Plan */}
           {activePlan === 'Paid Pilot' && (
-            <div className="bg-gradient-to-br from-[#0A0F1A] to-[#0F1F2A] rounded-2xl border border-[#00E0FF]/25 shadow-lg hover:shadow-xl hover:border-[#00E0FF]/40 transition-all duration-300 flex flex-col h-full group transform relative z-0 max-w-full sm:max-w-md w-full" data-aos="fade-up" data-aos-duration="600">
+            <div className="bg-gradient-to-br from-[#0A0F1A] to-[#0F1F2A] rounded-2xl border border-[#00E0FF]/25 shadow-lg hover:shadow-xl hover:border-[#00E0FF]/40 transition-all duration-300 flex flex-col h-full group transform relative z-0 max-w-full sm:max-w-md w-full mx-auto" data-aos="fade-up" data-aos-duration="600">
               <div className="absolute inset-0 bg-[#00E0FF]/0 group-hover:bg-[#00E0FF]/5 transition-all duration-500 rounded-2xl"></div>
-              <div className="p-8 pb-6 border-b border-[#00E0FF]/10 relative z-10">
-                <h3 className="text-2xl font-bold text-white mb-4 uppercase group-hover:text-[#00E0FF] transition-colors">Paid Pilot</h3>
-                <div className="flex items-baseline justify-center mb-2 mt-4 text-center mx-auto">
-                  <span className="text-3xl font-extrabold text-[#00E0FF]">Starting at $750</span>
+              
+              <div className="p-6 border-b border-[#00E0FF]/10 relative z-10 text-left">
+                <h3 className="text-xl font-bold text-white mb-2 uppercase tracking-wide group-hover:text-[#00E0FF] transition-colors">Start With One Video</h3>
+                <div className="flex items-baseline mb-3">
+                  <span className="text-3xl font-black text-[#00E0FF]">$250</span>
                 </div>
-                <div className="h-0.5 w-16 bg-gradient-to-r from-transparent via-[#00E0FF]/30 to-transparent mx-auto my-4 mt-6"></div>
-                <p className="text-gray-300 text-sm mb-2">A trial project designed to help both sides evaluate fit before moving into a monthly partnership.</p>
-                <p className="text-gray-300 text-sm">Experience our approach to retention, storytelling, pacing, and content production on a single project before committing to an ongoing plan.</p>
+                <p className="text-gray-300 text-sm font-medium">Try our editing before moving to a monthly plan.</p>
               </div>
-              <div className="p-8 pt-6 flex flex-col flex-grow relative z-10">
-                <div className="space-y-6 mb-8 text-left flex-grow">
+
+              <div className="p-8 pt-6 flex flex-col flex-grow relative z-10 text-left">
+                <div className="space-y-6 mb-8 flex-grow">
+                  
+                  {/* SUMMARY LIST */}
                   <div>
                     <h4 className="text-[#00E0FF] font-semibold text-xs uppercase tracking-wider mb-3">Includes</h4>
                     <ul className="space-y-3">
                       {[
-                        '1 video up to 8–10 minutes',
-                        'Hook improvement recommendations',
-                        'Professional editing and cleanup'
+                        '1 long-form video (15–20 finished minutes)',
+                        'Up to 60 minutes or 30 GB of raw footage',
+                        'Complete video editing, styling, and revisions'
                       ].map((item, idx) => (
                         <li key={idx} className="flex items-start text-gray-300 text-sm">
                           <svg className="w-5 h-5 text-[#00E0FF] mr-3 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
                           {item}
                         </li>
                       ))}
-                      
                     </ul>
-                    
-                    <a 
-                      href="/inclusion-paid"
-                      className="text-[#00E0FF] text-xs font-semibold mt-4 hover:underline focus:outline-none flex items-center"
-                    >
-                      See full inclusions...
-                      <svg className="w-3 h-3 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-                    </a>
                   </div>
+
+                  {/* BEST FOR & LINK */}
                   <div className="pt-4 border-t border-[#00E0FF]/10">
                     <h4 className="text-[#00E0FF] font-semibold text-xs uppercase tracking-wider mb-2">Best For</h4>
-                    <p className="text-gray-400 text-xs italic">Creators who want to test our workflow, communication, and creative approach before committing to a monthly partnership.</p>
+                    <p className="text-gray-400 text-xs italic mb-4">
+                      Creators who want to test our workflow, communication, and creative approach before committing to a monthly partnership.
+                    </p>
+                    <a 
+                      href="/inclusion-paid"
+                      className="text-[#00E0FF] text-xs font-semibold hover:underline focus:outline-none flex items-center group-hover:text-white transition-colors w-max"
+                    >
+                      See full inclusions
+                      <svg className="w-3 h-3 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" /></svg>
+                    </a>
                   </div>
                 </div>
-                <a href="/quote" className="w-full py-3 rounded-lg border border-[#00E0FF]/50 text-[#00E0FF] font-semibold hover:bg-[#00E0FF] hover:text-[#001A1F] transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,224,255,0.4)] text-center flex items-center justify-center">
-                  Start Pilot Project
+
+                <a href="/quote" className="w-full py-3 rounded-lg border border-[#00E0FF]/50 bg-transparent text-[#00E0FF] font-semibold hover:bg-[#00E0FF] hover:text-[#001A1F] transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,224,255,0.4)] text-center flex items-center justify-center">
+                  START WITH ONE VIDEO
                 </a>
               </div>
             </div>
           )}
 
-          {/* Foundation Plan */}
-          {activePlan === 'Foundation' && (
-            <div className="bg-gradient-to-br from-[#0A0F1A] to-[#0F1F2A] rounded-2xl border border-[#00E0FF]/25 shadow-lg hover:shadow-xl hover:border-[#00E0FF]/40 transition-all duration-300 flex flex-col h-full group transform relative z-0 max-w-full sm:max-w-md w-full" data-aos="fade-up" data-aos-duration="600">
+          {/* Editing Partner Plan */}
+          {activePlan === 'Editing Partner' && (
+            <div className="bg-gradient-to-br from-[#0A0F1A] to-[#0F1F2A] rounded-2xl border border-[#00E0FF]/25 shadow-lg hover:shadow-xl hover:border-[#00E0FF]/40 transition-all duration-300 flex flex-col h-full group transform relative z-0 max-w-full sm:max-w-md w-full mx-auto" data-aos="fade-up" data-aos-duration="600">
               <div className="absolute inset-0 bg-[#00E0FF]/0 group-hover:bg-[#00E0FF]/5 transition-all duration-500 rounded-2xl"></div>
-              <div className="p-8 pb-6 border-b border-[#00E0FF]/10 relative z-10">
-                <h3 className="text-2xl font-bold text-white mb-4 uppercase group-hover:text-[#00E0FF] transition-colors">Foundation</h3>
-                <div className="flex items-baseline justify-center mb-2">
-                  <span className="text-4xl font-extrabold text-[#00E0FF]">$1,800</span>
-                  <span className="text-gray-400 ml-2">/ month</span>
+              <div className="p-8 pb-6 border-b border-[#00E0FF]/10 relative z-10 text-left">
+                <h3 className="text-2xl font-bold text-white mb-4 uppercase group-hover:text-[#00E0FF] transition-colors">Editing Partner</h3>
+                <div className="flex items-baseline mb-2">
+                  <span className="text-4xl font-extrabold text-[#00E0FF]">$1,599</span>
+                  <span className="text-gray-400 ml-2 font-medium">/ month</span>
                 </div>
-                <div className="h-0.5 w-16 bg-gradient-to-r from-transparent via-[#00E0FF]/30 to-transparent mx-auto my-4 mt-6"></div>
-                <p className="text-gray-300 text-sm mb-2">For creators who want consistent content with stronger structure and viewer engagement.</p>
-                <p className="text-gray-300 text-sm">Professional editing designed to improve pacing, clarity, and overall viewing experience.</p>
+                <div className="h-0.5 w-16 bg-gradient-to-r from-transparent via-[#00E0FF]/30 to-transparent my-4 mt-6"></div>
+                <p className="text-gray-300 text-sm mb-2 font-medium">You send the footage. We handle the rest.</p>
               </div>
-              <div className="p-8 pt-6 flex flex-col flex-grow relative z-10">
-                <div className="space-y-6 mb-8 text-left flex-grow">
+              
+              <div className="p-8 pt-6 flex flex-col flex-grow relative z-10 text-left">
+                <div className="space-y-6 mb-8 flex-grow">
+                  
+                  {/* SUMMARY LIST */}
                   <div>
                     <h4 className="text-[#00E0FF] font-semibold text-xs uppercase tracking-wider mb-3">Includes</h4>
                     <ul className="space-y-3">
                       {[
-                        'Up to 4 videos per month (10-15 minutes each)',
-                        'Professional editing with clean pacing and structure',
-                        'Basic hook improvement'
+                        '6 to 8 long-form videos (15-20 mins each)',
+                        '6 short clips',
+                        'Long-form editing, hook improvement & light motion graphics',
+                        'Thumbnail for every video & Visual sourcing',
+                        'Final quality check & 3 revisions'
                       ].map((item, idx) => (
                         <li key={idx} className="flex items-start text-gray-300 text-sm">
                           <svg className="w-5 h-5 text-[#00E0FF] mr-3 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
                           {item}
                         </li>
                       ))}
-                      
                     </ul>
-                    
+                  </div>
+
+                  {/* LINK */}
+                  <div className="pt-4 border-t border-[#00E0FF]/10">
                     <a 
-                      href="/inclusion-foundation"
-                      className="text-[#00E0FF] text-xs font-semibold mt-4 hover:underline focus:outline-none flex items-center"
+                      href="/inclusion-editing"
+                      className="text-[#00E0FF] text-xs font-semibold hover:underline focus:outline-none flex items-center group-hover:text-white transition-colors w-max"
                     >
-                      See full inclusions...
-                      <svg className="w-3 h-3 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+                      See full inclusions
+                      <svg className="w-3 h-3 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" /></svg>
                     </a>
                   </div>
-                  <div>
-                    <h4 className="text-[#00E0FF] font-semibold text-xs uppercase tracking-wider mb-2">Best for</h4>
-                    <p className="text-gray-400 text-xs italic">Creators building consistency and improving content quality without managing a full creative team.</p>
-                  </div>
                 </div>
-                <a href="/quote" className="w-full py-3 rounded-lg border border-[#00E0FF]/50 text-[#00E0FF] font-semibold hover:bg-[#00E0FF] hover:text-[#001A1F] transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,224,255,0.4)] text-center flex items-center justify-center">
-                  Start Project
+
+                <a href="/quote" className="w-full py-3 rounded-lg border border-[#00E0FF]/50 bg-transparent text-[#00E0FF] font-semibold hover:bg-[#00E0FF] hover:text-[#001A1F] transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,224,255,0.4)] text-center flex items-center justify-center uppercase">
+                  Get Started
                 </a>
               </div>
             </div>
@@ -173,106 +181,115 @@ const PricingSection = () => {
 
           {/* Growth Plan */}
           {activePlan === 'Growth' && (
-            <div className="bg-gradient-to-br from-[#0F1F2A] to-[#012A34] rounded-2xl border-2 border-[#00E0FF] shadow-[0_0_30px_rgba(0,224,255,0.15)] hover:shadow-[0_0_40px_rgba(0,224,255,0.3)] transition-all duration-300 flex flex-col h-full transform relative z-10 max-w-full sm:max-w-md w-full sm:scale-105" data-aos="fade-up" data-aos-duration="600">
+            <div className="bg-gradient-to-br from-[#0F1F2A] to-[#012A34] rounded-2xl border-2 border-[#00E0FF] shadow-[0_0_30px_rgba(0,224,255,0.15)] hover:shadow-[0_0_40px_rgba(0,224,255,0.3)] transition-all duration-300 flex flex-col h-full transform relative z-10 max-w-full sm:max-w-md w-full sm:scale-105 mx-auto" data-aos="fade-up" data-aos-duration="600">
               <div className="absolute inset-0 bg-[#00E0FF]/5 transition-all duration-500 rounded-2xl"></div>
               <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-[#00E0FF] text-[#001A1F] px-8 py-1.5 rounded-full font-bold text-sm tracking-wider uppercase shadow-[0_4px_10px_rgba(0,224,255,0.4)] z-20 whitespace-nowrap">
                 Most Popular
               </div>
-              <div className="p-8 pb-6 border-b border-[#00E0FF]/25 mt-4 relative z-10">
-                <h3 className="text-3xl font-bold text-white mb-4 uppercase">Growth</h3>
-                <div className="flex items-baseline justify-center mb-2">
-                  <span className="text-5xl font-extrabold text-[#00E0FF] drop-shadow-[0_0_8px_rgba(0,224,255,0.5)]">$3,200</span>
-                  <span className="text-gray-300 ml-2">/ month</span>
+              <div className="p-8 pb-6 border-b border-[#00E0FF]/25 mt-4 relative z-10 text-left">
+                <h3 className="text-3xl font-bold text-white mb-4 uppercase">Growth Partner</h3>
+                <div className="flex items-baseline mb-2">
+                  <span className="text-5xl font-extrabold text-[#00E0FF] drop-shadow-[0_0_8px_rgba(0,224,255,0.5)]">$2,399</span>
+                  <span className="text-gray-300 ml-2 font-medium">/ month</span>
                 </div>
-                <div className="h-0.5 w-24 bg-gradient-to-r from-transparent via-[#00E0FF]/50 to-transparent mx-auto my-5"></div>
-                <p className="text-gray-200 text-sm mb-2">Built to keep viewers watching, not just deliver another upload.</p>
-                <p className="text-gray-200 text-sm">Designed for creators focused on retention, watch time, and audience growth.</p>
+                <div className="h-0.5 w-24 bg-gradient-to-r from-[#00E0FF]/50 to-transparent my-5"></div>
+                <p className="text-gray-200 text-sm mb-2 font-medium">More output and more creative support without building your own editing team.</p>
               </div>
-              <div className="p-8 pt-6 flex flex-col flex-grow relative z-10">
-                <div className="space-y-6 mb-8 text-left flex-grow">
+              
+              <div className="p-8 pt-6 flex flex-col flex-grow relative z-10 text-left">
+                <div className="space-y-6 mb-8 flex-grow">
+                  
+                  {/* SUMMARY LIST */}
                   <div>
                     <h4 className="text-[#00E0FF] font-semibold text-xs uppercase tracking-wider mb-3">Includes</h4>
                     <ul className="space-y-3">
                       {[
-                        'Up to 4–6 videos per month (8–10 minutes each)',
-                        'Hook refinement and intro improvement',
-                        'Retention-focused editing throughout the video'
+                        '8 to 10 long-form videos (15-20 mins)',
+                        'Everything in Editing Partner',
+                        '8 short clips',
+                        'Story and structure support',
+                        'More visual sourcing & Custom graphics',
+                        'Dedicated creative lead & priority production'
                       ].map((item, idx) => (
-                        <li key={idx} className="flex items-start text-white text-sm">
+                        <li key={idx} className="flex items-start text-white text-sm font-medium">
                           <svg className="w-5 h-5 text-[#00E0FF] mr-3 shrink-0 mt-0.5 drop-shadow-[0_0_5px_rgba(0,224,255,0.5)]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" /></svg>
                           {item}
                         </li>
                       ))}
-                      
                     </ul>
-                    
+                  </div>
+
+                  {/* BEST FOR & LINK */}
+                  <div className="pt-4 border-t border-[#00E0FF]/10">
+                    <h4 className="text-[#00E0FF] font-semibold text-xs uppercase tracking-wider mb-2">Best For</h4>
+                    <p className="text-gray-300 text-xs italic mb-4">
+                      Creators and teams publishing consistently who want more than an editor and want help improving the videos as they produce more content.
+                    </p>
                     <a 
                       href="/inclusions-growth"
-                      className="text-[#00E0FF] text-xs font-semibold mt-4 hover:underline focus:outline-none flex items-center"
+                      className="text-[#00E0FF] text-xs font-semibold hover:underline focus:outline-none flex items-center w-max"
                     >
-                      See full inclusions...
+                      See full inclusions
                       <svg className="w-3 h-3 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" /></svg>
                     </a>
                   </div>
-                  <div className="pt-4 border-t border-[#00E0FF]/10">
-                    <h4 className="text-[#00E0FF] font-semibold text-xs uppercase tracking-wider mb-2">Best For</h4>
-                    <p className="text-gray-300 text-xs italic">Creators looking to improve audience retention, strengthen storytelling, and scale their content.</p>
-                  </div>
                 </div>
-                <a href="/quote" className="w-full py-3 rounded-lg border border-[#00E0FF]/50 text-[#00E0FF] font-semibold hover:bg-[#00E0FF] hover:text-[#001A1F] transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,224,255,0.4)] text-center flex items-center justify-center">
-                  Start Project
+                
+                <a href="/quote" className="w-full py-3 rounded-lg border border-[#00E0FF]/50 bg-[#00E0FF] text-[#001A1F] font-bold text-sm tracking-wide uppercase hover:bg-white transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,224,255,0.4)] text-center flex items-center justify-center">
+                  GET STARTED
                 </a>
               </div>
             </div>
           )}
 
-          {/* Authority Plan */}
-          {activePlan === 'Authority' && (
-            <div className="bg-gradient-to-br from-[#0A0F1A] to-[#0F1F2A] rounded-2xl border border-[#00E0FF]/25 shadow-lg hover:shadow-xl hover:border-[#00E0FF]/40 transition-all duration-300 flex flex-col h-full group transform relative z-0 max-w-full sm:max-w-md w-full" data-aos="fade-up" data-aos-duration="600">
+          {/* Visual Partner Plan */}
+          {activePlan === 'Visual Partner' && (
+            <div className="bg-gradient-to-br from-[#0A0F1A] to-[#0F1F2A] rounded-2xl border border-[#00E0FF]/25 shadow-lg hover:shadow-xl hover:border-[#00E0FF]/40 transition-all duration-300 flex flex-col h-full group transform relative z-0 max-w-full sm:max-w-md w-full mx-auto" data-aos="fade-up" data-aos-duration="600">
               <div className="absolute inset-0 bg-[#00E0FF]/0 group-hover:bg-[#00E0FF]/5 transition-all duration-500 rounded-2xl"></div>
-              <div className="p-8 pb-6 border-b border-[#00E0FF]/10 relative z-10">
-                <h3 className="text-2xl font-bold text-white mb-4 uppercase group-hover:text-[#00E0FF] transition-colors">Authority</h3>
-                <div className="flex items-baseline justify-center mb-2 mt-2 text-center mx-auto">
-                  <span className="text-3xl font-extrabold text-[#00E0FF]">Starting at $5,500</span>
-                  <span className="text-gray-400 ml-2">/ month</span>
+              <div className="p-8 pb-6 border-b border-[#00E0FF]/10 relative z-10 text-left">
+                <h3 className="text-2xl font-bold text-white mb-4 uppercase group-hover:text-[#00E0FF] transition-colors">Visual Partner</h3>
+                <div className="flex items-baseline mb-2 mt-2">
+                  <span className="text-3xl font-extrabold text-[#00E0FF]">Starting at $2,999</span>
+                  <span className="text-gray-400 ml-2 font-medium">/ month</span>
                 </div>
-                <div className="h-0.5 w-16 bg-gradient-to-r from-transparent via-[#00E0FF]/30 to-transparent mx-auto my-4 mt-6"></div>
-                <p className="text-gray-300 text-sm mb-2">A dedicated creative partner focused on retention, storytelling, and long-term content growth.</p>
-                <p className="text-gray-300 text-sm">Built for brands and creators who want high-level content without building an in-house production team.</p>
+                <div className="h-0.5 w-16 bg-gradient-to-r from-transparent via-[#00E0FF]/30 to-transparent my-4 mt-6"></div>
+                <p className="text-gray-300 text-sm mb-2 font-medium">Built for videos where the visuals need more time and attention.</p>
               </div>
-              <div className="p-8 pt-6 flex flex-col flex-grow relative z-10">
+              <div className="p-8 pt-6 flex flex-col flex-grow relative z-10 text-left">
                 <div className="space-y-6 mb-8 text-left flex-grow">
+                  
+                  {/* SUMMARY LIST */}
                   <div>
                     <h4 className="text-[#00E0FF] font-semibold text-xs uppercase tracking-wider mb-3">Includes</h4>
                     <ul className="space-y-3">
                       {[
-                        'Up to 6–8 videos per month (depending on project complexity)',
-                        'Complete hook and intro strategy',
-                        'Advanced retention editing'
+                        'Up to 4 visually detailed videos (15-20 mins each)',
+                        'Detailed visual editing, story support & sound design',
+                        'Deeper visual sourcing & Custom scene design',
+                        '3D camera movement, parallax scenes & motion graphics',
+                        'Maps, data visuals & thumbnails for every video'
                       ].map((item, idx) => (
                         <li key={idx} className="flex items-start text-gray-300 text-sm">
                           <svg className="w-5 h-5 text-[#00E0FF] mr-3 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
                           {item}
                         </li>
                       ))}
-                      
                     </ul>
-                    
+                  </div>
+                  
+                  {/* LINK */}
+                  <div className="pt-4 border-t border-[#00E0FF]/10">
                     <a 
-                      href="/inclusions-authority"
-                      className="text-[#00E0FF] text-xs font-semibold mt-4 hover:underline focus:outline-none flex items-center"
+                      href="/inclusions-visual"
+                      className="text-[#00E0FF] text-xs font-semibold hover:underline focus:outline-none flex items-center group-hover:text-white transition-colors w-max"
                     >
-                      See full inclusions...
-                      <svg className="w-3 h-3 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+                      See full inclusions
+                      <svg className="w-3 h-3 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" /></svg>
                     </a>
                   </div>
-                  <div className="pt-4 border-t border-[#00E0FF]/10">
-                    <h4 className="text-[#00E0FF] font-semibold text-xs uppercase tracking-wider mb-2">Best For</h4>
-                    <p className="text-gray-400 text-xs italic">Brands and creators investing in authority, audience growth, and long-term content performance.</p>
-                  </div>
                 </div>
-                <a href="/quote" className="w-full py-3 rounded-lg border border-[#00E0FF]/50 text-[#00E0FF] font-semibold hover:bg-[#00E0FF] hover:text-[#001A1F] transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,224,255,0.4)] text-center flex items-center justify-center">
-                  Discuss Project
+                <a href="/quote" className="w-full py-3 rounded-lg border border-[#00E0FF]/50 bg-transparent text-[#00E0FF] font-semibold hover:bg-[#00E0FF] hover:text-[#001A1F] transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,224,255,0.4)] text-center flex items-center justify-center uppercase">
+                  Discuss Your Video Style
                 </a>
               </div>
             </div>
