@@ -5,31 +5,34 @@ import { CheckCircle2, ArrowRight } from 'lucide-react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-const InclusionPaid = () => {
+const InclusionEditing = () => {
   useEffect(() => {
     AOS.init({ once: true });
   }, []);
 
-  const videoDetails = [
-    "One long-form video",
-    "Up to 15–20 finished minutes",
-    "Up to 60 minutes or 30 GB of raw footage"
+  const outputDetails = [
+    "6 to 8 long-form videos per month (Typically 15 to 20 minutes each)",
+    "6 Short Clips Per Month (Selected moments prepared for Shorts, Reels, or TikTok)",
+    "Custom Thumbnail for Every Video",
+    "3 Revision Rounds Per Video",
+    "Upload-Ready Final Files",
+    "Project limits: Usually up to 60 minutes or 30 GB of raw footage per video"
   ];
 
   const editingDetails = [
-    "Complete video editing",
-    "B-roll and visual sourcing",
-    "Hook and intro cleanup",
-    "Light motion graphics and animated text",
-    "Music and sound",
-    "Color correction"
+    "Complete Long-Form Editing: Clean cuts, pacing, B-roll, text, transitions, sound, and final polish",
+    "Hook and Intro Improvement: We help tighten openings that feel slow or take too long",
+    "B-Roll and Visual Sourcing: Finding relevant footage, images, screenshots, and supporting visuals",
+    "Light Motion Graphics and Animated Text: Titles, callouts, lower thirds, and simple graphics",
+    "Music and Sound: Licensed music, sound effects, dialogue cleanup, and balanced audio",
+    "Color Correction: Keeping footage clean and visually consistent"
   ];
 
-  const deliverableDetails = [
-    "One custom thumbnail",
-    "Final quality check",
-    "3 revision rounds",
-    "Upload-ready final file"
+  const teamDetails = [
+    "Same Team for Your Channel: Your team gets familiar with your style and preferences over time",
+    "One Point of Contact: No need to manage separate editors and designers",
+    "Final Review Before Delivery: We check for editing mistakes, audio, spelling, and export issues",
+    "Easy Video Feedback: Leave comments directly on the video so revisions are clear"
   ];
 
   const ListBlock = ({ title, items }: { title: string, items: string[] }) => (
@@ -63,20 +66,20 @@ const InclusionPaid = () => {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div>
               <span className="text-[#00E0FF] font-bold tracking-widest text-xs uppercase bg-[#00E0FF]/10 px-3 py-1 rounded border border-[#00E0FF]/20 mb-4 inline-block">
-                Start With One Video
+                Editing Partner
               </span>
               <h1 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tight">
                 Full Inclusions
               </h1>
               <p className="text-xl text-gray-400 mt-4 max-w-2xl">
-                Try our editing before moving to a monthly plan. Experience our workflow and quality on a single project.
+                You send the footage. We handle the edit, visuals, thumbnail, and final delivery.
               </p>
             </div>
             <div className="text-left md:text-right">
               <div className="text-4xl font-black text-[#00E0FF] drop-shadow-[0_0_10px_rgba(0,224,255,0.3)]">
-                $250
+                $1,599
               </div>
-              <div className="text-xs font-bold uppercase tracking-widest text-gray-500 mt-1">One-Time Pilot</div>
+              <div className="text-xs font-bold uppercase tracking-widest text-gray-500 mt-1">Per Month</div>
             </div>
           </div>
         </div>
@@ -84,11 +87,11 @@ const InclusionPaid = () => {
         {/* Compact Grid Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
           <div className="space-y-6">
-            <ListBlock title="Video & Footage" items={videoDetails} />
-            <ListBlock title="Deliverables & Revisions" items={deliverableDetails} />
+            <ListBlock title="Output & Deliverables" items={outputDetails} />
+            <ListBlock title="Team & Workflow" items={teamDetails} />
           </div>
           <div>
-            <ListBlock title="Editing Services" items={editingDetails} />
+            <ListBlock title="Included Editing Services" items={editingDetails} />
           </div>
         </div>
 
@@ -97,11 +100,11 @@ const InclusionPaid = () => {
           <div className="flex-1">
             <h4 className="text-[#00E0FF] font-bold uppercase tracking-widest text-xs mb-2">Best For</h4>
             <p className="text-white font-medium text-lg">
-              Creators who want to see our editing quality and workflow before choosing a monthly plan.
+              Creators who already have their ideas, scripts, or footage ready and want a reliable team to handle post-production every month.
             </p>
           </div>
           <a href="/quote" className="w-full md:w-auto inline-flex items-center justify-center px-8 py-4 rounded bg-[#00E0FF] text-[#001A1F] font-black uppercase tracking-wider hover:bg-white transition-all shadow-[0_0_20px_rgba(0,224,255,0.3)]">
-            Start Pilot Project
+            Get Started
             <ArrowRight size={20} strokeWidth={3} className="ml-2" />
           </a>
         </div>
@@ -111,4 +114,4 @@ const InclusionPaid = () => {
   );
 };
 
-export default InclusionPaid;
+export default InclusionEditing;
