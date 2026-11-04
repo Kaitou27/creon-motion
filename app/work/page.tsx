@@ -1,8 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import Header from '../../Components/Header';
-import Footer from '../../Components/Footer';
 
 const projects = [
   {
@@ -39,8 +37,6 @@ export default function WorkPage() {
 
   return (
     <div className="bg-[#001A1F] min-h-screen text-white flex flex-col" style={{ fontFamily: 'var(--font-montserrat)' }}>
-      <Header />
-      
       <main className="flex-grow pt-32 pb-24 px-6 md:px-12 max-w-7xl mx-auto w-full">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tight mb-4">Our Work</h1>
@@ -86,8 +82,6 @@ export default function WorkPage() {
           ))}
         </div>
       </main>
-      
-      <Footer />
 
       {/* Video Modal */}
       {activeVideo && (

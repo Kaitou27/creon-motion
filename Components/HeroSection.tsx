@@ -84,7 +84,7 @@ const HeroSection = () => (
             
             <video
               className="w-full h-full object-cover"
-              src="/videos/herobg.mp4"
+              src="/videos/intro.mp4"
               autoPlay
               loop
               muted
