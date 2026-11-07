@@ -1,14 +1,15 @@
+
 "use client";
 
-import React, { useEffect, useState } from 'react';
-import AOS from 'aos';
-// CSS is resolved by the bundler at runtime; TypeScript has no declaration for it.
-// @ts-expect-error
-import 'aos/dist/aos.css';
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
-const AOSProvider = ({ children }: { children: React.ReactNode }) => {
-  const [show, setShow] = useState(false);
-
+const AOSProvider = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => {
   useEffect(() => {
     AOS.init({
       once: true,
