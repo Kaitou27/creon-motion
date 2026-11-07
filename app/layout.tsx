@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import { Montserrat } from "next/font/google";
+// Next.js processes this global stylesheet at build time.
+// @ts-ignore -- TypeScript cannot resolve side-effect CSS imports in this setup.
 import "./globals.css";
 import AOSProvider from "../Components/AOSProvider";
 import Header from "../Components/Header";
