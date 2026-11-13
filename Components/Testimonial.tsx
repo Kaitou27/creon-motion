@@ -117,6 +117,7 @@ const Testimonial = ({ hideHero = false }: { hideHero?: boolean }) => {
   const [isMobile, setIsMobile] = useState(false);
   const [testimonials, setTestimonials] = useState(staticTestimonials);
   const [loading, setLoading] = useState(true);
+  const [expandedTestimonialId, setExpandedTestimonialId] = useState<string | number | null>(null);
 
   useEffect(() => {
     const fetchDynamicTestimonials = async () => {
@@ -461,9 +462,33 @@ const Testimonial = ({ hideHero = false }: { hideHero?: boolean }) => {
                       ))}
                     </div>
 
-                    <p className="relative z-10 flex-grow text-base sm:text-lg leading-relaxed mb-8 font-medium text-gray-300 italic group-hover:text-white transition-colors duration-500 line-clamp-6">
-                      "{t.text}"
-                    </p>
+                    <div className="relative z-10 flex-grow mb-6 min-h-0">
+                      <p
+                        className={`text-base sm:text-lg leading-relaxed font-medium text-gray-300 italic group-hover:text-white transition-colors duration-500 ${
+                          expandedTestimonialId === t.id
+                            ? "max-h-48 overflow-y-auto pr-2"
+                            : "line-clamp-6"
+                        }`}
+                      >
+                        "{t.text}"
+                      </p>
+
+                      {t.text.length > 180 && (
+                        <button
+                          type="button"
+                          onClick={(event) => {
+                            event.stopPropagation();
+                            setExpandedTestimonialId((current) =>
+                              current === t.id ? null : t.id
+                            );
+                          }}
+                          className="mt-2 text-sm font-bold text-[#00E0FF] hover:text-white transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00E0FF] rounded"
+                          aria-expanded={expandedTestimonialId === t.id}
+                        >
+                          {expandedTestimonialId === t.id ? "Read Less ↑" : "Read More ↓"}
+                        </button>
+                      )}
+                    </div>
 
                     <div className="relative z-10 flex items-center gap-4 mt-auto">
                       <div className="flex-shrink-0">
